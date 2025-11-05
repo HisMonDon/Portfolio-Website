@@ -28,7 +28,7 @@ class _SizedChangedState extends State<SizedChanged>
       onNotification: (SizeChangedLayoutNotification notification) {
         Future.delayed(Duration(milliseconds: 300), () {
           setState(() {
-            print('size changed');
+            print('window size changed');
           });
         });
         return true;
