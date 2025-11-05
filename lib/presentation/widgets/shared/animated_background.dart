@@ -1,28 +1,79 @@
+// lib/presentation/widgets/shared/animated_background.dart
 import 'package:flutter/material.dart';
-import 'dart:ui';
-import 'dart:math';
+import 'star_model.dart';
+import 'starfield_painter.dart';
 
-class AnimatedBackground extends StatelessWidget {
+class AnimatedBackground extends StatefulWidget {
   const AnimatedBackground({Key? key}) : super(key: key);
 
   @override
+  _AnimatedBackgroundState createState() => _AnimatedBackgroundState();
+}
+
+class _AnimatedBackgroundState extends State<AnimatedBackground>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  final List<Star> _stars = [];
+  final int _numberOfStars = 200;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    _controller.addListener(() {
+      _updateStars();
+      setState(() {});
+    });
+
+    _controller.repeat();
+  }
+
+  void _initializeStars(Size bounds) {
+    if (_stars.isEmpty && bounds.width > 0 && bounds.height > 0) {
+      for (int i = 0; i < _numberOfStars; i++) {
+        _stars.add(Star()..randomize(bounds));
+      }
+    }
+  }
+
+  void _updateStars() {
+    final bounds = context.size!;
+    for (final star in _stars) {
+      star.position += star.velocity;
+      if (star.position.dx < 0) {
+        star.position = Offset(bounds.width, star.position.dy);
+      }
+      if (star.position.dx > bounds.width) {
+        star.position = Offset(0, star.position.dy);
+      }
+      if (star.position.dy < 0) {
+        star.position = Offset(star.position.dx, bounds.height);
+      }
+      if (star.position.dy > bounds.height) {
+        star.position = Offset(star.position.dx, 0);
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('CHENYU LU', style: Theme.of(context).textTheme.displayLarge),
-            const SizedBox(height: 16),
-            Text(
-              'The journey begins here...',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(context).iconTheme.color,
-              ),
-            ),
-          ],
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        _initializeStars(constraints.biggest);
+        return CustomPaint(
+          painter: StarfieldPainter(stars: _stars),
+          child: Container(),
+        );
+      },
     );
   }
 }
