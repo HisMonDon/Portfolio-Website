@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
 
+import 'package:portfolio_website/core/constants/globals.dart' as globals;
+
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
 
@@ -18,19 +20,21 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   }
 
   void _onScroll() {
-    print('Scroll offset: ${_scrollController.position.pixels}');
+    //print('Scroll offset: ${_scrollController.position.pixels}');
 
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
-      print('Reached end of list');
+      globals.scrollStarPusher = 0;
     }
 
     if (_scrollController.position.userScrollDirection ==
         ScrollDirection.forward) {
-      print('Scrolling up');
+      //print('Scrolling up');
+      globals.scrollStarPusher = -5;
     } else if (_scrollController.position.userScrollDirection ==
         ScrollDirection.reverse) {
-      print('Scrolling down');
+      //print('Scrolling down');
+      globals.scrollStarPusher = 5;
     }
   }
 
