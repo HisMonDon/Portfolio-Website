@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_website/presentation/screens/portfolio_screen.dart'; // This will be our main screen
+import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 
 void main() {
   runApp(const PortfolioApp());
@@ -15,16 +15,15 @@ class PortfolioApp extends StatelessWidget {
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: _buildTheme(),
-      home:
-          const PortfolioScreen(), // The main screen widget that will hold all your sections
+      home: const PortfolioScreen(),
     );
   }
 
   ThemeData _buildTheme() {
-    const Color deepSpace = Color(0xFF0A192F);
-    const Color starlight = Color(0xFFFFC300);
-    const Color nebulaBlue = Color(0xFF4FD2E0);
-    const Color stardust = Color(0xFFE6F1FF);
+    const Color deepSpace = Color.fromARGB(255, 10, 25, 47);
+    const Color starlight = Color.fromARGB(255, 255, 195, 0);
+    const Color nebulaBlue = Color.fromARGB(255, 79, 210, 224);
+    const Color stardust = Color.fromARGB(255, 230, 241, 255);
 
     return ThemeData(
       brightness: Brightness.dark,
