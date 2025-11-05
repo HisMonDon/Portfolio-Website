@@ -28,7 +28,7 @@ class PortfolioApp extends StatelessWidget {
     return ThemeData(
       brightness: Brightness.dark,
       primaryColor: starlight,
-      scaffoldBackgroundColor: deepSpace,
+      scaffoldBackgroundColor: const Color.fromARGB(255, 5, 20, 43),
 
       textTheme: TextTheme(
         displayLarge: GoogleFonts.exo2(

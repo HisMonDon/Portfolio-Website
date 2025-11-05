@@ -1,4 +1,3 @@
-// lib/presentation/widgets/shared/animated_background.dart
 import 'package:flutter/material.dart';
 import 'star_model.dart';
 import 'starfield_painter.dart';
@@ -11,21 +10,24 @@ class AnimatedBackground extends StatefulWidget {
 }
 
 class _AnimatedBackgroundState extends State<AnimatedBackground>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late AnimationController _controller;
   final List<Star> _stars = [];
   final int _numberOfStars = 200;
-
+  bool _isInitialized = false;
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
     );
     _controller.addListener(() {
-      _updateStars();
-      setState(() {});
+      if (_isInitialized) {
+        _updateStars();
+        setState(() {});
+      }
     });
 
     _controller.repeat();
@@ -36,6 +38,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
       for (int i = 0; i < _numberOfStars; i++) {
         _stars.add(Star()..randomize(bounds));
       }
+      _isInitialized = true;
     }
   }
 
@@ -61,19 +64,32 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   @override
   void dispose() {
     _controller.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        _initializeStars(constraints.biggest);
-        return CustomPaint(
-          painter: StarfieldPainter(stars: _stars),
-          child: Container(),
-        );
+    return NotificationListener(
+      onNotification: (SizeChangedLayoutNotification notification) {
+        Future.delayed(Duration(milliseconds: 300), () {
+          setState(() {
+            print('size changed');
+            _stars.clear();
+            //_initializeStars();
+          });
+        });
+        return true;
       },
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          _initializeStars(constraints.biggest);
+          return CustomPaint(
+            painter: StarfieldPainter(stars: _stars),
+            child: Container(),
+          );
+        },
+      ),
     );
   }
 }
