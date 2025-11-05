@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
-
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
+import 'dart:async';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
@@ -12,8 +12,10 @@ class PortfolioScreen extends StatefulWidget {
 }
 
 class _PortfolioScreenState extends State<PortfolioScreen> {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
+  Timer? _scrollEndTimer;
 
+  @override
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
@@ -21,11 +23,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
 
   void _onScroll() {
     //print('Scroll offset: ${_scrollController.position.pixels}');
-
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-      globals.scrollStarPusher = 0;
-    }
+    _scrollEndTimer?.cancel();
 
     if (_scrollController.position.userScrollDirection ==
         ScrollDirection.forward) {
@@ -36,11 +34,17 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       //print('Scrolling down');
       globals.scrollStarPusher = 5;
     }
+
+    _scrollEndTimer = Timer(const Duration(milliseconds: 150), () {
+      globals.scrollStarPusher = 0;
+    });
   }
 
   @override
   void dispose() {
+    _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
+    _scrollEndTimer?.cancel();
     super.dispose();
   }
 
@@ -50,7 +54,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       body: Stack(
         children: [
           const AnimatedBackground(),
-
           ListView(
             controller: _scrollController,
             children: [

@@ -45,17 +45,24 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   void _updateStars() {
     final bounds = context.size!;
     for (final star in globals.starsList) {
+      star.velocity = Offset(
+        star.velocity.dx,
+        (star.velocity.dy + globals.scrollStarPusher * 0.1),
+      );
+      if (star.velocity.dx.abs() * 0.98 >= 0.1 ||
+          star.velocity.dy.abs() * 0.98 >= 0.1) {
+        star.velocity *= 0.98;
+      }
+
       star.position += star.velocity;
       if (star.position.dx < 0) {
         star.position = Offset(bounds.width, star.position.dy);
-      }
-      if (star.position.dx > bounds.width) {
+      } else if (star.position.dx > bounds.width) {
         star.position = Offset(0, star.position.dy);
       }
       if (star.position.dy < 0) {
         star.position = Offset(star.position.dx, bounds.height);
-      }
-      if (star.position.dy > bounds.height) {
+      } else if (star.position.dy > bounds.height) {
         star.position = Offset(star.position.dx, 0);
       }
     }
@@ -72,11 +79,11 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   Widget build(BuildContext context) {
     return NotificationListener(
       onNotification: (SizeChangedLayoutNotification notification) {
-        Future.delayed(Duration(milliseconds: 300), () {
+        Future.delayed(const Duration(milliseconds: 300), () {
           setState(() {
             print('size changed');
             globals.starsList.clear();
-            //_initializeStars();
+            _isInitialized = false;
           });
         });
         return true;

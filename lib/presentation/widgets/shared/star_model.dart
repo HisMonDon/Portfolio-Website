@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'dart:math';
-import 'package:portfolio_website/core/constants/globals.dart' as globals;
 
 class Star {
   Offset position;
@@ -18,25 +17,12 @@ class Star {
   void randomize(Size bounds) {
     final random = Random();
     final angle = random.nextDouble() * 2 * pi;
-    double xvelocity = cos(angle) * (random.nextDouble() - 0.5) * 5;
-    double yvelocity = sin(angle) * (random.nextDouble() - 0.5) * 5;
+    final speed = random.nextDouble() * 40 + 0.1;
+    double xvelocity = cos(angle) * speed;
+    double yvelocity = sin(angle) * speed;
     position = Offset(bounds.width / 2, bounds.height / 2);
     radius = random.nextDouble() * 1.5 + 0.5;
-    alpha = random.nextInt(234) + 20;
+    alpha = random.nextInt(200) + 55;
     velocity = Offset(xvelocity, yvelocity);
-  }
-
-  void update(double scrollAdd) {
-    if (scrollStarPusher == scrollAdd) {
-      return;
-    }
-    if (scrollStarPusher * -1 == scrollAdd) {
-      velocity = Offset(velocity.dx, velocity.dy + 2 * scrollAdd);
-      scrollStarPusher = scrollAdd;
-      return;
-    }
-    velocity = Offset(velocity.dx, velocity.dy + scrollAdd);
-    scrollStarPusher = scrollAdd;
-    return;
   }
 }
