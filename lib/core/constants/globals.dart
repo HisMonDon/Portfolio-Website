@@ -1,3 +1,6 @@
 library globals;
 
-int scrollStarPusher = 0;
+import 'package:portfolio_website/presentation/widgets/shared/star_model.dart';
+
+double scrollStarPusher = 0;
+List<Star> starsList = [];

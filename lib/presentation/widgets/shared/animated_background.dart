@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'star_model.dart';
 import 'starfield_painter.dart';
+import 'package:portfolio_website/core/constants/globals.dart' as globals;
 
 class AnimatedBackground extends StatefulWidget {
   const AnimatedBackground({Key? key}) : super(key: key);
@@ -12,7 +13,6 @@ class AnimatedBackground extends StatefulWidget {
 class _AnimatedBackgroundState extends State<AnimatedBackground>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late AnimationController _controller;
-  final List<Star> _stars = [];
   final int _numberOfStars = 200;
   bool _isInitialized = false;
   @override
@@ -34,9 +34,9 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   }
 
   void _initializeStars(Size bounds) {
-    if (_stars.isEmpty && bounds.width > 0 && bounds.height > 0) {
+    if (globals.starsList.isEmpty && bounds.width > 0 && bounds.height > 0) {
       for (int i = 0; i < _numberOfStars; i++) {
-        _stars.add(Star()..randomize(bounds));
+        globals.starsList.add(Star()..randomize(bounds));
       }
       _isInitialized = true;
     }
@@ -44,7 +44,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
 
   void _updateStars() {
     final bounds = context.size!;
-    for (final star in _stars) {
+    for (final star in globals.starsList) {
       star.position += star.velocity;
       if (star.position.dx < 0) {
         star.position = Offset(bounds.width, star.position.dy);
@@ -75,7 +75,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
         Future.delayed(Duration(milliseconds: 300), () {
           setState(() {
             print('size changed');
-            _stars.clear();
+            globals.starsList.clear();
             //_initializeStars();
           });
         });
@@ -85,7 +85,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
         builder: (context, constraints) {
           _initializeStars(constraints.biggest);
           return CustomPaint(
-            painter: StarfieldPainter(stars: _stars),
+            painter: StarfieldPainter(stars: globals.starsList),
             child: Container(),
           );
         },
