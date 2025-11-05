@@ -52,6 +52,7 @@ dev_dependencies:
   url_launcher: ^6.3.2
   widget_mask: ^1.0.0+0
   flutter_svg: ^2.2.2
+  simple_animations: ^5.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
