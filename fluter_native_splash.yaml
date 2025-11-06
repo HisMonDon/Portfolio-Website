@@ -1,0 +1,4 @@
+# A basic config file for the remove command to work.
+flutter_native_splash:
+  color: "#000813" # Your scaffoldBackgroundColor
+  image: images/black_screen.png
