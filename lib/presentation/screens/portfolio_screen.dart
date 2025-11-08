@@ -52,6 +52,15 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     super.dispose();
   }
 
+  void scrollToSection(GlobalKey key) {
+    globals.scrollStarPusher = 5;
+    Scrollable.ensureVisible(
+      key.currentContext!,
+      duration: Duration(seconds: 1),
+      curve: Curves.easeInOutCirc,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +75,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  scrollToSection(projectsKey);
+                },
                 child: const Text("Projects", style: TextStyle(fontSize: 17)),
               ),
             ),
@@ -75,7 +86,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  scrollToSection(achievementsKey);
+                },
                 child: const Text(
                   "Achievements",
                   style: TextStyle(fontSize: 17),
@@ -87,7 +100,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  scrollToSection(skillsKey);
+                },
                 child: const Text("Skills", style: TextStyle(fontSize: 17)),
               ),
             ),
@@ -113,10 +128,31 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 ),
               ),
               SizedBox(
+                key: projectsKey,
                 height: MediaQuery.of(context).size.height,
                 child: Center(
                   child: Text(
-                    'next section',
+                    'projects',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+              ),
+              SizedBox(
+                key: achievementsKey,
+                height: MediaQuery.of(context).size.height,
+                child: Center(
+                  child: Text(
+                    'achievements',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+              ),
+              SizedBox(
+                key: skillsKey,
+                height: MediaQuery.of(context).size.height,
+                child: Center(
+                  child: Text(
+                    'skills',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
