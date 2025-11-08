@@ -54,12 +54,17 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   }
 
   void scrollToSection(GlobalKey key) {
-    globals.scrollStarPusher = 5;
-    Scrollable.ensureVisible(
-      key.currentContext!,
-      duration: Duration(seconds: 1),
-      curve: Curves.easeInOutCirc,
-    );
+    final context = key.currentContext;
+    if (context != null) {
+      globals.scrollStarPusher = 5;
+      Scrollable.ensureVisible(
+        context,
+        duration: Duration(seconds: 1),
+        curve: Curves.easeInOutCirc,
+      );
+    } else {
+      print('not built yet??');
+    }
   }
 
   @override
@@ -137,52 +142,54 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       body: Stack(
         children: [
           const AnimatedBackground(),
-          ListView(
+          SingleChildScrollView(
             controller: _scrollController,
-            children: [
-              // HeroSection(),
-              // AboutSection(),
-              SizedBox(
-                key: homeKey,
-                height: MediaQuery.of(context).size.height,
-                child: Center(
-                  child: Text(
-                    'placeholder lol',
-                    style: Theme.of(context).textTheme.headlineMedium,
+            child: Column(
+              children: [
+                // HeroSection(),
+                // AboutSection(),
+                SizedBox(
+                  key: homeKey,
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: Text(
+                      'placeholder lol',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                key: projectsKey,
-                height: MediaQuery.of(context).size.height,
-                child: Center(
-                  child: Text(
-                    'projects',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                SizedBox(
+                  key: projectsKey,
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: Text(
+                      'projects',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                key: achievementsKey,
-                height: MediaQuery.of(context).size.height,
-                child: Center(
-                  child: Text(
-                    'achievements',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                SizedBox(
+                  key: achievementsKey,
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: Text(
+                      'achievements',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                key: skillsKey,
-                height: MediaQuery.of(context).size.height,
-                child: Center(
-                  child: Text(
-                    'skills',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                SizedBox(
+                  key: skillsKey,
+                  height: MediaQuery.of(context).size.height,
+                  child: Center(
+                    child: Text(
+                      'skills',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
