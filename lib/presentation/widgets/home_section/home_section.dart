@@ -30,11 +30,30 @@ class HomeSection extends StatelessWidget {
                   "I am a Grade 11 IB Student interested in Computer Science",
                   style: GoogleFonts.mPlus1(fontSize: 22),
                 ),
+
+                const SizedBox(height: 40),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 20,
+                    ),
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: Text(
+                    "More About Me",
+                    style: GoogleFonts.mPlus1(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ]
               .animate(interval: 200.ms)
               .fadeIn(duration: 600.ms, delay: 300.ms)
-              .slideY(begin: 0.5, end: 0.0)
-              .shimmer(duration: 300.ms, color: Colors.deepPurple),
+              .slideY(begin: 0.5, end: 0.0),
     );
   }
 }

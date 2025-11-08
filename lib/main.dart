@@ -22,7 +22,7 @@ class PortfolioApp extends StatelessWidget {
 
   ThemeData _buildTheme() {
     //const Color deepSpace = Color.fromARGB(255, 7, 1, 12);
-    const Color deepSpace = Color.fromARGB(255, 20, 2, 19);
+    const Color deepSpace = Color.fromARGB(255, 6, 2, 20);
     const Color starlight = Color.fromARGB(255, 255, 195, 0);
     const Color nebulaBlue = Color.fromARGB(255, 79, 210, 224);
     const Color stardust = Color.fromARGB(255, 230, 241, 255);
