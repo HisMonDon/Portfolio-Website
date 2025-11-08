@@ -28,11 +28,11 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     if (_scrollController.position.userScrollDirection ==
         ScrollDirection.forward) {
       //print('Scrolling up');
-      globals.scrollStarPusher = -5;
+      globals.scrollStarPusher = 5;
     } else if (_scrollController.position.userScrollDirection ==
         ScrollDirection.reverse) {
       //print('Scrolling down');
-      globals.scrollStarPusher = 5;
+      globals.scrollStarPusher = -5;
     }
 
     _scrollEndTimer = Timer(const Duration(milliseconds: 150), () {
