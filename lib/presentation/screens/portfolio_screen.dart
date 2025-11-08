@@ -11,6 +11,10 @@ class PortfolioScreen extends StatefulWidget {
   _PortfolioScreenState createState() => _PortfolioScreenState();
 }
 
+final projectsKey = new GlobalKey();
+final achievementsKey = new GlobalKey();
+final skillsKey = new GlobalKey();
+
 class _PortfolioScreenState extends State<PortfolioScreen> {
   final ScrollController _scrollController = ScrollController();
   Timer? _scrollEndTimer;
@@ -57,6 +61,33 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           child: Text("Chenyu Lu"),
         ),
         toolbarHeight: 60,
+        actions: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Text("Projects"),
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Text("Achievements"),
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: GestureDetector(onTap: () {}, child: const Text("Skills")),
+            ),
+          ),
+          SizedBox(width: 30),
+        ],
       ),
       body: Stack(
         children: [
