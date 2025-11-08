@@ -10,16 +10,31 @@ class HomeSection extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text("Hi, my name is", style: GoogleFonts.mPlus1(fontSize: 20))
-            .animate()
-            .fadeIn(delay: 300.ms, duration: 2000.ms)
-            .slideY(begin: -1, end: 0.0),
-        Text("Chenyu Lu", style: GoogleFonts.mPlus1(fontSize: 50))
-            .animate()
-            .fadeIn(delay: 300.ms, duration: 2000.ms)
-            .slideY(begin: 1, end: 0.0),
-      ],
+      children:
+          [
+                Text(
+                  "Hi, my name is",
+                  style: GoogleFonts.mPlus1(fontSize: 25, color: Colors.grey),
+                ),
+                //const SizedBox(height: 3),
+                Text(
+                  "Chenyu Lu",
+                  style: GoogleFonts.mPlus1(
+                    fontSize: 60,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  "I am a Grade 11 IB Student interested in Computer Science",
+                  style: GoogleFonts.mPlus1(fontSize: 22),
+                ),
+              ]
+              .animate(interval: 200.ms)
+              .fadeIn(duration: 600.ms, delay: 300.ms)
+              .slideY(begin: 0.5, end: 0.0)
+              .shimmer(duration: 300.ms, color: Colors.deepPurple),
     );
   }
 }
