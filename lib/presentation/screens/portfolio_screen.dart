@@ -60,14 +60,14 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           padding: const EdgeInsets.only(left: 20.0),
           child: Text("Chenyu Lu"),
         ),
-        toolbarHeight: 60,
+        toolbarHeight: 69,
         actions: [
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
                 onTap: () {},
-                child: const Text("Projects"),
+                child: const Text("Projects", style: TextStyle(fontSize: 17)),
               ),
             ),
           ),
@@ -76,14 +76,20 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
                 onTap: () {},
-                child: const Text("Achievements"),
+                child: const Text(
+                  "Achievements",
+                  style: TextStyle(fontSize: 17),
+                ),
               ),
             ),
           ),
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GestureDetector(onTap: () {}, child: const Text("Skills")),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Text("Skills", style: TextStyle(fontSize: 17)),
+              ),
             ),
           ),
           SizedBox(width: 30),
