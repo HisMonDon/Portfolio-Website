@@ -51,6 +51,13 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text("Chenyu Lu"),
+        ),
+        toolbarHeight: 60,
+      ),
       body: Stack(
         children: [
           const AnimatedBackground(),
