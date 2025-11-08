@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:portfolio_website/main.dart';
+
 class HomeSection extends StatelessWidget {
   const HomeSection({super.key});
 
@@ -32,6 +34,7 @@ class HomeSection extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 40),
+
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -43,7 +46,7 @@ class HomeSection extends StatelessWidget {
                     foregroundColor: Colors.white,
                   ),
                   child: Text(
-                    "More About Me",
+                    "View My Projects",
                     style: GoogleFonts.mPlus1(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

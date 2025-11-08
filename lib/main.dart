@@ -59,15 +59,33 @@ class PortfolioApp extends StatelessWidget {
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          foregroundColor: deepSpace,
-          backgroundColor: starlight,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          textStyle: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+        style: ButtonStyle(
+          mouseCursor: WidgetStateProperty.all(SystemMouseCursors.click),
+          backgroundColor: WidgetStateProperty.all(starlight),
+          foregroundColor: WidgetStateProperty.all(deepSpace),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          ),
+          padding: WidgetStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          ),
+          textStyle: WidgetStateProperty.all(
+            GoogleFonts.poppins(fontWeight: FontWeight.bold),
+          ),
+          overlayColor: WidgetStateProperty.resolveWith<Color?>((
+            Set<WidgetState> states,
+          ) {
+            if (states.contains(WidgetState.hovered)) {
+              return Color.fromARGB(228, 255, 255, 255);
+            }
+            if (states.contains(WidgetState.pressed)) {
+              return Color.fromARGB(255, 241, 240, 240);
+            }
+            return null;
+          }),
         ),
       ),
-      iconTheme: IconThemeData(color: nebulaBlue, size: 24),
+      iconTheme: IconThemeData(color: starlight, size: 24),
     );
   }
 }
