@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
+import 'package:portfolio_website/presentation/widgets/home_section/home_section.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
@@ -70,6 +71,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //=======================================
+      //appbar
+      //=======================================
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),
@@ -139,6 +143,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           SizedBox(width: 30),
         ],
       ),
+
+      //===============================================================================
+      //BODY
+      //===============================================================================
       body: Stack(
         children: [
           const AnimatedBackground(),
@@ -151,12 +159,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 SizedBox(
                   key: homeKey,
                   height: MediaQuery.of(context).size.height,
-                  child: Center(
-                    child: Text(
-                      'placeholder lol',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ),
+                  child: Center(child: HomeSection()),
                 ),
                 SizedBox(
                   key: projectsKey,
