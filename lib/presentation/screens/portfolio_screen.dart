@@ -14,6 +14,7 @@ class PortfolioScreen extends StatefulWidget {
 final projectsKey = new GlobalKey();
 final achievementsKey = new GlobalKey();
 final skillsKey = new GlobalKey();
+final homeKey = new GlobalKey();
 
 class _PortfolioScreenState extends State<PortfolioScreen> {
   final ScrollController _scrollController = ScrollController();
@@ -74,24 +75,13 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GestureDetector(
-                onTap: () {
-                  scrollToSection(projectsKey);
-                },
-                child: const Text("Projects", style: TextStyle(fontSize: 17)),
-              ),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GestureDetector(
-                onTap: () {
-                  scrollToSection(achievementsKey);
-                },
-                child: const Text(
-                  "Achievements",
-                  style: TextStyle(fontSize: 17),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    scrollToSection(homeKey);
+                  },
+                  child: const Text("Home", style: TextStyle(fontSize: 17)),
                 ),
               ),
             ),
@@ -99,11 +89,45 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GestureDetector(
-                onTap: () {
-                  scrollToSection(skillsKey);
-                },
-                child: const Text("Skills", style: TextStyle(fontSize: 17)),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    scrollToSection(projectsKey);
+                  },
+                  child: const Text("Projects", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    scrollToSection(achievementsKey);
+                  },
+                  child: const Text(
+                    "Achievements",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    scrollToSection(skillsKey);
+                  },
+                  child: const Text("Skills", style: TextStyle(fontSize: 17)),
+                ),
               ),
             ),
           ),
@@ -119,6 +143,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               // HeroSection(),
               // AboutSection(),
               SizedBox(
+                key: homeKey,
                 height: MediaQuery.of(context).size.height,
                 child: Center(
                   child: Text(
