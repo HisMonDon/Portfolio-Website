@@ -17,7 +17,7 @@ class _CursorGlowState extends State<CursorGlow> {
 
   @override
   Widget build(BuildContext context) {
-    final glowColor = const Color.fromARGB(255, 102, 172, 253);
+    final glowColor = const Color.fromARGB(255, 33, 150, 243);
 
     return MouseRegion(
       //cursor: SystemMouseCursors.basic,
@@ -25,7 +25,8 @@ class _CursorGlowState extends State<CursorGlow> {
         setState(() {
           _mousePosition = event.position;
           _isHoveringAppBar =
-              _mousePosition.dy < widget.appBarHeight + 40; //raddii of glows
+              _mousePosition.dy < widget.appBarHeight + 40 &&
+              _mousePosition.dy > widget.appBarHeight; //raddii of glows
         });
       },
       onExit: (_) {
@@ -55,14 +56,9 @@ class _CursorGlowState extends State<CursorGlow> {
                               shape: BoxShape.circle,
                               boxShadow: [
                                 BoxShadow(
-                                  color: glowColor.withOpacity(0.5),
-                                  blurRadius: 30,
+                                  color: glowColor.withOpacity(0.7),
+                                  blurRadius: 60,
                                   spreadRadius: 10,
-                                ),
-                                BoxShadow(
-                                  color: glowColor.withOpacity(0.8),
-                                  blurRadius: 10,
-                                  spreadRadius: 1,
                                 ),
                               ],
                             ),

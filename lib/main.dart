@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
+
 import 'package:portfolio_website/presentation/widgets/shared/cursor_glow.dart';
 
 void main() {
@@ -78,7 +79,7 @@ class PortfolioApp extends StatelessWidget {
           ) {
             if (states.contains(WidgetState.hovered) ||
                 states.contains(WidgetState.pressed)) {
-              return const Color.fromARGB(40, 100, 255, 219);
+              return const Color.fromARGB(237, 20, 205, 238);
             }
             return null;
           }),

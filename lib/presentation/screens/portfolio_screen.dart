@@ -4,6 +4,7 @@ import 'package:portfolio_website/presentation/widgets/shared/animated_backgroun
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/home_section/home_section.dart';
+import 'package:portfolio_website/presentation/widgets/shared/glow_app_bar.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
@@ -74,15 +75,14 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       //=======================================
       //appbar
       //=======================================
-      appBar: AppBar(
+      appBar: GlowAppBar(
         scrolledUnderElevation: 4.0,
-        centerTitle: false,
         shadowColor: Colors.black.withOpacity(0.5),
+        toolbarHeight: 69,
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),
           child: Text("Chenyu Lu"),
         ),
-        toolbarHeight: 69,
         actions: [
           Center(
             child: Padding(
