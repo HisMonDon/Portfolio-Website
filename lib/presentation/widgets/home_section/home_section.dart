@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:portfolio_website/main.dart';
+//import 'package:portfolio_website/main.dart';
+import 'package:widget_mask/widget_mask.dart';
 
 class HomeSection extends StatelessWidget {
   const HomeSection({super.key});
@@ -28,7 +29,7 @@ class HomeSection extends StatelessWidget {
                       maxLines: 1,
                     ),
                     //const SizedBox(height: 3),
-                    AutoSizeText(
+                    /*AutoSizeText(
                       "Chenyu Lu",
                       style: GoogleFonts.mPlus1(
                         fontSize: 60,
@@ -36,6 +37,25 @@ class HomeSection extends StatelessWidget {
                         color: const Color.fromARGB(255, 255, 255, 255),
                       ),
                       maxLines: 1,
+                    ),*/
+                    WidgetMask(
+                      blendMode: BlendMode.srcATop,
+                      childSaveLayer: true,
+                      mask: Image(
+                        image: AssetImage('images/name_mask.png'),
+                        fit: BoxFit.cover,
+                      ),
+
+                      child: AutoSizeText(
+                        "Chenyu Lu",
+                        style: GoogleFonts.mPlus1(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 70,
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          decoration: TextDecoration.none,
+                        ),
+                        maxLines: 1,
+                      ),
                     ),
                     const SizedBox(height: 12),
                     AutoSizeText(
