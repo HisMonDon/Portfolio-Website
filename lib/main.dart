@@ -23,69 +23,67 @@ class PortfolioApp extends StatelessWidget {
   ThemeData _buildTheme() {
     //const Color deepSpace = Color.fromARGB(255, 7, 1, 12);
     const Color deepSpace = Color.fromARGB(255, 6, 2, 20);
-    const Color starlight = Color.fromARGB(255, 255, 195, 0);
-    const Color nebulaBlue = Color.fromARGB(255, 79, 210, 224);
-    const Color stardust = Color.fromARGB(255, 230, 241, 255);
+    const Color electricBlue = Color(0xFF64FFDA);
+    const Color lightBlue = Color(0xFF8892B0);
+    const Color lightestBlue = Color(0xFFCCD6F6);
 
     return ThemeData(
       brightness: Brightness.dark,
-      primaryColor: starlight,
+      primaryColor: electricBlue,
       scaffoldBackgroundColor: deepSpace,
 
       textTheme: TextTheme(
         displayLarge: GoogleFonts.exo2(
           fontSize: 72,
           fontWeight: FontWeight.bold,
-          color: starlight,
+          color: lightestBlue,
         ),
         headlineMedium: GoogleFonts.spaceGrotesk(
           fontSize: 36,
           fontWeight: FontWeight.bold,
-          color: stardust,
+          color: lightestBlue,
         ),
         titleLarge: GoogleFonts.poppins(
           fontSize: 22,
           fontWeight: FontWeight.w600,
-          color: stardust,
+          color: lightestBlue,
         ),
         bodyLarge: GoogleFonts.poppins(
           fontSize: 16,
-          color: const Color.fromARGB(213, 230, 241, 255),
+          color: lightBlue,
           height: 1.6,
         ),
-        bodyMedium: GoogleFonts.poppins(
-          fontSize: 14,
-          color: const Color.fromARGB(214, 230, 241, 255),
-        ),
+        bodyMedium: GoogleFonts.poppins(fontSize: 14, color: lightBlue),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           mouseCursor: WidgetStateProperty.all(SystemMouseCursors.click),
-          backgroundColor: WidgetStateProperty.all(starlight),
-          foregroundColor: WidgetStateProperty.all(deepSpace),
+          backgroundColor: WidgetStateProperty.all(Colors.transparent),
+          foregroundColor: WidgetStateProperty.all(electricBlue),
           shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          ),
+          side: WidgetStateProperty.all(
+            BorderSide(color: electricBlue, width: 1.5),
           ),
           padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           ),
           textStyle: WidgetStateProperty.all(
-            GoogleFonts.poppins(fontWeight: FontWeight.bold),
+            GoogleFonts.poppins(fontWeight: FontWeight.w500),
           ),
           overlayColor: WidgetStateProperty.resolveWith<Color?>((
             Set<WidgetState> states,
           ) {
-            if (states.contains(WidgetState.hovered)) {
-              return Color.fromARGB(228, 255, 255, 255);
-            }
-            if (states.contains(WidgetState.pressed)) {
-              return Color.fromARGB(255, 241, 240, 240);
+            if (states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.pressed)) {
+              return const Color.fromARGB(40, 100, 255, 219);
             }
             return null;
           }),
         ),
       ),
-      iconTheme: IconThemeData(color: starlight, size: 24),
+      iconTheme: IconThemeData(color: electricBlue, size: 24),
     );
   }
 }

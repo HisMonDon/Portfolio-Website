@@ -15,7 +15,7 @@ class HomeSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(width: 50),
+        SizedBox(width: 150),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,8 +76,14 @@ class HomeSection extends StatelessWidget {
                           horizontal: 32,
                           vertical: 20,
                         ),
-                        backgroundColor: Colors.deepPurple,
+                        backgroundColor: const Color.fromARGB(
+                          255,
+                          51,
+                          124,
+                          167,
+                        ),
                         foregroundColor: Colors.white,
+                        side: BorderSide(color: Colors.transparent),
                       ),
                       child: Text(
                         "More about me",
