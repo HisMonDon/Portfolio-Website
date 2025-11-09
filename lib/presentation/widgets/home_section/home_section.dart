@@ -10,10 +10,13 @@ class HomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        SizedBox(width: 50),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children:
               [
                     Text(
@@ -63,7 +66,9 @@ class HomeSection extends StatelessWidget {
                   .fadeIn(duration: 600.ms, delay: 300.ms)
                   .slideY(begin: 0.5, end: 0.0),
         ),
-        Image.asset('images/app_grid.png'),
+        Expanded(
+          child: Image.asset('images/app_grid.png', fit: BoxFit.contain),
+        ),
       ],
     );
   }
