@@ -37,33 +37,42 @@ class _CursorGlowState extends State<CursorGlow> {
         child: Stack(
           children: [
             widget.child,
-
-            if (_isHoveringAppBar)
-              Positioned(
-                top: _mousePosition.dy - 20, //center glow
-                left: _mousePosition.dx - 26,
-                child: IgnorePointer(
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: glowColor.withOpacity(0.5),
-                          blurRadius: 30,
-                          spreadRadius: 10,
+            ClipRect(
+              child: Align(
+                alignment: Alignment.topCenter,
+                heightFactor: 69 / MediaQuery.of(context).size.height,
+                child: Stack(
+                  children: [
+                    if (_isHoveringAppBar)
+                      Positioned(
+                        top: _mousePosition.dy - 20, //center glow
+                        left: _mousePosition.dx - 26,
+                        child: IgnorePointer(
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: glowColor.withOpacity(0.5),
+                                  blurRadius: 30,
+                                  spreadRadius: 10,
+                                ),
+                                BoxShadow(
+                                  color: glowColor.withOpacity(0.8),
+                                  blurRadius: 10,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        BoxShadow(
-                          color: glowColor.withOpacity(0.8),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                  ),
+                      ),
+                  ],
                 ),
               ),
+            ),
           ],
         ),
       ),
