@@ -49,8 +49,8 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
         star.velocity.dx,
         (star.velocity.dy + globals.scrollStarPusher * 0.1),
       );
-      if (star.velocity.dx.abs() * 0.98 >= 0.1 ||
-          star.velocity.dy.abs() * 0.98 >= 0.1) {
+      if (star.velocity.dx.abs() * 0.98 >= 0.2 ||
+          star.velocity.dy.abs() * 0.98 >= 0.2) {
         star.velocity *= 0.98;
       }
 
