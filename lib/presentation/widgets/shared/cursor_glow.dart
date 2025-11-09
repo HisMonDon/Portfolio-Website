@@ -20,13 +20,12 @@ class _CursorGlowState extends State<CursorGlow> {
     final glowColor = const Color.fromARGB(255, 102, 172, 253);
 
     return MouseRegion(
-      cursor: _isHoveringAppBar
-          ? SystemMouseCursors.none
-          : SystemMouseCursors.basic,
+      //cursor: SystemMouseCursors.basic,
       onHover: (event) {
         setState(() {
           _mousePosition = event.position;
-          _isHoveringAppBar = _mousePosition.dy < widget.appBarHeight;
+          _isHoveringAppBar =
+              _mousePosition.dy < widget.appBarHeight + 40; //raddii of glows
         });
       },
       onExit: (_) {
@@ -34,37 +33,39 @@ class _CursorGlowState extends State<CursorGlow> {
           _isHoveringAppBar = false;
         });
       },
-      child: Stack(
-        children: [
-          widget.child,
+      child: ClipRect(
+        child: Stack(
+          children: [
+            widget.child,
 
-          if (_isHoveringAppBar)
-            Positioned(
-              top: _mousePosition.dy - 15, //center glow
-              left: _mousePosition.dx - 15,
-              child: IgnorePointer(
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: glowColor.withOpacity(0.5),
-                        blurRadius: 30,
-                        spreadRadius: 5,
-                      ),
-                      BoxShadow(
-                        color: glowColor.withOpacity(0.8),
-                        blurRadius: 10,
-                        spreadRadius: 1,
-                      ),
-                    ],
+            if (_isHoveringAppBar)
+              Positioned(
+                top: _mousePosition.dy - 20, //center glow
+                left: _mousePosition.dx - 26,
+                child: IgnorePointer(
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: glowColor.withOpacity(0.5),
+                          blurRadius: 30,
+                          spreadRadius: 10,
+                        ),
+                        BoxShadow(
+                          color: glowColor.withOpacity(0.8),
+                          blurRadius: 10,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }
