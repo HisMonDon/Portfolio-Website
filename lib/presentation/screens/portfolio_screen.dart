@@ -149,6 +149,18 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       //===============================================================================
       body: Stack(
         children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(255, 24, 65, 104),
+                  Color.fromARGB(255, 6, 2, 20),
+                ],
+              ),
+            ),
+          ),
           const AnimatedBackground(),
           SingleChildScrollView(
             controller: _scrollController,
