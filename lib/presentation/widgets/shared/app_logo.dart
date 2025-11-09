@@ -10,11 +10,10 @@ class AppLogo extends StatelessWidget {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: Text(
-        "CL",
-        style: GoogleFonts.exo2(
-          fontSize: size,
-          fontWeight: FontWeight.bold,
-          color: Theme.of(context).primaryColor,
+        "Chenyu Lu",
+        style: GoogleFonts.mPlus1(
+          fontSize: 25,
+          color: const Color.fromARGB(255, 255, 255, 255),
         ),
       ),
     );

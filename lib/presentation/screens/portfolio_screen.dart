@@ -75,6 +75,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       //appbar
       //=======================================
       appBar: AppBar(
+        scrolledUnderElevation: 4.0,
+        centerTitle: false,
+        shadowColor: Colors.black.withOpacity(0.5),
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),
           child: Text("Chenyu Lu"),

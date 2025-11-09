@@ -16,9 +16,9 @@ class HomeSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          flex: 2,
+          flex: 4,
           child: Padding(
-            padding: const EdgeInsets.only(left: 100.0),
+            padding: const EdgeInsets.only(left: 150.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
