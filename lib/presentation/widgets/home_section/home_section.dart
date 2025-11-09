@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:portfolio_website/main.dart';
 
 class HomeSection extends StatelessWidget {
@@ -19,26 +19,29 @@ class HomeSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children:
               [
-                    Text(
+                    AutoSizeText(
                       "Hi, my name is",
                       style: GoogleFonts.mPlus1(
                         fontSize: 25,
                         color: Colors.grey,
                       ),
+                      maxLines: 1,
                     ),
                     //const SizedBox(height: 3),
-                    Text(
+                    AutoSizeText(
                       "Chenyu Lu",
                       style: GoogleFonts.mPlus1(
                         fontSize: 60,
                         fontWeight: FontWeight.bold,
                         color: const Color.fromARGB(255, 255, 255, 255),
                       ),
+                      maxLines: 1,
                     ),
                     const SizedBox(height: 12),
-                    Text(
+                    AutoSizeText(
                       "I am a Grade 11 IB Student interested in Computer Science",
                       style: GoogleFonts.mPlus1(fontSize: 22),
+                      maxLines: 2,
                     ),
 
                     const SizedBox(height: 40),
