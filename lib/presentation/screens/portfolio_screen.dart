@@ -157,6 +157,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 colors: [
                   Color.fromARGB(255, 24, 65, 104),
                   Color.fromARGB(255, 6, 2, 20),
+                  Color.fromARGB(255, 6, 2, 20),
+
+                  Color.fromARGB(255, 24, 65, 104),
                 ],
               ),
             ),
