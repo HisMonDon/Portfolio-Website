@@ -58,6 +58,7 @@ class HomeSection extends StatelessWidget {
                         maxLines: 1,
                       ),
                     ),
+                    SizedBox(height: 20),
                     ContactBar(),
                     const SizedBox(height: 12),
                     AutoSizeText(

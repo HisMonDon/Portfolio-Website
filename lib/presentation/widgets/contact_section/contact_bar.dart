@@ -10,11 +10,25 @@ class ContactBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset('images/icons/1.png'),
+        SizedBox(
+          height: 35,
+          width: 35,
+          child: Image.asset('images/contact_icons/1.png'),
+        ),
+        SizedBox(width: 5),
+        Container(width: 1, height: 30, color: Colors.grey),
 
-        Image.asset('images/icons/2.png'),
-        // Icon(MyFlutterApp.linkedin_squared),
-        Icon(Icons.email_outlined),
+        SizedBox(width: 5),
+        SizedBox(
+          height: 30,
+          width: 30,
+          child: Image.asset('images/contact_icons/2.png'),
+        ),
+
+        SizedBox(width: 5),
+        Container(width: 1, height: 30, color: Colors.grey),
+        SizedBox(width: 5),
+        Icon(Icons.email_outlined, color: Colors.blue, size: 30.0),
       ],
     );
   }
