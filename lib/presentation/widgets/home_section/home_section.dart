@@ -12,94 +12,110 @@ class HomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(width: 150),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children:
-              [
-                    AutoSizeText(
-                      "Hi, my name is",
-                      style: GoogleFonts.mPlus1(
-                        fontSize: 25,
-                        color: Colors.grey,
-                      ),
-                      maxLines: 1,
-                    ),
-                    //const SizedBox(height: 3),
-                    /*AutoSizeText(
-                      "Chenyu Lu",
-                      style: GoogleFonts.mPlus1(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      maxLines: 1,
-                    ),*/
-                    WidgetMask(
-                      blendMode: BlendMode.srcATop,
-                      childSaveLayer: true,
-                      mask: Image(
-                        image: AssetImage('images/name_mask.png'),
-                        fit: BoxFit.cover,
-                      ),
+        Expanded(
+          flex: 2,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 100.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:
+                  [
+                        AutoSizeText(
+                          " Hi, my name is",
+                          style: GoogleFonts.mPlus1(
+                            fontSize: 25,
+                            color: Colors.grey,
+                          ),
+                          maxLines: 1,
+                        ),
+                        //const SizedBox(height: 3),
+                        /*AutoSizeText(
+                          "Chenyu Lu",
+                          style: GoogleFonts.mPlus1(
+                            fontSize: 60,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 255, 255, 255),
+                          ),
+                          maxLines: 1,
+                        ),*/
+                        WidgetMask(
+                          blendMode: BlendMode.srcATop,
+                          childSaveLayer: true,
+                          mask: Image(
+                            image: AssetImage('images/name_mask.png'),
+                            fit: BoxFit.cover,
+                          ),
 
-                      child: AutoSizeText(
-                        "Chenyu Lu",
-                        style: GoogleFonts.mPlus1(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 70,
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          decoration: TextDecoration.none,
+                          child: AutoSizeText(
+                            "Chenyu Lu",
+                            style: GoogleFonts.mPlus1(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 70,
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              decoration: TextDecoration.none,
+                            ),
+                            maxLines: 1,
+                          ),
                         ),
-                        maxLines: 1,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    ContactBar(),
-                    const SizedBox(height: 12),
-                    AutoSizeText(
-                      "I am a Grade 11 IB Student interested in Computer Science",
-                      style: GoogleFonts.mPlus1(fontSize: 22),
-                      maxLines: 2,
-                    ),
+                        SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.5),
+                          child: ContactBar(),
+                        ),
+                        const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: AutoSizeText(
+                            "I am a Grade 11 IB Student interested in Computer Science",
+                            style: GoogleFonts.mPlus1(fontSize: 22),
+                            maxLines: 2,
+                          ),
+                        ),
 
-                    const SizedBox(height: 40),
+                        const SizedBox(height: 40),
 
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 20,
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 32,
+                              vertical: 20,
+                            ),
+                            backgroundColor: const Color.fromARGB(
+                              255,
+                              51,
+                              124,
+                              167,
+                            ),
+                            foregroundColor: Colors.white,
+                            side: BorderSide(color: Colors.transparent),
+                          ),
+                          child: Text(
+                            "More about me",
+                            style: GoogleFonts.mPlus1(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          51,
-                          124,
-                          167,
-                        ),
-                        foregroundColor: Colors.white,
-                        side: BorderSide(color: Colors.transparent),
-                      ),
-                      child: Text(
-                        "More about me",
-                        style: GoogleFonts.mPlus1(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ]
-                  .animate(interval: 200.ms)
-                  .fadeIn(duration: 600.ms, delay: 300.ms)
-                  .slideY(begin: 0.5, end: 0.0),
+                      ]
+                      .animate(interval: 200.ms)
+                      .fadeIn(duration: 600.ms, delay: 300.ms)
+                      .slideY(begin: 0.5, end: 0.0),
+            ),
+          ),
         ),
         Expanded(
-          child: Image.asset('images/app_grid.png', fit: BoxFit.contain),
+          flex: 5,
+          child: SizedBox(
+            height: 1400,
+            width: 1400,
+            child: Image.asset('images/app_grid.png', fit: BoxFit.contain),
+          ),
         ),
       ],
     );
