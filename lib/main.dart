@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
+import 'package:portfolio_website/presentation/widgets/shared/cursor_glow.dart';
 
 void main() {
   runApp(const PortfolioApp());
@@ -15,8 +16,8 @@ class PortfolioApp extends StatelessWidget {
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: _buildTheme(),
-      home: const PortfolioScreen(),
-      //routes: {'/home': (context) => const PortfolioApp()},
+      home: CursorGlow(appBarHeight: 69, child: const PortfolioScreen()),
+      // PortfolioScreen(), //
     );
   }
 
