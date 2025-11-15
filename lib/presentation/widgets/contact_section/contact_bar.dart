@@ -43,10 +43,10 @@ class ContactBar extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 5),
+        SizedBox(width: 15),
         Container(width: 1, height: 30, color: Colors.grey),
 
-        SizedBox(width: 5),
+        SizedBox(width: 15),
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
@@ -61,9 +61,9 @@ class ContactBar extends StatelessWidget {
           ),
         ),
 
-        SizedBox(width: 5),
+        SizedBox(width: 15),
         Container(width: 1, height: 30, color: Colors.grey),
-        SizedBox(width: 5),
+        SizedBox(width: 15),
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(

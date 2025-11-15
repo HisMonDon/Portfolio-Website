@@ -66,7 +66,7 @@ class HomeSection extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 4.5),
                           child: ContactBar(),
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 16),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: AutoSizeText(
