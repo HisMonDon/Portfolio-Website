@@ -13,8 +13,6 @@ class AnimatedBackground extends StatefulWidget {
 class _AnimatedBackgroundState extends State<AnimatedBackground>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late AnimationController _controller;
-  final int _numberOfStars = 200;
-  bool _isInitialized = false;
   @override
   void initState() {
     super.initState();
@@ -24,7 +22,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
       duration: const Duration(seconds: 1),
     );
     _controller.addListener(() {
-      if (_isInitialized) {
+      if (globals.isInitialized) {
         _updateStars();
         setState(() {});
       }
@@ -35,10 +33,10 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
 
   void _initializeStars(Size bounds) {
     if (globals.starsList.isEmpty && bounds.width > 0 && bounds.height > 0) {
-      for (int i = 0; i < _numberOfStars; i++) {
+      for (int i = 0; i < globals.numberOfStars; i++) {
         globals.starsList.add(Star()..randomize(bounds));
       }
-      _isInitialized = true;
+      globals.isInitialized = true;
     }
   }
 
@@ -83,7 +81,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
           setState(() {
             print('size changed');
             globals.starsList.clear();
-            _isInitialized = false;
+            globals.isInitialized = false;
           });
         });
         return true;

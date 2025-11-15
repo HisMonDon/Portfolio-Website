@@ -5,6 +5,7 @@ import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/home_section/home_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/glow_app_bar.dart';
+import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
@@ -150,69 +151,71 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       //===============================================================================
       //BODY
       //===============================================================================
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromARGB(255, 24, 65, 104),
-                  Color.fromARGB(255, 6, 2, 20),
-                  Color.fromARGB(255, 6, 2, 20),
+      body: SizedChanged(
+        child: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromARGB(255, 24, 65, 104),
+                    Color.fromARGB(255, 6, 2, 20),
+                    Color.fromARGB(255, 6, 2, 20),
 
-                  Color.fromARGB(255, 24, 65, 104),
+                    Color.fromARGB(255, 24, 65, 104),
+                  ],
+                ),
+              ),
+            ),
+            const AnimatedBackground(),
+            SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                children: [
+                  // HeroSection(),
+                  // AboutSection(),
+                  SizedBox(
+                    key: homeKey,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(child: HomeSection()),
+                  ),
+                  SizedBox(
+                    key: projectsKey,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(
+                      child: Text(
+                        'projects',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    key: achievementsKey,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(
+                      child: Text(
+                        'achievements',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    key: skillsKey,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(
+                      child: Text(
+                        'skills',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-          ),
-          const AnimatedBackground(),
-          SingleChildScrollView(
-            controller: _scrollController,
-            child: Column(
-              children: [
-                // HeroSection(),
-                // AboutSection(),
-                SizedBox(
-                  key: homeKey,
-                  height: MediaQuery.of(context).size.height,
-                  child: Center(child: HomeSection()),
-                ),
-                SizedBox(
-                  key: projectsKey,
-                  height: MediaQuery.of(context).size.height,
-                  child: Center(
-                    child: Text(
-                      'projects',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  key: achievementsKey,
-                  height: MediaQuery.of(context).size.height,
-                  child: Center(
-                    child: Text(
-                      'achievements',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  key: skillsKey,
-                  height: MediaQuery.of(context).size.height,
-                  child: Center(
-                    child: Text(
-                      'skills',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
