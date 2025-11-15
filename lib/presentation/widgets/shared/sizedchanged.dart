@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/core/constants/utils.dart';
+import 'package:portfolio_website/core/constants/globals.dart' as globals;
+import 'starfield_painter.dart';
 
 class SizedChanged extends StatefulWidget {
   final Widget child;
@@ -25,6 +28,16 @@ class _SizedChangedState extends State<SizedChanged>
   @override
   void didChangeMetrics() {
     super.didChangeMetrics();
+    globals.starsList = [];
+    LayoutBuilder(
+      builder: (context, constraints) {
+        initializeStars(constraints.biggest);
+        return CustomPaint(
+          painter: StarfieldPainter(stars: globals.starsList),
+          child: Container(),
+        );
+      },
+    );
     print("window size changed");
 
     Future.delayed(const Duration(milliseconds: 200), () {
