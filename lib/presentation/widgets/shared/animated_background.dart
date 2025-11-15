@@ -3,6 +3,8 @@ import 'star_model.dart';
 import 'starfield_painter.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 
+import 'package:portfolio_website/core/constants/utils.dart';
+
 class AnimatedBackground extends StatefulWidget {
   const AnimatedBackground({Key? key}) : super(key: key);
 
@@ -29,15 +31,6 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
     });
 
     _controller.repeat();
-  }
-
-  void _initializeStars(Size bounds) {
-    if (globals.starsList.isEmpty && bounds.width > 0 && bounds.height > 0) {
-      for (int i = 0; i < globals.numberOfStars; i++) {
-        globals.starsList.add(Star()..randomize(bounds));
-      }
-      globals.isInitialized = true;
-    }
   }
 
   void _updateStars() {
@@ -88,7 +81,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
-          _initializeStars(constraints.biggest);
+          initializeStars(constraints.biggest);
           return CustomPaint(
             painter: StarfieldPainter(stars: globals.starsList),
             child: Container(),
