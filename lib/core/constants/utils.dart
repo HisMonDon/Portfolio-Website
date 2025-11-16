@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:portfolio_website/presentation/widgets/shared/star_model.dart';
+import 'package:portfolio_website/core/models/star_model.dart';
 
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 

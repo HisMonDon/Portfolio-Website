@@ -1,7 +1,7 @@
 library globals;
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/presentation/widgets/shared/star_model.dart';
+import 'package:portfolio_website/core/models/star_model.dart';
 
 double scrollStarPusher = 0;
 List<Star> starsList = [];
