@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:portfolio_website/presentation/screens/project_screen.dart';
+import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 import 'package:portfolio_website/presentation/widgets/home_section/about_me.dart';
 import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
@@ -12,19 +12,14 @@ import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart'
 
 import 'package:portfolio_website/core/constants/utils.dart';
 
-class PortfolioScreen extends StatefulWidget {
-  const PortfolioScreen({Key? key}) : super(key: key);
+class ProjectScreen extends StatefulWidget {
+  const ProjectScreen({Key? key}) : super(key: key);
 
   @override
-  _PortfolioScreenState createState() => _PortfolioScreenState();
+  _ProjectScreenState createState() => _ProjectScreenState();
 }
 
-final projectsKey = new GlobalKey();
-final achievementsKey = new GlobalKey();
-final skillsKey = new GlobalKey();
-final homeKey = new GlobalKey();
-
-class _PortfolioScreenState extends State<PortfolioScreen> {
+class _ProjectScreenState extends State<ProjectScreen> {
   final ScrollController _scrollController = ScrollController();
   Timer? _scrollEndTimer;
 
@@ -83,7 +78,12 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    scrollToSection(homeKey);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PortfolioScreen(),
+                      ),
+                    );
                   },
                   child: const Text("Home", style: TextStyle(fontSize: 17)),
                 ),
@@ -97,10 +97,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProjectScreen()),
-                    );
+                    scrollToSection(projectsKey);
                   },
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),
@@ -157,6 +154,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                     Color.fromARGB(255, 24, 65, 104),
                     Color.fromARGB(255, 6, 2, 20),
                     Color.fromARGB(255, 6, 2, 20),
+                    Color.fromARGB(255, 6, 2, 20),
 
                     Color.fromARGB(255, 24, 65, 104),
                   ],
@@ -171,14 +169,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                   // HeroSection(),
                   // AboutSection(),
                   SizedBox(
-                    key: homeKey,
+                    key: projectsKey,
+
                     height: MediaQuery.of(context).size.height,
-                    child: Center(child: HomeSection()),
-                  ),
-                  SizedBox(
-                    key: globals.aboutMeKey,
-                    height: MediaQuery.of(context).size.height,
-                    child: Center(child: AboutMeSection()),
+                    child: Center(child: ProjectsSection()),
                   ),
                 ],
               ),

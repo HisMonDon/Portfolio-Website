@@ -68,33 +68,25 @@ class AboutMeSection extends StatelessWidget {
             ),
             Expanded(
               flex: 3,
-              child: SizedBox(
+              child: Container(
                 height: 400,
-                child: FractionallySizedBox(
-                  widthFactor: 1.0,
-                  //heightFactor: 0.90,
-                  child: Container(
-                    //child: Image.asset('images/portfolio_image.jpg', ),
-                    height: 800,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                        image: AssetImage('images/portfolio_image.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.blue.withOpacity(0.3),
-                          blurRadius: 15,
-                          spreadRadius: 5,
-                        ),
-                      ],
-                    ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: AssetImage('images/portfolio_image.jpg'),
+                    fit: BoxFit.cover,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.blue.withOpacity(0.3),
+                      blurRadius: 15,
+                      spreadRadius: 5,
+                    ),
+                  ],
                 ),
               ),
             ),
+
             SizedBox(width: 80),
           ],
         ),
