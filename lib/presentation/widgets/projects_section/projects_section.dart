@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio_website/core/models/project_model.dart';
+import 'package:portfolio_website/presentation/widgets/projects_section/project_card.dart';
+
+class ProjectsSection extends StatelessWidget {
+  ProjectsSection({super.key});
+
+  final List<Project> projects = [
+    Project(
+      title: "Flutter Portfolio Website",
+      description:
+          "A responsive portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background.",
+      technologies: ["Flutter", "Dart"],
+      githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
+    ),
+    Project(
+      title: "Vera",
+      description: "VeraVeraVeraVeraVeraVeraVeraVeraVeraVeraVeraVera skibeedee",
+      technologies: ["Flutter", "Firebase", "Rest API", "Cloudflare"],
+      githubUrl: "https://github.com/HisMonDon/example-ecommerce",
+      liveUrl: "https://example-ecommerce.com",
+    ),
+    Project(
+      title: "Integrals buoyancy Simulator",
+      description:
+          "A C++ based physics simulator to write this later aspdoicpasocm",
+      technologies: ["C++", "SFML"],
+      githubUrl: "https://github.com/HisMonDon/example-ml-model",
+    ),
+    Project(
+      title: "Pathfinding Visualizer",
+      description:
+          "An interactive web application that visualizes pathfinding algorithms like A* and Dijkstra's on a user-definable grid.",
+      technologies: ["JavaScript", "React", "HTML5 Canvas"],
+      githubUrl: "https://github.com/HisMonDon/pathfinding-visualizer",
+      liveUrl: "https://example-pathfinding.com",
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 60),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "My Projects",
+            style: textTheme.displayLarge?.copyWith(fontSize: 48),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            "Here are a few things I've been working on.",
+            style: textTheme.headlineSmall?.copyWith(
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
+          const SizedBox(height: 60),
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                int crossAxisCount = 3;
+                if (constraints.maxWidth < 1200) {
+                  crossAxisCount = 2;
+                }
+                if (constraints.maxWidth < 800) {
+                  crossAxisCount = 1;
+                }
+
+                return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    childAspectRatio: 1.1,
+                  ),
+                  itemCount: projects.length,
+                  itemBuilder: (context, index) {
+                    return ProjectCard(project: projects[index]);
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

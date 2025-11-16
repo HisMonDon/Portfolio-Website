@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/presentation/widgets/home_section/about_me.dart';
+import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
@@ -178,12 +179,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                   SizedBox(
                     key: projectsKey,
                     height: MediaQuery.of(context).size.height,
-                    child: Center(
-                      child: Text(
-                        'projects',
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                    ),
+                    child: Center(child: ProjectsSection()),
                   ),
                   SizedBox(
                     key: achievementsKey,
