@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'star_model.dart';
+//import 'star_model.dart';
 import 'starfield_painter.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 

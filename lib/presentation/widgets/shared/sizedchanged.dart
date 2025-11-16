@@ -38,7 +38,7 @@ class _SizedChangedState extends State<SizedChanged>
         );
       },
     );
-    print("window size changed");
+    // print("window size changed");
 
     Future.delayed(const Duration(milliseconds: 200), () {
       if (mounted) setState(() {});

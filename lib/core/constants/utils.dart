@@ -12,3 +12,17 @@ void initializeStars(Size bounds) {
     globals.isInitialized = true;
   }
 }
+
+void scrollToSection(GlobalKey key) {
+  final context = key.currentContext;
+  if (context != null) {
+    globals.scrollStarPusher = 5;
+    Scrollable.ensureVisible(
+      context,
+      duration: Duration(seconds: 1),
+      curve: Curves.easeInOutCirc,
+    );
+  } else {
+    print('not built yet??');
+  }
+}

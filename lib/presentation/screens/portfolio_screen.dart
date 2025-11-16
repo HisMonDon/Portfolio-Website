@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:portfolio_website/presentation/widgets/home_section/about_me.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/home_section/home_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/glow_app_bar.dart';
 import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
+
+import 'package:portfolio_website/core/constants/utils.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
@@ -54,20 +57,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
     _scrollController.dispose();
     _scrollEndTimer?.cancel();
     super.dispose();
-  }
-
-  void scrollToSection(GlobalKey key) {
-    final context = key.currentContext;
-    if (context != null) {
-      globals.scrollStarPusher = 5;
-      Scrollable.ensureVisible(
-        context,
-        duration: Duration(seconds: 1),
-        curve: Curves.easeInOutCirc,
-      );
-    } else {
-      print('not built yet??');
-    }
   }
 
   @override
@@ -180,6 +169,11 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                     key: homeKey,
                     height: MediaQuery.of(context).size.height,
                     child: Center(child: HomeSection()),
+                  ),
+                  SizedBox(
+                    key: globals.aboutMeKey,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(child: AboutMeSection()),
                   ),
                   SizedBox(
                     key: projectsKey,

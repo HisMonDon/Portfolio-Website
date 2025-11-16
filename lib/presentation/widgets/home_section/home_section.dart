@@ -6,6 +6,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:widget_mask/widget_mask.dart';
 import 'package:portfolio_website/presentation/widgets/contact_section/contact_bar.dart';
 
+import 'package:portfolio_website/core/constants/globals.dart' as globals;
+import 'package:portfolio_website/core/constants/utils.dart';
+
 class HomeSection extends StatelessWidget {
   const HomeSection({super.key});
 
@@ -79,7 +82,9 @@ class HomeSection extends StatelessWidget {
                         const SizedBox(height: 40),
 
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            scrollToSection(globals.aboutMeKey);
+                          },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 32,
@@ -87,9 +92,9 @@ class HomeSection extends StatelessWidget {
                             ),
                             backgroundColor: const Color.fromARGB(
                               255,
-                              51,
-                              124,
-                              167,
+                              14,
+                              100,
+                              230,
                             ),
                             foregroundColor: Colors.white,
                             side: BorderSide(color: Colors.transparent),
