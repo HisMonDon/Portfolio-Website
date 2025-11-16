@@ -55,7 +55,11 @@ class AboutMeSection extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                ". \n\nI'm an high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about Physics, Chemistry, and Coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\nCurrently, I’m focusing on my academics while building practical projects and preparing for contests.",
+                                ". \n\nI'm an high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\nCurrently, I’m focusing on my academics while building practical projects and preparing for contests. Outside of academics, I teach skiing, I’m on my school’s swim team, and I enjoy exploring different foods.",
+                          ),
+                          TextSpan(
+                            text:
+                                "\n\nDo not hesitate to connect view my open source projects on GitHub, connect with me on LinkedIn, or send me an email!",
                           ),
                         ],
                       ),
