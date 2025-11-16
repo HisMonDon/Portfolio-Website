@@ -26,11 +26,9 @@ class AboutMeSection extends StatelessWidget {
                 children: [
                   AutoSizeText(
                     "About Me",
-                    style: GoogleFonts.playfairDisplay(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.displayLarge?.copyWith(fontSize: 48),
                     maxLines: 1,
                   ),
                   SizedBox(height: 40),
