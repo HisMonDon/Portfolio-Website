@@ -20,7 +20,7 @@ class AboutMeSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              flex: 4,
+              flex: 6,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -55,11 +55,11 @@ class AboutMeSection extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                ". \n\nI'm an high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\nCurrently, I’m focusing on my academics while building practical projects and preparing for contests. Outside of academics, I teach skiing, I’m on my school’s swim team, and I enjoy exploring different foods.",
+                                ". \n\nI'm an high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\n",
                           ),
                           TextSpan(
                             text:
-                                "\n\nDo not hesitate to connect view my open source projects on GitHub, connect with me on LinkedIn, or send me an email!",
+                                "Do not hesitate to connect view my open source projects on GitHub, connect with me on LinkedIn, or send me an email!",
                           ),
                         ],
                       ),
@@ -69,15 +69,15 @@ class AboutMeSection extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: SizedBox(
-                height: 600,
+                height: 400,
                 child: FractionallySizedBox(
-                  widthFactor: 0.80,
+                  widthFactor: 1.0,
                   //heightFactor: 0.90,
                   child: Container(
                     //child: Image.asset('images/portfolio_image.jpg', ),
-                    height: 700,
+                    height: 800,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -85,6 +85,13 @@ class AboutMeSection extends StatelessWidget {
                         image: AssetImage('images/portfolio_image.jpg'),
                         fit: BoxFit.cover,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.3),
+                          blurRadius: 15,
+                          spreadRadius: 5,
+                        ),
+                      ],
                     ),
                   ),
                 ),
