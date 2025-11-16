@@ -63,8 +63,8 @@ class ProjectsSection extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(111, 68, 208, 255),
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                //color: const Color.fromARGB(111, 68, 208, 255),
+                // borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
               child: Column(
                 children: [

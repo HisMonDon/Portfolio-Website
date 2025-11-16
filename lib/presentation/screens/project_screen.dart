@@ -146,37 +146,20 @@ class _ProjectScreenState extends State<ProjectScreen> {
         child: Stack(
           children: [
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color.fromARGB(255, 24, 65, 104),
+                    Color.fromARGB(117, 100, 255, 219),
                     Color.fromARGB(255, 6, 2, 20),
-                    Color.fromARGB(255, 6, 2, 20),
-                    Color.fromARGB(255, 6, 2, 20),
-
-                    Color.fromARGB(255, 24, 65, 104),
                   ],
+                  stops: [0.0, 0.25],
                 ),
               ),
             ),
             const AnimatedBackground(),
-            SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                children: [
-                  // HeroSection(),
-                  // AboutSection(),
-                  SizedBox(
-                    key: projectsKey,
-
-                    height: MediaQuery.of(context).size.height,
-                    child: Center(child: ProjectsSection()),
-                  ),
-                ],
-              ),
-            ),
+            ProjectsSection(),
           ],
         ),
       ),
