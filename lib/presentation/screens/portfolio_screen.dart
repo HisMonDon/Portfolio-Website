@@ -93,10 +93,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProjectScreen()),
-                    );
+                    Navigator.pushNamed(context, '/projects');
                   },
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),

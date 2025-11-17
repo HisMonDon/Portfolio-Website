@@ -30,7 +30,7 @@ class _CursorGlowState extends State<CursorGlow> {
           _mousePosition = event.position;
           _isHoveringAppBar =
               _mousePosition.dy < widget.appBarHeight + 40 &&
-              _mousePosition.dy > widget.appBarHeight; //raddii of glows
+              _mousePosition.dy > widget.appBarHeight - 12; //raddii of glows
         });
       },
       onExit: (_) {
