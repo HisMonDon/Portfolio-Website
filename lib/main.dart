@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
+import 'package:portfolio_website/presentation/screens/project_screen.dart';
 
 import 'package:portfolio_website/presentation/widgets/shared/cursor_glow.dart';
 
@@ -14,10 +15,18 @@ class PortfolioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) =>
+            CursorGlow(appBarHeight: 69, child: const PortfolioScreen()),
+        '/projects': (context) => const ProjectScreen(),
+        // '/settings': (context) => const SettingsPage(),
+      },
+
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: _buildTheme(),
-      home: CursorGlow(appBarHeight: 69, child: const PortfolioScreen()),
+      // home: CursorGlow(appBarHeight: 69, child: const PortfolioScreen()),
       // PortfolioScreen(), //
     );
   }

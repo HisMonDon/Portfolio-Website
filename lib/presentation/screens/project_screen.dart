@@ -78,11 +78,10 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushNamedAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => PortfolioScreen(),
-                      ),
+                      '/',
+                      (route) => false,
                     );
                   },
                   child: const Text("Home", style: TextStyle(fontSize: 17)),
@@ -96,9 +95,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    scrollToSection(projectsKey);
-                  },
+                  onTap: () {},
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),
               ),
@@ -110,9 +107,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    scrollToSection(achievementsKey);
-                  },
+                  onTap: () {},
                   child: const Text(
                     "Achievements",
                     style: TextStyle(fontSize: 17),
@@ -127,9 +122,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    scrollToSection(skillsKey);
-                  },
+                  onTap: () {},
                   child: const Text("Skills", style: TextStyle(fontSize: 17)),
                 ),
               ),

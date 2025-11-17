@@ -40,6 +40,7 @@ class _GlowAppBarState extends State<GlowAppBar> {
         actions: widget.actions,
         toolbarHeight: widget.toolbarHeight,
         shadowColor: widget.shadowColor,
+        backgroundColor: Colors.transparent,
         scrolledUnderElevation: widget.scrolledUnderElevation,
         centerTitle: false,
         flexibleSpace: Stack(

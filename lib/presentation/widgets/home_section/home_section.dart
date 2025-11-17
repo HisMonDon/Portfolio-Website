@@ -17,6 +17,8 @@ class HomeSection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+
       children: [
         Expanded(
           flex: 4,
@@ -116,11 +118,7 @@ class HomeSection extends StatelessWidget {
         ),
         Expanded(
           flex: 5,
-          child: SizedBox(
-            height: 1400,
-            width: 1400,
-            child: Image.asset('images/app_grid.png', fit: BoxFit.contain),
-          ),
+          child: Image.asset('images/app_grid.png', fit: BoxFit.contain),
         ),
       ],
     );

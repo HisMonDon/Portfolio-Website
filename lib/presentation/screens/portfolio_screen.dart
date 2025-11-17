@@ -19,9 +19,6 @@ class PortfolioScreen extends StatefulWidget {
   _PortfolioScreenState createState() => _PortfolioScreenState();
 }
 
-final projectsKey = new GlobalKey();
-final achievementsKey = new GlobalKey();
-final skillsKey = new GlobalKey();
 final homeKey = new GlobalKey();
 
 class _PortfolioScreenState extends State<PortfolioScreen> {
@@ -68,8 +65,8 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       //appbar
       //=======================================
       appBar: GlowAppBar(
-        scrolledUnderElevation: 4.0,
-        shadowColor: Colors.black.withOpacity(0.5),
+        scrolledUnderElevation: 0.0,
+        // shadowColor: Colors.black.withOpacity(0.5),
         toolbarHeight: 69,
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),
@@ -113,9 +110,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    scrollToSection(achievementsKey);
-                  },
+                  onTap: () {},
                   child: const Text(
                     "Achievements",
                     style: TextStyle(fontSize: 17),
@@ -130,9 +125,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    scrollToSection(skillsKey);
-                  },
+                  onTap: () {},
                   child: const Text("Skills", style: TextStyle(fontSize: 17)),
                 ),
               ),
@@ -168,8 +161,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  // HeroSection(),
-                  // AboutSection(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height,
                     child: Center(child: HomeSection()),
