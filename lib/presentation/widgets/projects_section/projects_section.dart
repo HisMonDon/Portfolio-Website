@@ -13,6 +13,7 @@ class ProjectsSection extends StatelessWidget {
           "A responsive portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background.",
       technologies: ["Flutter", "Dart"],
       githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
+      imageLink: "images/project_images/portfolio_project.png",
     ),
     Project(
       title: "Vera",
@@ -20,6 +21,7 @@ class ProjectsSection extends StatelessWidget {
       technologies: ["Flutter", "Firebase", "Rest API", "Cloudflare"],
       githubUrl: "https://github.com/HisMonDon/example-ecommerce",
       liveUrl: "https://example-ecommerce.com",
+      imageLink: "images/project_images/portfolio_project.png",
     ),
     Project(
       title: "Integrals buoyancy Simulator",
@@ -27,6 +29,7 @@ class ProjectsSection extends StatelessWidget {
           "A C++ based physics simulator to write this later aspdoicpasocm",
       technologies: ["C++", "SFML"],
       githubUrl: "https://github.com/HisMonDon/example-ml-model",
+      imageLink: "images/project_images/portfolio_project.png",
     ),
     Project(
       title: "Pathfinding Visualizer",
@@ -35,6 +38,7 @@ class ProjectsSection extends StatelessWidget {
       technologies: ["JavaScript", "React", "HTML5 Canvas"],
       githubUrl: "https://github.com/HisMonDon/pathfinding-visualizer",
       liveUrl: "https://example-pathfinding.com",
+      imageLink: "images/project_images/portfolio_project.png",
     ),
   ];
 
@@ -109,7 +113,10 @@ class ProjectsSection extends StatelessWidget {
                             context,
                             index,
                           ) {
-                            return ProjectCard(project: projects[index]);
+                            return ProjectCard(
+                              project: projects[index],
+                              image: Image.asset(projects[index].imageLink),
+                            );
                           }, childCount: projects.length),
                         ),
                       ),

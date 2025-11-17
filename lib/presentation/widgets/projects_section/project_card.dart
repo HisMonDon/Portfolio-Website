@@ -7,7 +7,8 @@ import 'package:portfolio_website/core/models/project_model.dart';
 
 class ProjectCard extends StatefulWidget {
   final Project project;
-  const ProjectCard({super.key, required this.project});
+  final Image image;
+  const ProjectCard({super.key, required this.project, required this.image});
 
   @override
   State<ProjectCard> createState() => _ProjectCardState();
@@ -87,6 +88,10 @@ class _ProjectCardState extends State<ProjectCard> {
                         ],
                       ),
                       const Spacer(),
+                      Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: widget.image,
+                      ),
                       Text(
                         widget.project.title,
                         style: textTheme.titleLarge?.copyWith(
