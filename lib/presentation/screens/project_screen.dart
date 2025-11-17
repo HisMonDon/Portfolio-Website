@@ -63,8 +63,6 @@ class _ProjectScreenState extends State<ProjectScreen> {
       //appbar
       //=======================================
       appBar: GlowAppBar(
-        scrolledUnderElevation: 4.0,
-        shadowColor: Colors.black.withOpacity(0.5),
         toolbarHeight: 69,
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),

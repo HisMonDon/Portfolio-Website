@@ -52,7 +52,6 @@ class ProjectsSection extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 30),
             Expanded(
               child: LayoutBuilder(
                 builder: (context, constraints) {
@@ -68,12 +67,10 @@ class ProjectsSection extends StatelessWidget {
                     slivers: [
                       SliverToBoxAdapter(
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                            left: 16.0,
-                            right: 16.0,
-                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Column(
                             children: [
+                              SizedBox(height: 30),
                               Text(
                                 "My Projects",
                                 style: textTheme.displayLarge?.copyWith(
@@ -94,7 +91,11 @@ class ProjectsSection extends StatelessWidget {
                       ),
 
                       SliverPadding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.only(
+                          left: 16.0,
+                          right: 16.0,
+                          bottom: 15.0,
+                        ),
                         sliver: SliverGrid(
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(

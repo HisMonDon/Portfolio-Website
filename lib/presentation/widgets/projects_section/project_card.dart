@@ -59,7 +59,11 @@ class _ProjectCardState extends State<ProjectCard> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: Container(
-                  padding: const EdgeInsets.all(24),
+                  padding: const EdgeInsets.only(
+                    left: 24,
+                    right: 24,
+                    bottom: 12,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.25),
                     borderRadius: BorderRadius.circular(12),
