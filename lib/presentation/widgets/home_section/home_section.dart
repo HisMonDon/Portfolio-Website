@@ -10,8 +10,8 @@ import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'package:portfolio_website/core/constants/utils.dart';
 
 class HomeSection extends StatelessWidget {
-  const HomeSection({super.key});
-
+  final GlobalKey aboutMeKey;
+  const HomeSection({Key? key, required this.aboutMeKey});
   @override
   Widget build(BuildContext context) {
     return Row(

@@ -21,6 +21,8 @@ class PortfolioScreen extends StatefulWidget {
 
 class _PortfolioScreenState extends State<PortfolioScreen> {
   final homeKey = new GlobalKey();
+
+  final aboutMeKey = new GlobalKey();
   final ScrollController _scrollController = ScrollController();
   Timer? _scrollEndTimer;
 
@@ -160,10 +162,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                   SizedBox(
                     key: homeKey,
                     height: MediaQuery.of(context).size.height,
-                    child: Center(child: HomeSection()),
+                    child: Center(child: HomeSection(aboutMeKey: aboutMeKey)),
                   ),
                   SizedBox(
-                    key: globals.aboutMeKey,
+                    key: aboutMeKey,
                     height: MediaQuery.of(context).size.height,
                     child: Center(child: AboutMeSection()),
                   ),
