@@ -15,6 +15,8 @@ class AnimatedBackground extends StatefulWidget {
 class _AnimatedBackgroundState extends State<AnimatedBackground>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late AnimationController _controller;
+  Size _cachedSize = Size.zero;
+
   @override
   void initState() {
     super.initState();
@@ -34,7 +36,9 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
   }
 
   void _updateStars() {
-    final bounds = context.size!;
+    final bounds = _cachedSize;
+    if (bounds == Size.zero) return;
+
     for (final star in globals.starsList) {
       star.velocity = Offset(
         star.velocity.dx,
@@ -81,7 +85,8 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
-          initializeStars(constraints.biggest);
+          _cachedSize = constraints.biggest;
+          initializeStars(_cachedSize);
           return CustomPaint(
             painter: StarfieldPainter(stars: globals.starsList),
             child: Container(),
