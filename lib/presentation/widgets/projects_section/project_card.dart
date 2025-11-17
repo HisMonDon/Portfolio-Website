@@ -107,7 +107,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 20),
+                      Spacer(),
                       _buildTechStack(textTheme, primaryColor),
                     ],
                   ),
