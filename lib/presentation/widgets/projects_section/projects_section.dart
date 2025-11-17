@@ -10,23 +10,24 @@ class ProjectsSection extends StatelessWidget {
     Project(
       title: "Flutter Portfolio Website",
       description:
-          "A responsive portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background.",
+          "A portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background. You're on it right now.",
       technologies: ["Flutter", "Dart"],
       githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
       imageLink: "images/project_images/portfolio_project.png",
     ),
     Project(
       title: "Vera",
-      description: "VeraVeraVeraVeraVeraVeraVeraVeraVeraVeraVeraVera skibeedee",
+      description:
+          "An online physics platform built for the St.Robert Physics club with student-taught tutorial videos, with an student authentication and video storage feature to save progress.",
       technologies: ["Flutter", "Firebase", "Rest API", "Cloudflare"],
-      githubUrl: "https://github.com/HisMonDon/example-ecommerce",
-      liveUrl: "https://example-ecommerce.com",
+      githubUrl: "https://github.com/HisMonDon/Vera",
+      liveUrl: "https://veraphysics.com",
       imageLink: "images/project_images/portfolio_project.png",
     ),
     Project(
       title: "Integrals buoyancy Simulator",
       description:
-          "A C++ based physics simulator to write this later aspdoicpasocm",
+          "A C++ based physics simulator using calculus and integrals to simulate a ball's net motion when dropped in a liquid with a customizable density.",
       technologies: ["C++", "SFML"],
       githubUrl: "https://github.com/HisMonDon/example-ml-model",
       imageLink: "images/project_images/portfolio_project.png",
@@ -107,7 +108,7 @@ class ProjectsSection extends StatelessWidget {
                                 crossAxisCount: crossAxisCount,
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20,
-                                childAspectRatio: 1.1,
+                                childAspectRatio: 1.0,
                               ),
                           delegate: SliverChildBuilderDelegate((
                             context,

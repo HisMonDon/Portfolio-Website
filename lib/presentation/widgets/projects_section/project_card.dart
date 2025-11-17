@@ -64,6 +64,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     left: 24,
                     right: 24,
                     bottom: 12,
+                    top: 12,
                   ),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.25),
@@ -75,6 +76,7 @@ class _ProjectCardState extends State<ProjectCard> {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +89,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           _buildLinkButtons(),
                         ],
                       ),
-                      const Spacer(),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: EdgeInsets.all(15.0),
                         child: widget.image,
@@ -105,7 +107,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      const Spacer(),
+                      const SizedBox(height: 20),
                       _buildTechStack(textTheme, primaryColor),
                     ],
                   ),
