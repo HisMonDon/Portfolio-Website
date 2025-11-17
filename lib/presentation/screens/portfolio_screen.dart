@@ -171,7 +171,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                   // HeroSection(),
                   // AboutSection(),
                   SizedBox(
-                    key: homeKey,
                     height: MediaQuery.of(context).size.height,
                     child: Center(child: HomeSection()),
                   ),

@@ -12,6 +12,7 @@ class AboutMeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(height: 30),
 
@@ -70,6 +71,7 @@ class AboutMeSection extends StatelessWidget {
               flex: 3,
               child: Container(
                 height: 400,
+                constraints: const BoxConstraints(maxWidth: 400),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
