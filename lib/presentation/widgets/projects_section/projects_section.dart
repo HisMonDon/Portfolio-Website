@@ -42,66 +42,82 @@ class ProjectsSection extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 60),
+      //padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       width: double.infinity,
 
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "My Projects",
-            style: textTheme.displayLarge?.copyWith(fontSize: 48),
+      child: Expanded(
+        child: Container(
+          decoration: BoxDecoration(
+            //color: const Color.fromARGB(111, 68, 208, 255),
+            // borderRadius: BorderRadius.all(Radius.circular(20.0)),
           ),
-          const SizedBox(height: 20),
-          Text(
-            "Here are a few things I've been working on.",
-            style: textTheme.headlineSmall?.copyWith(
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
-          const SizedBox(height: 60),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                //color: const Color.fromARGB(111, 68, 208, 255),
-                // borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(height: 30),
-                  Expanded(
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        int crossAxisCount = 3;
-                        if (constraints.maxWidth < 1200) {
-                          crossAxisCount = 2;
-                        }
-                        if (constraints.maxWidth < 800) {
-                          crossAxisCount = 1;
-                        }
+          child: Column(
+            children: [
+              SizedBox(height: 30),
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    int crossAxisCount = 3;
+                    if (constraints.maxWidth < 1200) {
+                      crossAxisCount = 2;
+                    }
+                    if (constraints.maxWidth < 800) {
+                      crossAxisCount = 1;
+                    }
 
-                        return GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: crossAxisCount,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                childAspectRatio: 1.1,
-                              ),
-                          itemCount: projects.length,
-                          itemBuilder: (context, index) {
-                            return ProjectCard(project: projects[index]);
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                ],
+                    return CustomScrollView(
+                      slivers: [
+                        SliverToBoxAdapter(
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "My Projects",
+                                  style: textTheme.displayLarge?.copyWith(
+                                    fontSize: 48,
+                                  ),
+                                ),
+                                const SizedBox(height: 20),
+                                Text(
+                                  "Here are a few things I've been working on.",
+                                  style: textTheme.headlineSmall?.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                const SizedBox(height: 60),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        SliverPadding(
+                          padding: const EdgeInsets.all(16.0),
+                          sliver: SliverGrid(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: crossAxisCount,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20,
+                                  childAspectRatio: 1.1,
+                                ),
+                            delegate: SliverChildBuilderDelegate((
+                              context,
+                              index,
+                            ) {
+                              return ProjectCard(project: projects[index]);
+                            }, childCount: projects.length),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
+              SizedBox(height: 20),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
