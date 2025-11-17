@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/presentation/screens/project_screen.dart';
 import 'package:portfolio_website/presentation/widgets/home_section/about_me.dart';
-import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
+//import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
@@ -19,9 +19,8 @@ class PortfolioScreen extends StatefulWidget {
   _PortfolioScreenState createState() => _PortfolioScreenState();
 }
 
-final homeKey = new GlobalKey();
-
 class _PortfolioScreenState extends State<PortfolioScreen> {
+  final homeKey = new GlobalKey();
   final ScrollController _scrollController = ScrollController();
   Timer? _scrollEndTimer;
 
@@ -162,6 +161,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               child: Column(
                 children: [
                   SizedBox(
+                    key: homeKey,
                     height: MediaQuery.of(context).size.height,
                     child: Center(child: HomeSection()),
                   ),
