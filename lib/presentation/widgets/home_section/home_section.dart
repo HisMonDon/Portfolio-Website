@@ -6,7 +6,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:widget_mask/widget_mask.dart';
 import 'package:portfolio_website/presentation/widgets/contact_section/contact_bar.dart';
 
-import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'package:portfolio_website/core/constants/utils.dart';
 
 class HomeSection extends StatelessWidget {
@@ -85,7 +84,7 @@ class HomeSection extends StatelessWidget {
 
                         ElevatedButton(
                           onPressed: () {
-                            scrollToSection(globals.aboutMeKey);
+                            scrollToSection(aboutMeKey);
                           },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(

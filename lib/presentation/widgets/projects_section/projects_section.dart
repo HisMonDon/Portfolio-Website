@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/models/project_model.dart';
 import 'package:portfolio_website/presentation/widgets/projects_section/project_card.dart';
+import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 
 class ProjectsSection extends StatelessWidget {
   ProjectsSection({super.key});
@@ -110,6 +111,12 @@ class ProjectsSection extends StatelessWidget {
                           ) {
                             return ProjectCard(project: projects[index]);
                           }, childCount: projects.length),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Footer(),
                         ),
                       ),
                     ],

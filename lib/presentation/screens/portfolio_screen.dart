@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:portfolio_website/presentation/screens/project_screen.dart';
 import 'package:portfolio_website/presentation/widgets/home_section/about_me.dart';
 //import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/animated_background.dart';
 import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/home_section/home_section.dart';
+import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 import 'package:portfolio_website/presentation/widgets/shared/glow_app_bar.dart';
 import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
 
@@ -169,6 +169,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                     height: MediaQuery.of(context).size.height,
                     child: Center(child: AboutMeSection()),
                   ),
+                  Footer(homeKey: homeKey, aboutMeKey: aboutMeKey),
                 ],
               ),
             ),
