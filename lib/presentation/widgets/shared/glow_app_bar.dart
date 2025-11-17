@@ -6,7 +6,7 @@ class GlowAppBar extends StatefulWidget implements PreferredSizeWidget {
   final double toolbarHeight;
   final Color? shadowColor;
   final double? scrolledUnderElevation;
-
+  final Color? glowColor;
   const GlowAppBar({
     Key? key,
     required this.actions,
@@ -14,6 +14,8 @@ class GlowAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.toolbarHeight = 69.0,
     this.shadowColor,
     this.scrolledUnderElevation,
+
+    this.glowColor,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,8 @@ class _GlowAppBarState extends State<GlowAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    final glowColor = const Color.fromARGB(255, 33, 150, 243);
+    final glowColor =
+        widget.glowColor ?? const Color.fromARGB(255, 33, 150, 243);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovering = true),

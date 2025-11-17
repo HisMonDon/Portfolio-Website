@@ -17,9 +17,11 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) =>
-            CursorGlow(appBarHeight: 69, child: const PortfolioScreen()),
-        '/projects': (context) => const ProjectScreen(),
+        '/': (context) => const CursorGlow(child: PortfolioScreen()),
+        '/projects': (context) => const CursorGlow(
+          glowColor: Color.fromARGB(255, 100, 255, 219),
+          child: ProjectScreen(),
+        ),
         // '/settings': (context) => const SettingsPage(),
       },
 
