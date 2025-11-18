@@ -18,7 +18,7 @@ class ProjectsSection extends StatelessWidget {
     Project(
       title: "Vera",
       description:
-          "An cross-platform (Online and Windows) physics platform built for the St.Robert Physics club with student-taught tutorial videos, with an student authentication and video storage feature to save progress.",
+          "A cross-platform (Online and Windows) physics platform built for my school's official Physics club with student-taught tutorial videos, login authentication and a video storage feature to save progress.",
       technologies: ["Flutter", "Firebase", "Rest API", "Cloudflare"],
       githubUrl: "https://github.com/HisMonDon/Vera",
       liveUrl: "https://veraphysics.com",
@@ -34,18 +34,22 @@ class ProjectsSection extends StatelessWidget {
       title: "Integrals buoyancy Simulator",
       description:
           "A C++ based physics simulator using calculus and integrals to simulate a ball's net motion when dropped in a liquid with a customizable density.",
-      technologies: ["C++", "SFML"],
-      githubUrl: "https://github.com/HisMonDon/example-ml-model",
-      imageLinks: ["images/project_images/portfolio_project.png"],
+      technologies: ["C++", "SFML", "CMake", "GLSL"],
+      githubUrl: "https://github.com/HisMonDon/Buoyancy-Simulator",
+      imageLinks: [
+        "images/project_images/buoyancy_project_1.png",
+        "images/project_images/buoyancy_project_2.png",
+      ],
     ),
     Project(
-      title: "Pathfinding Visualizer",
+      title: "The Knight",
       description:
-          "An interactive web application that visualizes pathfinding algorithms like A* and Dijkstra's on a user-definable grid.",
-      technologies: ["JavaScript", "React", "HTML5 Canvas"],
-      githubUrl: "https://github.com/HisMonDon/pathfinding-visualizer",
-      liveUrl: "https://example-pathfinding.com",
-      imageLinks: ["images/project_images/portfolio_project.png"],
+          "2D adventure game, with random world generation, and a battle and currency system. This was my Grade 11 Computer Science CPT, and I finished with a 99.",
+      technologies: ["Python", "Pygame"],
+      imageLinks: [
+        "images/project_images/cpt_project_1.png",
+        "images/project_images/cpt_project_2.png",
+      ],
     ),
   ];
 

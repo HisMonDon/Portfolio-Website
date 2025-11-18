@@ -18,6 +18,13 @@ class _ProjectsImageScrollerState extends State<ProjectsImageScroller> {
   @override
   void initState() {
     super.initState();
+    _pageController.addListener(() {
+      if (_pageController.hasClients && _pageController.page != null) {
+        setState(() {
+          _currentPage = _pageController.page!.round();
+        });
+      }
+    });
   }
 
   @override
@@ -35,28 +42,58 @@ class _ProjectsImageScrollerState extends State<ProjectsImageScroller> {
     }
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 280,
-          child: PageView.builder(
-            controller: _pageController,
-            itemCount: widget.images.length,
-            onPageChanged: (int page) {
-              setState(() {
-                _currentPage = page;
-              });
-            },
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(widget.images[index], fit: BoxFit.cover),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (widget.images.length > 1)
+              _buildArrowButton(
+                icon: Icons.arrow_back_ios_new,
+                onPressed: _currentPage > 0
+                    ? () => _pageController.previousPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.ease,
+                      )
+                    : null,
+              ),
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: 17 / 9,
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: widget.images.length,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          widget.images[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+            if (widget.images.length > 1)
+              _buildArrowButton(
+                icon: Icons.arrow_forward_ios,
+                onPressed: _currentPage < widget.images.length - 1
+                    ? () => _pageController.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.ease,
+                      )
+                    : null,
+              ),
+          ],
         ),
         const SizedBox(height: 12),
         if (widget.images.length > 1)
@@ -67,6 +104,17 @@ class _ProjectsImageScrollerState extends State<ProjectsImageScroller> {
             }),
           ),
       ],
+    );
+  }
+
+  Widget _buildArrowButton({
+    required IconData icon,
+    required VoidCallback? onPressed,
+  }) {
+    return IconButton(
+      icon: Icon(icon, size: 18),
+      onPressed: onPressed,
+      color: onPressed != null ? Theme.of(context).primaryColor : Colors.grey,
     );
   }
 
