@@ -1,65 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
+import 'package:portfolio_website/presentation/widgets/awards_section/contests_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/animated_background.dart';
-import 'package:portfolio_website/core/constants/globals.dart' as globals;
-import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/glow_app_bar.dart';
 import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
 
-class ProjectScreen extends StatefulWidget {
-  const ProjectScreen({Key? key}) : super(key: key);
+class AwardsScreen extends StatefulWidget {
+  const AwardsScreen({Key? key}) : super(key: key);
 
   @override
-  _ProjectScreenState createState() => _ProjectScreenState();
+  _AwardsScreenState createState() => _AwardsScreenState();
 }
 
-class _ProjectScreenState extends State<ProjectScreen> {
-  final ScrollController _scrollController = ScrollController();
-  Timer? _scrollEndTimer;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(_onScroll);
-  }
-
-  void _onScroll() {
-    //print('Scroll offset: ${_scrollController.position.pixels}');
-    _scrollEndTimer?.cancel();
-
-    if (_scrollController.position.userScrollDirection ==
-        ScrollDirection.forward) {
-      //print('Scrolling up');
-      globals.scrollStarPusher = 5;
-    } else if (_scrollController.position.userScrollDirection ==
-        ScrollDirection.reverse) {
-      //print('Scrolling down');
-      globals.scrollStarPusher = -5;
-    }
-
-    _scrollEndTimer = Timer(const Duration(milliseconds: 150), () {
-      globals.scrollStarPusher = 0;
-    });
-  }
-
-  @override
-  void dispose() {
-    _scrollController.removeListener(_onScroll);
-    _scrollController.dispose();
-    _scrollEndTimer?.cancel();
-    super.dispose();
-  }
-
+class _AwardsScreenState extends State<AwardsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //=======================================
-      //appbar
-      //=======================================
       appBar: GlowAppBar(
         toolbarHeight: 69,
-        glowColor: Color.fromARGB(255, 100, 255, 219),
+        glowColor: const Color.fromARGB(255, 255, 215, 0),
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),
           child: Text("Chenyu Lu"),
@@ -89,7 +47,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/projects');
+                  },
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),
               ),
@@ -101,9 +61,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/awards');
-                  },
+                  onTap: () {},
                   child: const Text(
                     "Achievements",
                     style: TextStyle(fontSize: 17),
@@ -127,10 +85,6 @@ class _ProjectScreenState extends State<ProjectScreen> {
           SizedBox(width: 30),
         ],
       ),
-
-      //===============================================================================
-      //BODY
-      //===============================================================================
       body: SizedChanged(
         child: Stack(
           children: [
@@ -140,15 +94,15 @@ class _ProjectScreenState extends State<ProjectScreen> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color.fromARGB(117, 100, 255, 219),
-                    Color.fromARGB(255, 6, 2, 20),
+                    const Color.fromARGB(117, 255, 215, 0),
+                    const Color.fromARGB(255, 6, 2, 20),
                   ],
                   stops: [0.0, 0.25],
                 ),
               ),
             ),
             const AnimatedBackground(),
-            ProjectsSection(),
+            AwardsSection(),
           ],
         ),
       ),

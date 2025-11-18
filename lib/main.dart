@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_website/presentation/screens/awards_screen.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 import 'package:portfolio_website/presentation/screens/project_screen.dart';
 
@@ -22,14 +23,15 @@ class PortfolioApp extends StatelessWidget {
           glowColor: Color.fromARGB(255, 100, 255, 219),
           child: ProjectScreen(),
         ),
-        // '/settings': (context) => const SettingsPage(),
+        '/awards': (context) => const CursorGlow(
+          glowColor: Color.fromARGB(255, 255, 215, 0),
+          child: AwardsScreen(),
+        ),
       },
 
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: _buildTheme(),
-      // home: CursorGlow(appBarHeight: 69, child: const PortfolioScreen()),
-      // PortfolioScreen(), //
     );
   }
 
@@ -67,6 +69,7 @@ class PortfolioApp extends StatelessWidget {
           height: 1.6,
         ),
         bodyMedium: GoogleFonts.poppins(fontSize: 14, color: lightBlue),
+        headlineSmall: GoogleFonts.poppins(fontSize: 18, color: lightBlue),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(

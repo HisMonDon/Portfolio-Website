@@ -108,7 +108,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/awards');
+                  },
                   child: const Text(
                     "Achievements",
                     style: TextStyle(fontSize: 17),
@@ -166,7 +168,6 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                   ),
                   SizedBox(
                     key: aboutMeKey,
-                    height: MediaQuery.of(context).size.height,
                     child: Center(child: AboutMeSection()),
                   ),
                   Footer(homeKey: homeKey, aboutMeKey: aboutMeKey),
