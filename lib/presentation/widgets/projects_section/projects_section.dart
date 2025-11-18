@@ -8,14 +8,6 @@ class ProjectsSection extends StatelessWidget {
 
   final List<Project> projects = [
     Project(
-      title: "Flutter Portfolio Website",
-      description:
-          "A portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background. You're on it right now.",
-      technologies: ["Flutter", "Dart"],
-      githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
-      imageLinks: ["images/project_images/portfolio_project.png"],
-    ),
-    Project(
       title: "Vera",
       description:
           "A cross-platform (Online and Windows) physics platform built for my school's official Physics club with student-taught tutorial videos, login authentication and a video storage feature to save progress.",
@@ -24,11 +16,20 @@ class ProjectsSection extends StatelessWidget {
       liveUrl: "https://veraphysics.com",
       imageLinks: [
         "images/project_images/vera_project_1.png",
+
         "images/project_images/vera_project_2.png",
         "images/project_images/vera_project_3.png",
         "images/project_images/vera_project_4.png",
         "images/project_images/vera_project_5.png",
       ],
+    ),
+    Project(
+      title: "Portfolio Website",
+      description:
+          "A portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background. You're on it right now.",
+      technologies: ["Flutter", "Dart"],
+      githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
+      imageLinks: ["images/project_images/portfolio_project.png"],
     ),
     Project(
       title: "Integrals buoyancy Simulator",
@@ -42,6 +43,19 @@ class ProjectsSection extends StatelessWidget {
       ],
     ),
     Project(
+      title: "Competitive Programming",
+
+      liveUrl: "https://dmoj.ca/user/HisMonDon",
+      githubUrl: "https://github.com/HisMonDon/CCC_Senior",
+      description:
+          "Solved problems on DMOJ, focusing on the CCC contest. Worked with data strucutures, graph theory, and other algorithms. Achieved distinction (top 25%) on CCC Junior.",
+      technologies: ["C++", "Python", "Java"],
+      imageLinks: [
+        "images/project_images/competitive_project_1.png",
+        "images/project_images/competitive_project_2.png",
+      ],
+    ),
+    Project(
       title: "The Knight",
       description:
           "2D adventure game, with random world generation, and a battle and currency system. This was my Grade 11 Computer Science CPT, and I finished with a 99.",
@@ -50,6 +64,12 @@ class ProjectsSection extends StatelessWidget {
         "images/project_images/cpt_project_1.png",
         "images/project_images/cpt_project_2.png",
       ],
+    ),
+    Project(
+      title: "More coming soon!",
+      description: "Stay tuned for more projects coming soon!",
+      technologies: [],
+      imageLinks: ["images/project_images/coming_soon.png"],
     ),
   ];
 
