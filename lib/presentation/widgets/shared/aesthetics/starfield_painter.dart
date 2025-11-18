@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/models/star_model.dart';
+import '../../../../core/models/star_model.dart';
 
 class StarfieldPainter extends CustomPainter {
   final List<Star> stars;

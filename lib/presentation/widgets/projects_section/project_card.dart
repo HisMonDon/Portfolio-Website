@@ -2,13 +2,18 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio_website/presentation/widgets/shared/projects_image_scroller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio_website/core/models/project_model.dart';
 
 class ProjectCard extends StatefulWidget {
   final Project project;
-  final Image image;
-  const ProjectCard({super.key, required this.project, required this.image});
+  final List<String> imageLinks;
+  const ProjectCard({
+    super.key,
+    required this.project,
+    required this.imageLinks,
+  });
 
   @override
   State<ProjectCard> createState() => _ProjectCardState();
@@ -92,7 +97,7 @@ class _ProjectCardState extends State<ProjectCard> {
                       const SizedBox(height: 20),
                       Padding(
                         padding: EdgeInsets.all(15.0),
-                        child: widget.image,
+                        child: ProjectsImageScroller(images: widget.imageLinks),
                       ),
                       Text(
                         widget.project.title,

@@ -13,16 +13,22 @@ class ProjectsSection extends StatelessWidget {
           "A portfolio website built with Flutter Web, showcasing my projects, skills, and experience with a space-themed animated background. You're on it right now.",
       technologies: ["Flutter", "Dart"],
       githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
-      imageLink: "images/project_images/portfolio_project.png",
+      imageLinks: ["images/project_images/portfolio_project.png"],
     ),
     Project(
       title: "Vera",
       description:
-          "An online physics platform built for the St.Robert Physics club with student-taught tutorial videos, with an student authentication and video storage feature to save progress.",
+          "An cross-platform (Online and Windows) physics platform built for the St.Robert Physics club with student-taught tutorial videos, with an student authentication and video storage feature to save progress.",
       technologies: ["Flutter", "Firebase", "Rest API", "Cloudflare"],
       githubUrl: "https://github.com/HisMonDon/Vera",
       liveUrl: "https://veraphysics.com",
-      imageLink: "images/project_images/portfolio_project.png",
+      imageLinks: [
+        "images/project_images/vera_project_1.png",
+        "images/project_images/vera_project_2.png",
+        "images/project_images/vera_project_3.png",
+        "images/project_images/vera_project_4.png",
+        "images/project_images/vera_project_5.png",
+      ],
     ),
     Project(
       title: "Integrals buoyancy Simulator",
@@ -30,7 +36,7 @@ class ProjectsSection extends StatelessWidget {
           "A C++ based physics simulator using calculus and integrals to simulate a ball's net motion when dropped in a liquid with a customizable density.",
       technologies: ["C++", "SFML"],
       githubUrl: "https://github.com/HisMonDon/example-ml-model",
-      imageLink: "images/project_images/portfolio_project.png",
+      imageLinks: ["images/project_images/portfolio_project.png"],
     ),
     Project(
       title: "Pathfinding Visualizer",
@@ -39,7 +45,7 @@ class ProjectsSection extends StatelessWidget {
       technologies: ["JavaScript", "React", "HTML5 Canvas"],
       githubUrl: "https://github.com/HisMonDon/pathfinding-visualizer",
       liveUrl: "https://example-pathfinding.com",
-      imageLink: "images/project_images/portfolio_project.png",
+      imageLinks: ["images/project_images/portfolio_project.png"],
     ),
   ];
 
@@ -116,7 +122,7 @@ class ProjectsSection extends StatelessWidget {
                           ) {
                             return ProjectCard(
                               project: projects[index],
-                              image: Image.asset(projects[index].imageLink),
+                              imageLinks: projects[index].imageLinks,
                             );
                           }, childCount: projects.length),
                         ),

@@ -2,14 +2,14 @@ class Project {
   final String title;
   final String description;
   final List<String> technologies;
-  final String imageLink;
+  final List<String> imageLinks;
   final String? githubUrl;
   final String? liveUrl;
   Project({
     required this.title,
     required this.description,
     required this.technologies,
-    required this.imageLink,
+    required this.imageLinks,
     this.githubUrl,
     this.liveUrl,
   });

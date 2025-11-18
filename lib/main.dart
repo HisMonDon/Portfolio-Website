@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 import 'package:portfolio_website/presentation/screens/project_screen.dart';
 
-import 'package:portfolio_website/presentation/widgets/shared/cursor_glow.dart';
+import 'package:portfolio_website/presentation/widgets/shared/aesthetics/cursor_glow.dart';
 
 void main() {
   runApp(const PortfolioApp());
