@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/presentation/widgets/awards_section/contests_section.dart';
+import 'package:portfolio_website/presentation/widgets/awards_section/extracurriculars_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/animated_background.dart';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/glow_app_bar.dart';
 import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
@@ -86,24 +87,32 @@ class _AwardsScreenState extends State<AwardsScreen> {
         ],
       ),
       body: SizedChanged(
-        child: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    const Color.fromARGB(117, 255, 215, 0),
-                    const Color.fromARGB(255, 6, 2, 20),
-                  ],
-                  stops: [0.0, 0.25],
-                ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          const Color.fromARGB(117, 255, 215, 0),
+                          const Color.fromARGB(255, 6, 2, 20),
+                        ],
+                        stops: [0.0, 0.25],
+                      ),
+                    ),
+                  ),
+                  const AnimatedBackground(),
+                  AwardsSection(),
+                ],
               ),
-            ),
-            const AnimatedBackground(),
-            AwardsSection(),
-          ],
+              SizedBox(height: 20),
+              ExtracurricularsSection(),
+            ],
+          ),
         ),
       ),
     );

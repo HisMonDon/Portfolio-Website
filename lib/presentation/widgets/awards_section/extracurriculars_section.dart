@@ -1,0 +1,165 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:portfolio_website/core/models/project_model.dart';
+import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
+import 'package:portfolio_website/presentation/widgets/shared/projects_image_scroller.dart';
+
+class ExtracurricularsSection extends StatelessWidget {
+  ExtracurricularsSection({super.key});
+
+  final List<Project> extracurriculars = [
+    Project(
+      title: "Physics Club Executive Trainer",
+      description:
+          "Collaborated with other trainers to apply physics concepts into experiments and learning",
+      technologies: [], //im reusing the project model but not used
+      imageLinks: ["images/project_images/vera_project_1.png"],
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              children: [
+                const SizedBox(height: 30),
+                Text(
+                  "Extracurriculars",
+                  style: textTheme.displayLarge?.copyWith(fontSize: 48),
+                ),
+                const SizedBox(height: 60),
+              ],
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 15.0),
+          sliver: SliverGrid(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 450,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+              childAspectRatio: 0.8,
+            ),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => _ExtracurricularsCard(
+                extracurricular: extracurriculars[index],
+              ),
+              childCount: extracurriculars.length,
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Footer(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ExtracurricularsCard extends StatefulWidget {
+  final Project extracurricular;
+
+  const _ExtracurricularsCard({required this.extracurricular});
+
+  @override
+  __ExtracurricularsCardState createState() => __ExtracurricularsCardState();
+}
+
+class __ExtracurricularsCardState extends State<_ExtracurricularsCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final primaryColor = Colors.orangeAccent;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.basic,
+      child: Animate(
+        effects: [
+          FadeEffect(duration: 600.ms, curve: Curves.easeOut),
+          ScaleEffect(
+            begin: const Offset(0.95, 0.95),
+            curve: Curves.easeOutBack,
+          ),
+        ],
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          transform: Matrix4.identity()..scale(_isHovered ? 1.02 : 1.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: _isHovered
+                ? [
+                    BoxShadow(
+                      color: primaryColor.withOpacity(0.4),
+                      blurRadius: 20,
+                      spreadRadius: 2,
+                    ),
+                  ]
+                : [],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.25),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.2),
+                    width: 1.5,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.school_outlined, color: primaryColor, size: 36),
+                    const SizedBox(height: 15),
+                    if (widget.extracurricular.imageLinks.isNotEmpty)
+                      AspectRatio(
+                        aspectRatio: 16 / 9,
+                        child: ProjectsImageScroller(
+                          images: widget.extracurricular.imageLinks,
+                        ),
+                      ),
+                    const Spacer(),
+                    Text(
+                      widget.extracurricular.title,
+                      style: textTheme.titleLarge?.copyWith(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      widget.extracurricular.description,
+                      style: textTheme.bodyMedium,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
