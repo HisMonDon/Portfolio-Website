@@ -8,7 +8,7 @@ import 'package:portfolio_website/presentation/widgets/shared/projects_image_scr
 class ExtracurricularsSection {
   final List<Project> extracurriculars = [
     Project(
-      title: "Physics Club Executive Trainer",
+      title: "St. Robert Physics Club Executive Trainer",
       description:
           "Collaborated with other trainers to apply physics concepts into experiments and learning",
       technologies: [],
@@ -22,32 +22,50 @@ class ExtracurricularsSection {
           "Did one-on-one tutoring with students ranging fron Grades 7-10, helped monitor, tutor, and maintain group classes.",
       technologies: [],
       imageLinks: [
-        "images/extracurricular_images/extracurriculars_physics.png",
+        "images/extracurricular_images/extracurriculars_spirit_of_math.png",
       ],
     ),
     Project(
-      title: "La Silhouette Executive Trainer",
+      title: "St. Robert La Silhouette Executive Trainer",
       description:
-          "Planned and taught lessons for St.Robert's French article writing club",
+          "Planned and taught lessons for St.Robert's French article writing club, promoting French grammar, culture, and creativity.",
       technologies: [],
       imageLinks: [
-        "images/extracurricular_images/extracurriculars_physics.png",
+        "images/extracurricular_images/extracurriculars_la_silhouette.png",
       ],
     ),
     Project(
-      title: "St.Robert STEAM ICAC Executive Trainer",
-      description: "Taught and prepared students for STEAM ICAC",
+      title: "Lakeridge Level 2 Ski Instructor",
+      description:
+          "Taught 7-week-long private courses to intermediate and beginner skiiers ranging from ages 4 - 45. Communicated to parents on progress, and designed activities to help students learn and have fun.",
       technologies: [],
       imageLinks: [
-        "images/extracurricular_images/extracurriculars_physics.png",
+        "images/extracurricular_images/extracurriculars_lakeridge.png",
       ],
     ),
     Project(
-      title: "St.Robert Swim Team",
-      description: "",
+      title: "St. Robert Swim Team and Lifesaving Club of Markham Red Division",
+      description:
+          "Competed at Regional Meets and qualified for YRAA on the St.Robert Swim Team. Learned lifesaving techniques while improving swimming in the Lifesaving Club of Markham, competing at the provincial level.",
       technologies: [],
       imageLinks: [
-        "images/extracurricular_images/extracurriculars_physics.png",
+        "images/extracurricular_images/extracurriculars_swim_team.png",
+      ],
+    ),
+    Project(
+      title: "St. Robert CaYPT Team",
+      description:
+          "Competed and achieved silver (third place in Canada) at the Canadian Young Physics Tournament, calculated and conducted experiments to investigate the wavelength shift from the scattering of light in polystyerene.",
+      technologies: [],
+      imageLinks: ["images/extracurricular_images/extracurriculars_caypt.png"],
+    ),
+    Project(
+      title: "St. Robert STEAM ICAC Executive Trainer",
+      description:
+          "Taught and prepared students for the St.Robert STEAM ICAC team, an annual conference that challenges students to solve real-world issues through STEAM.",
+      technologies: [],
+      imageLinks: [
+        "images/extracurricular_images/extracurriculars_steam_icac.png",
       ],
     ),
   ];
@@ -78,7 +96,7 @@ class ExtracurricularsSection {
             maxCrossAxisExtent: 800,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
-            childAspectRatio: 1.2,
+            childAspectRatio: 1.1,
           ),
           delegate: SliverChildBuilderDelegate(
             (context, index) =>
@@ -112,7 +130,7 @@ class __ExtracurricularsCardState extends State<_ExtracurricularsCard> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final primaryColor = Colors.orangeAccent;
+    final primaryColor = const Color.fromARGB(255, 253, 228, 4);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
@@ -176,7 +194,7 @@ class __ExtracurricularsCardState extends State<_ExtracurricularsCard> {
                         fontSize: 20,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const Spacer(),
                     Text(
                       widget.extracurricular.description,
                       style: textTheme.bodyMedium,
