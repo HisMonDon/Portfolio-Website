@@ -76,6 +76,7 @@ flutter:
     - images/
     - images/contact_icons/
     - images/project_images/
+    - images/extracurricular_images/
    
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -5,65 +5,95 @@ import 'package:portfolio_website/core/models/project_model.dart';
 import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 import 'package:portfolio_website/presentation/widgets/shared/projects_image_scroller.dart';
 
-class ExtracurricularsSection extends StatelessWidget {
-  ExtracurricularsSection({super.key});
-
+class ExtracurricularsSection {
   final List<Project> extracurriculars = [
     Project(
       title: "Physics Club Executive Trainer",
       description:
           "Collaborated with other trainers to apply physics concepts into experiments and learning",
-      technologies: [], //im reusing the project model but not used
-      imageLinks: ["images/project_images/vera_project_1.png"],
+      technologies: [],
+      imageLinks: [
+        "images/extracurricular_images/extracurriculars_physics.png",
+      ],
+    ),
+    Project(
+      title: "Spirit of Math Assistant teacher",
+      description:
+          "Did one-on-one tutoring with students ranging fron Grades 7-10, helped monitor, tutor, and maintain group classes.",
+      technologies: [],
+      imageLinks: [
+        "images/extracurricular_images/extracurriculars_physics.png",
+      ],
+    ),
+    Project(
+      title: "La Silhouette Executive Trainer",
+      description:
+          "Planned and taught lessons for St.Robert's French article writing club",
+      technologies: [],
+      imageLinks: [
+        "images/extracurricular_images/extracurriculars_physics.png",
+      ],
+    ),
+    Project(
+      title: "St.Robert STEAM ICAC Executive Trainer",
+      description: "Taught and prepared students for STEAM ICAC",
+      technologies: [],
+      imageLinks: [
+        "images/extracurricular_images/extracurriculars_physics.png",
+      ],
+    ),
+    Project(
+      title: "St.Robert Swim Team",
+      description: "",
+      technologies: [],
+      imageLinks: [
+        "images/extracurricular_images/extracurriculars_physics.png",
+      ],
     ),
   ];
 
-  @override
-  Widget build(BuildContext context) {
+  List<Widget> buildSlivers(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              children: [
-                const SizedBox(height: 30),
-                Text(
-                  "Extracurriculars",
-                  style: textTheme.displayLarge?.copyWith(fontSize: 48),
-                ),
-                const SizedBox(height: 60),
-              ],
-            ),
-          ),
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 15.0),
-          sliver: SliverGrid(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 450,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              childAspectRatio: 0.8,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => _ExtracurricularsCard(
-                extracurricular: extracurriculars[index],
+    return [
+      SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              Text(
+                "Extracurriculars",
+                style: textTheme.displayLarge?.copyWith(fontSize: 48),
               ),
-              childCount: extracurriculars.length,
-            ),
+              const SizedBox(height: 60),
+            ],
           ),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Footer(),
+      ),
+      SliverPadding(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 15.0),
+        sliver: SliverGrid(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 800,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+            childAspectRatio: 1.2,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            (context, index) =>
+                _ExtracurricularsCard(extracurricular: extracurriculars[index]),
+            childCount: extracurriculars.length,
           ),
         ),
-      ],
-    );
+      ),
+      SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Footer(),
+        ),
+      ),
+    ];
   }
 }
 

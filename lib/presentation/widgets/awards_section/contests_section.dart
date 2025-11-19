@@ -1,12 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/models/awards_model.dart';
 import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 
-class AwardsSection extends StatelessWidget {
-  AwardsSection({super.key});
-
+class AwardsSection {
   final List<Award> awards = [
     Award(
       name: 'CaYPT (Canadian Young Physics Tournament)',
@@ -17,7 +14,6 @@ class AwardsSection extends StatelessWidget {
     Award(name: 'AP Chemistry', year: '2025', description: 'Score of 5'),
     Award(name: 'AP Computer Science', year: '2025', description: 'Score of 5'),
     Award(name: 'OAPT Physics Contest', year: '2025', description: 'Top 10%'),
-
     Award(
       name: 'CEMC Galois Contest',
       year: '2025',
@@ -55,57 +51,48 @@ class AwardsSection extends StatelessWidget {
     ),
   ];
 
-  @override
-  Widget build(BuildContext context) {
+  List<Widget> buildSlivers(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              children: [
-                const SizedBox(height: 30),
-                Text(
-                  "Awards & Achievements",
-                  style: textTheme.displayLarge?.copyWith(fontSize: 48),
+    return [
+      SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              Text(
+                "Awards & Achievements",
+                style: textTheme.displayLarge?.copyWith(fontSize: 48),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                "A collection of my competitive and professional achievements.",
+                style: textTheme.headlineSmall?.copyWith(
+                  color: const Color(0xFFFFD700),
                 ),
-                const SizedBox(height: 20),
-                Text(
-                  "A collection of my competitive and professional achievements.",
-                  style: textTheme.headlineSmall?.copyWith(
-                    color: const Color(0xFFFFD700), // Gold
-                  ),
-                ),
-                const SizedBox(height: 60),
-              ],
-            ),
+              ),
+              const SizedBox(height: 60),
+            ],
           ),
         ),
-        SliverPadding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 15.0),
-          sliver: SliverGrid(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 500,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              childAspectRatio: 2.5,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => _buildAwardCard(awards[index], context),
-              childCount: awards.length,
-            ),
+      ),
+      SliverPadding(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 15.0),
+        sliver: SliverGrid(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 500,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+            childAspectRatio: 2.5,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => _buildAwardCard(awards[index], context),
+            childCount: awards.length,
           ),
         ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Footer(),
-          ),
-        ),
-      ],
-    );
+      ),
+    ];
   }
 
   Widget _buildAwardCard(Award award, BuildContext context) {

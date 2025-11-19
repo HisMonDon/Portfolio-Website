@@ -13,6 +13,10 @@ class AwardsScreen extends StatefulWidget {
 }
 
 class _AwardsScreenState extends State<AwardsScreen> {
+  final AwardsSection awardsSection = AwardsSection();
+  final ExtracurricularsSection extracurricularsSection =
+      ExtracurricularsSection();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,32 +91,30 @@ class _AwardsScreenState extends State<AwardsScreen> {
         ],
       ),
       body: SizedChanged(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          const Color.fromARGB(117, 255, 215, 0),
-                          const Color.fromARGB(255, 6, 2, 20),
-                        ],
-                        stops: [0.0, 0.25],
-                      ),
-                    ),
-                  ),
-                  const AnimatedBackground(),
-                  AwardsSection(),
-                ],
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    const Color.fromARGB(117, 255, 215, 0),
+                    const Color.fromARGB(255, 6, 2, 20),
+                  ],
+                  stops: [0.0, 0.25],
+                ),
               ),
-              SizedBox(height: 20),
-              ExtracurricularsSection(),
-            ],
-          ),
+            ),
+            const AnimatedBackground(),
+            CustomScrollView(
+              slivers: [
+                ...awardsSection.buildSlivers(context),
+                SliverToBoxAdapter(child: const SizedBox(height: 40)),
+                ...extracurricularsSection.buildSlivers(context),
+              ],
+            ),
+          ],
         ),
       ),
     );
