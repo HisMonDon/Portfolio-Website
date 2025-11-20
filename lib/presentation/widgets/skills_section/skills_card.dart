@@ -73,7 +73,7 @@ class _SkillsCardState extends State<SkillsCard> {
                   children: [
                     Image.asset(widget.skill.imageUrl),
 
-                    const SizedBox(height: 10),
+                    const SizedBox(width: 10),
                     Text(
                       widget.skill.name,
                       style: textTheme.titleLarge?.copyWith(
