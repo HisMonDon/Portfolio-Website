@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
@@ -22,7 +21,7 @@ jobs:
           channel: 'stable'
 
       - name: Build Web
-        run: flutter build web --release --base-href /Portfolio-Website/
+        run: flutter build web --release --no-csp
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
