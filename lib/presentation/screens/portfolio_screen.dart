@@ -125,7 +125,9 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/skills');
+                  },
                   child: const Text("Skills", style: TextStyle(fontSize: 17)),
                 ),
               ),

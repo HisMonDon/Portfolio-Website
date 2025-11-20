@@ -6,15 +6,16 @@ import 'package:portfolio_website/core/constants/globals.dart' as globals;
 import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/glow_app_bar.dart';
 import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
+import 'package:portfolio_website/presentation/widgets/skills_section/skill_section.dart';
 
-class ProjectScreen extends StatefulWidget {
-  const ProjectScreen({Key? key}) : super(key: key);
+class SkillsScreen extends StatefulWidget {
+  const SkillsScreen({Key? key}) : super(key: key);
 
   @override
-  _ProjectScreenState createState() => _ProjectScreenState();
+  _SkillsScreenState createState() => _SkillsScreenState();
 }
 
-class _ProjectScreenState extends State<ProjectScreen> {
+class _SkillsScreenState extends State<SkillsScreen> {
   final ScrollController _scrollController = ScrollController();
   Timer? _scrollEndTimer;
 
@@ -89,7 +90,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/projects');
+                  },
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),
               ),
@@ -118,9 +121,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/skills');
-                  },
+                  onTap: () {},
                   child: const Text("Skills", style: TextStyle(fontSize: 17)),
                 ),
               ),
@@ -150,7 +151,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
               ),
             ),
             const AnimatedBackground(),
-            ProjectsSection(),
+            SkillSection(),
           ],
         ),
       ),

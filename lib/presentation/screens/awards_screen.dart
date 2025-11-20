@@ -187,7 +187,9 @@ class _AwardsScreenState extends State<AwardsScreen> {
             () => Navigator.pushNamed(context, '/projects'),
           ),
           _buildAppBarAction("Achievements", () {}),
-          _buildAppBarAction("Skills", () {}),
+          _buildAppBarAction("Skills", () {
+            Navigator.pushNamed(context, '/skills');
+          }),
           const SizedBox(width: 30),
         ],
       ),

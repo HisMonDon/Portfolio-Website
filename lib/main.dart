@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/presentation/screens/awards_screen.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 import 'package:portfolio_website/presentation/screens/project_screen.dart';
+import 'package:portfolio_website/presentation/screens/skills_screen.dart';
 
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/cursor_glow.dart';
 
@@ -26,6 +27,10 @@ class PortfolioApp extends StatelessWidget {
         '/awards': (context) => const CursorGlow(
           glowColor: Color.fromARGB(255, 255, 215, 0),
           child: AwardsScreen(),
+        ),
+        '/skills': (context) => const CursorGlow(
+          glowColor: Color.fromARGB(255, 46, 0, 83),
+          child: SkillsScreen(),
         ),
       },
 
