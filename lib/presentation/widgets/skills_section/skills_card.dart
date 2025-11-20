@@ -1,9 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_website/core/models/skills_model.dart';
-import 'package:portfolio_website/presentation/widgets/shared/projects_image_scroller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio_website/core/models/project_model.dart';
 
@@ -30,7 +28,10 @@ class _SkillsCardState extends State<SkillsCard> {
       child: Animate(
         effects: [
           FadeEffect(duration: 600.ms, curve: Curves.easeOut),
-          ScaleEffect(begin: Offset(0.95, 0.95), curve: Curves.easeOutBack),
+          ScaleEffect(
+            begin: const Offset(0.95, 0.95),
+            curve: Curves.easeOutBack,
+          ),
         ],
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
@@ -53,11 +54,9 @@ class _SkillsCardState extends State<SkillsCard> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Container(
-                padding: const EdgeInsets.only(
-                  left: 24,
-                  right: 24,
-                  bottom: 12,
-                  top: 12,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.25),
@@ -68,19 +67,36 @@ class _SkillsCardState extends State<SkillsCard> {
                   ),
                 ),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset(widget.skill.imageUrl),
-
-                    const SizedBox(width: 10),
-                    Text(
-                      widget.skill.name,
-                      style: textTheme.titleLarge?.copyWith(
-                        color: Colors.white,
-                      ),
+                    SizedBox(
+                      height: 40,
+                      width: 40,
+                      child: Image.asset(widget.skill.imageUrl),
                     ),
-                    Spacer(),
+                    const SizedBox(width: 12),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.skill.name,
+                          style: textTheme.titleLarge?.copyWith(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(height: 3),
+                        Text(
+                          widget.skill.time,
+                          style: textTheme.titleMedium?.copyWith(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

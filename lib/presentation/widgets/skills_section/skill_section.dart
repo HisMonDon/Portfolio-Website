@@ -10,6 +10,42 @@ class SkillSection extends StatelessWidget {
     Skills(
       name: "Flutter",
       imageUrl: "images/skill_icons/flutter_icon_skills.png",
+      time: "1 Year",
+    ),
+    Skills(
+      name: "Dart",
+      imageUrl: "images/skill_icons/dart_icon_skills.png",
+      time: "1 Year",
+    ),
+    Skills(
+      name: "C++",
+      imageUrl: "images/skill_icons/cpp_icon_skills.png",
+      time: "2 Years",
+    ),
+    Skills(
+      name: "Python",
+      imageUrl: "images/skill_icons/python_icon_skills.png",
+      time: "4 Years",
+    ),
+    Skills(
+      name: "Java",
+      imageUrl: "images/skill_icons/java_icon_skills.png",
+      time: "2 Years",
+    ),
+    Skills(
+      name: "Git",
+      imageUrl: "images/skill_icons/git_icon_skills.png",
+      time: "2 Years",
+    ),
+    Skills(
+      name: "SFML",
+      imageUrl: "images/skill_icons/sfml_icon_skills.png",
+      time: "2 Years",
+    ),
+    Skills(
+      name: "VS Code",
+      imageUrl: "images/skill_icons/vscode_icon_skills.png",
+      time: "4 Years",
     ),
   ];
 
@@ -39,60 +75,73 @@ class SkillSection extends StatelessWidget {
                     crossAxisCount = 1;
                   }
 
-                  return CustomScrollView(
-                    slivers: [
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Column(
-                            children: [
-                              SizedBox(height: 30),
-                              Text(
-                                "Technical Skills",
-                                style: textTheme.displayLarge?.copyWith(
-                                  fontSize: 48,
+                  return Container(
+                    width: double.infinity,
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        int crossAxisCount = 3;
+                        if (constraints.maxWidth < 1200) crossAxisCount = 2;
+                        if (constraints.maxWidth < 800) crossAxisCount = 1;
+
+                        return CustomScrollView(
+                          slivers: [
+                            SliverToBoxAdapter(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0,
+                                ),
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 30),
+                                    Text(
+                                      "Technical Skills",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge
+                                          ?.copyWith(fontSize: 48),
+                                    ),
+                                    const SizedBox(height: 60),
+                                  ],
                                 ),
                               ),
-                              const SizedBox(height: 60),
-                            ],
-                          ),
-                        ),
-                      ),
-
-                      SliverPadding(
-                        padding: const EdgeInsets.only(
-                          left: 16.0,
-                          right: 16.0,
-                          bottom: 15.0,
-                        ),
-                        sliver: SliverGrid(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: crossAxisCount,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                childAspectRatio: 1.0,
+                            ),
+                            SliverPadding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 0,
                               ),
-                          delegate: SliverChildBuilderDelegate((
-                            context,
-                            index,
-                          ) {
-                            return SkillsCard(skill: skills[index]);
-                          }, childCount: skills.length),
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Footer(),
-                        ),
-                      ),
-                    ],
+                              sliver: SliverGrid(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: crossAxisCount,
+                                      crossAxisSpacing: 20,
+                                      mainAxisSpacing: 20,
+                                      childAspectRatio: 4.0,
+                                    ),
+                                delegate: SliverChildBuilderDelegate((
+                                  context,
+                                  index,
+                                ) {
+                                  return SkillsCard(skill: skills[index]);
+                                }, childCount: skills.length),
+                              ),
+                            ),
+                            SliverFillRemaining(
+                              hasScrollBody: false,
+                              fillOverscroll: true,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [Footer()],
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
                   );
                 },
               ),
             ),
-            SizedBox(height: 20),
           ],
         ),
       ),

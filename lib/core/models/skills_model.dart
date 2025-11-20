@@ -1,5 +1,6 @@
 class Skills {
   final String name;
   final String imageUrl;
-  Skills({required this.name, required this.imageUrl});
+  final String time;
+  Skills({required this.name, required this.imageUrl, required this.time});
 }

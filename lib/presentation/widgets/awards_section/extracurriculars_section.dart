@@ -105,12 +105,6 @@ class ExtracurricularsSection {
           ),
         ),
       ),
-      SliverToBoxAdapter(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Footer(),
-        ),
-      ),
     ];
   }
 }
