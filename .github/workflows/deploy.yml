@@ -21,8 +21,12 @@ jobs:
           channel: 'stable'
 
       - name: Build Web
-        run: flutter build web --release --no-csp
+        run: flutter build web --release
 
+      - name: Remove restrictive CSP
+        run: |
+          sed -i '/<meta http-equiv="Content-Security-Policy" content="default-src '\''none'\''">/d' build/web/index.html
+          
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
