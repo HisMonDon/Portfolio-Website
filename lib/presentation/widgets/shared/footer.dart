@@ -43,11 +43,9 @@ class Footer extends StatelessWidget {
               ),
               _buildFooterLink(
                 context,
-                "About",
+                "Contact",
                 onPressed: () {
-                  if (aboutMeKey != null) {
-                    scrollToSection(aboutMeKey!);
-                  }
+                  Navigator.pushNamed(context, '/');
                 },
               ),
             ],

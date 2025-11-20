@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 class ContactBar extends StatelessWidget {
   const ContactBar({super.key});
@@ -15,14 +16,8 @@ class ContactBar extends StatelessWidget {
     }
   }
 
-  void sendEmail() async {
-    final Uri emailUri = Uri(scheme: 'mailto', path: 'eric.luchenyu@gmail.com');
-
-    if (await canLaunchUrl(emailUri)) {
-      await launchUrl(emailUri);
-    } else {
-      throw 'Could not launch email';
-    }
+  void sendEmail() {
+    html.window.open('mailto:eric.luchenyu@gmail.com', '_blank');
   }
 
   Widget build(BuildContext context) {
