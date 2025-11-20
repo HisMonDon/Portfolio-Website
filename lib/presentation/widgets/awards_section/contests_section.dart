@@ -1,58 +1,16 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/models/awards_model.dart';
-import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 
 class AwardsSection {
-  final List<Award> awards = [
-    Award(
-      name: 'CaYPT (Canadian Young Physics Tournament)',
-      year: '2025',
-      description: 'Silver Medalist in Canada',
-    ),
-    Award(name: 'AP Physics 1', year: '2025', description: 'Score of 5'),
-    Award(name: 'AP Chemistry', year: '2025', description: 'Score of 5'),
-    Award(name: 'AP Computer Science', year: '2025', description: 'Score of 5'),
-    Award(name: 'OAPT Physics Contest', year: '2025', description: 'Top 10%'),
-    Award(
-      name: 'CEMC Galois Contest',
-      year: '2025',
-      description: 'Distinction (Top 25%)',
-    ),
-    Award(
-      name: 'CEMC Fermat Contest',
-      year: '2025',
-      description: 'Distinction (Top 25%)',
-    ),
-    Award(
-      name: 'Canadian Intermediate Mathematics Contest (CIMC)',
-      year: '2024',
-      description: 'Honor Roll (< Top 2%)',
-    ),
-    Award(
-      name: 'Canadian Computing Contest Junior',
-      year: '2024',
-      description: 'Distinction (Top 25%)',
-    ),
-    Award(
-      name: 'CEMC Fryer Contest',
-      year: '2023',
-      description: 'Distinction (Top 25%)',
-    ),
-    Award(
-      name: 'CEMC Cayley Contest',
-      year: '2023',
-      description: 'Distinction (Top 25%)',
-    ),
-    Award(
-      name: 'Canadian Intermediate Mathematics Contest (CIMC)',
-      year: '2023',
-      description: 'Distinction (Top 25%)',
-    ),
-  ];
-
-  List<Widget> buildSlivers(BuildContext context) {
+  List<Widget> buildSlivers({
+    required BuildContext context,
+    required String currentSortOption,
+    required List<Award> awards,
+    required ValueChanged<String?> onSortChanged,
+  }) {
     final textTheme = Theme.of(context).textTheme;
+    final awardsGlowColor = const Color(0xFFFFD700);
 
     return [
       SliverToBoxAdapter(
@@ -69,16 +27,38 @@ class AwardsSection {
               Text(
                 "A collection of my competitive and professional achievements.",
                 style: textTheme.headlineSmall?.copyWith(
-                  color: const Color(0xFFFFD700),
+                  color: awardsGlowColor,
                 ),
               ),
               const SizedBox(height: 60),
+              Align(
+                alignment: Alignment.topRight,
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    value: currentSortOption,
+                    items: <String>['Relevance', 'Date']
+                        .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        })
+                        .toList(),
+                    onChanged: onSortChanged,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
       SliverPadding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 15.0),
+        padding: const EdgeInsets.only(
+          left: 16.0,
+          right: 16.0,
+          bottom: 15.0,
+          top: 20.0,
+        ),
         sliver: SliverGrid(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 500,
@@ -115,9 +95,9 @@ class AwardsSection {
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.emoji_events_outlined,
-                      color: const Color(0xFFFFD700),
+                      color: Color.fromARGB(255, 248, 211, 1),
                       size: 28,
                     ),
                     const SizedBox(width: 16),
