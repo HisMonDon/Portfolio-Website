@@ -1,44 +1,31 @@
-# Name of your workflow
-name: Build and Deploy Flutter Web App
+name: Deploy to GitHub Pages
 
-# This workflow runs on any push to the main branch
+# Run this workflow on pushes to the main branch
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_and_deploy:
-    # Add this permissions block to grant write access
-    permissions:
-      contents: write
-      
-    # The type of runner that the job will run on
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # Step 2: Sets up the Flutter SDK for building the app
-      - name: Set up Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          # Use the 'beta' channel to get a newer Dart SDK
-          channel: 'beta'
+          channel: 'stable'
 
-      # Step 3: Gets all the dependencies for your Flutter project
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Build Web
+        # This command builds the app and sets the base href
+        # to match your repository name, which is crucial for GitHub Pages
+        run: flutter build web --release --base-href /Portfolio-Website/
 
-      # Step 4: Builds the Flutter web app for release
-      - name: Build Flutter web
-        run: flutter build web --release --base-href /portfolioWebsite/
-
-      # Step 5: Deploys the built app to the 'gh-pages' branch
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # This is the directory that Flutter builds the web app into
           publish_dir: ./build/web
