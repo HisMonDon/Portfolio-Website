@@ -1,6 +1,5 @@
 name: Deploy to GitHub Pages
 
-# Run this workflow on pushes to the main branch
 on:
   push:
     branches:
@@ -9,6 +8,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,13 +22,10 @@ jobs:
           channel: 'stable'
 
       - name: Build Web
-        # This command builds the app and sets the base href
-        # to match your repository name, which is crucial for GitHub Pages
         run: flutter build web --release --base-href /Portfolio-Website/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # This is the directory that Flutter builds the web app into
           publish_dir: ./build/web
