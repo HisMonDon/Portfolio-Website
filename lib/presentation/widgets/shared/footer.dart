@@ -26,11 +26,7 @@ class Footer extends StatelessWidget {
                   if (homeKey != null) {
                     scrollToSection(homeKey!);
                   } else {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      '/',
-                      (route) => false,
-                    );
+                    Navigator.pushReplacementNamed(context, '/');
                   }
                 },
               ),
@@ -38,14 +34,14 @@ class Footer extends StatelessWidget {
                 context,
                 "Projects",
                 onPressed: () {
-                  Navigator.pushNamed(context, '/projects');
+                  Navigator.pushReplacementNamed(context, '/projects');
                 },
               ),
               _buildFooterLink(
                 context,
                 "Contact",
                 onPressed: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushReplacementNamed(context, '/');
                 },
               ),
             ],

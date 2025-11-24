@@ -95,7 +95,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/projects');
+                    Navigator.pushReplacementNamed(context, '/projects');
                   },
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),
@@ -109,7 +109,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/awards');
+                    Navigator.pushReplacementNamed(context, '/awards');
                   },
                   child: const Text(
                     "Achievements",
@@ -126,7 +126,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/skills');
+                    Navigator.pushReplacementNamed(context, '/skills');
                   },
                   child: const Text("Skills", style: TextStyle(fontSize: 17)),
                 ),

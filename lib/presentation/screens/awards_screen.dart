@@ -176,19 +176,15 @@ class _AwardsScreenState extends State<AwardsScreen> {
         actions: [
           _buildAppBarAction(
             "Home",
-            () => Navigator.pushNamedAndRemoveUntil(
-              context,
-              '/',
-              (route) => false,
-            ),
+            () => Navigator.pushReplacementNamed(context, '/'),
           ),
           _buildAppBarAction(
             "Projects",
-            () => Navigator.pushNamed(context, '/projects'),
+            () => Navigator.pushReplacementNamed(context, '/projects'),
           ),
           _buildAppBarAction("Achievements", () {}),
           _buildAppBarAction("Skills", () {
-            Navigator.pushNamed(context, '/skills');
+            Navigator.pushReplacementNamed(context, '/skills');
           }),
           const SizedBox(width: 30),
         ],

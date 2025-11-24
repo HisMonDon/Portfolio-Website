@@ -59,7 +59,7 @@ class _SkillsScreenState extends State<SkillsScreen> {
       //=======================================
       appBar: GlowAppBar(
         toolbarHeight: 69,
-        glowColor: Color.fromARGB(255, 100, 255, 219),
+        glowColor: Color.fromARGB(255, 255, 100, 100),
         title: Padding(
           padding: const EdgeInsets.only(left: 20.0),
           child: Text("Chenyu Lu"),
@@ -72,11 +72,7 @@ class _SkillsScreenState extends State<SkillsScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      '/',
-                      (route) => false,
-                    );
+                    Navigator.pushReplacementNamed(context, '/');
                   },
                   child: const Text("Home", style: TextStyle(fontSize: 17)),
                 ),
@@ -90,7 +86,7 @@ class _SkillsScreenState extends State<SkillsScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/projects');
+                    Navigator.pushReplacementNamed(context, '/projects');
                   },
                   child: const Text("Projects", style: TextStyle(fontSize: 17)),
                 ),
@@ -104,7 +100,7 @@ class _SkillsScreenState extends State<SkillsScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/awards');
+                    Navigator.pushReplacementNamed(context, '/awards');
                   },
                   child: const Text(
                     "Achievements",

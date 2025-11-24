@@ -72,11 +72,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      '/',
-                      (route) => false,
-                    );
+                    Navigator.pushReplacementNamed(context, '/');
                   },
                   child: const Text("Home", style: TextStyle(fontSize: 17)),
                 ),
@@ -102,7 +98,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/awards');
+                    Navigator.pushReplacementNamed(context, '/awards');
                   },
                   child: const Text(
                     "Achievements",
@@ -119,7 +115,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/skills');
+                    Navigator.pushReplacementNamed(context, '/skills');
                   },
                   child: const Text("Skills", style: TextStyle(fontSize: 17)),
                 ),
