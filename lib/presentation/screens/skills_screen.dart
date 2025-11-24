@@ -138,7 +138,7 @@ class _SkillsScreenState extends State<SkillsScreen> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color.fromARGB(117, 100, 255, 219),
+                    Color.fromARGB(123, 255, 100, 100),
                     Color.fromARGB(255, 6, 2, 20),
                   ],
                   stops: [0.0, 0.25],
