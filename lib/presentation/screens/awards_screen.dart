@@ -30,6 +30,11 @@ class _AwardsScreenState extends State<AwardsScreen> {
   // Award lists are now stored here
   final List<Award> _dateSortedAwards = [
     Award(
+      name: 'Canadian Senior Mathematics Contest (CIMC)',
+      year: '2024',
+      description: 'Distinction',
+    ),
+    Award(
       name: 'CaYPT (Canadian Young Physics Tournament)',
       year: '2025',
       description: 'Silver Medalist in Canada',
@@ -93,6 +98,11 @@ class _AwardsScreenState extends State<AwardsScreen> {
       name: 'Canadian Computing Contest Junior',
       year: '2024',
       description: 'Distinction (Top 25%)',
+    ),
+    Award(
+      name: 'Canadian Senior Mathematics Contest (CIMC)',
+      year: '2024',
+      description: 'Distinction',
     ),
     Award(name: 'OAPT Physics Contest', year: '2025', description: 'Top 10%'),
     Award(
