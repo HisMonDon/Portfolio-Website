@@ -54,7 +54,7 @@ class AboutMeSection extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                ". \n\nI'm an high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\n",
+                                ". \n\nI'm a high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\n",
                           ),
                           TextSpan(
                             text:

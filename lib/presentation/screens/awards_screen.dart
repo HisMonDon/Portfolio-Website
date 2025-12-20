@@ -20,14 +20,14 @@ class _AwardsScreenState extends State<AwardsScreen> {
   final ScrollController _scrollController = ScrollController();
   Timer? _scrollEndTimer;
 
-  // State for sorting is now managed here
+  // state for sorting is now managed here
   String _currentSortOption = 'Relevance';
   late List<Award> _mainAwards;
 
   final _awardsSection = AwardsSection();
   final _extracurricularsSection = ExtracurricularsSection();
 
-  // Award lists are now stored here
+  // award lists are now stored here
   final List<Award> _dateSortedAwards = [
     Award(
       name: 'Canadian Senior Mathematics Contest (CIMC)',
