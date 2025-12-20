@@ -18,22 +18,36 @@ class PortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      routes: {
-        '/': (context) => const CursorGlow(child: PortfolioScreen()),
-        '/projects': (context) => const CursorGlow(
-          glowColor: Color.fromARGB(255, 100, 255, 219),
-          child: ProjectScreen(),
-        ),
-        '/awards': (context) => const CursorGlow(
-          glowColor: Color.fromARGB(255, 255, 215, 0),
-          child: AwardsScreen(),
-        ),
-        '/skills': (context) => const CursorGlow(
-          glowColor: Color.fromARGB(255, 46, 0, 83),
-          child: SkillsScreen(),
-        ),
-      },
+      onGenerateRoute: (settings) {
+        Widget page;
+        Color? glowColor;
 
+        switch (settings.name) {
+          case '/projects':
+            page = const ProjectScreen();
+            glowColor = const Color.fromARGB(255, 100, 255, 219);
+            break;
+          case '/awards':
+            page = const AwardsScreen();
+            glowColor = const Color.fromARGB(255, 255, 215, 0);
+            break;
+          case '/skills':
+            page = const SkillsScreen();
+            glowColor = const Color.fromARGB(255, 46, 0, 83);
+            break;
+          case '/':
+          default:
+            page = const PortfolioScreen();
+            glowColor = null;
+        }
+
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              CursorGlow(child: page, glowColor: glowColor),
+          transitionDuration: Duration.zero,
+          reverseTransitionDuration: Duration.zero,
+        );
+      },
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: _buildTheme(),
@@ -78,26 +92,24 @@ class PortfolioApp extends StatelessWidget {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          mouseCursor: WidgetStateProperty.all(SystemMouseCursors.click),
-          backgroundColor: WidgetStateProperty.all(Colors.transparent),
-          foregroundColor: WidgetStateProperty.all(electricBlue),
-          shape: WidgetStateProperty.all(
+          mouseCursor: MaterialStateProperty.all(SystemMouseCursors.click),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          foregroundColor: MaterialStateProperty.all(electricBlue),
+          shape: MaterialStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
           ),
-          side: WidgetStateProperty.all(
+          side: MaterialStateProperty.all(
             BorderSide(color: electricBlue, width: 1.5),
           ),
-          padding: WidgetStateProperty.all(
+          padding: MaterialStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           ),
-          textStyle: WidgetStateProperty.all(
+          textStyle: MaterialStateProperty.all(
             GoogleFonts.poppins(fontWeight: FontWeight.w500),
           ),
-          overlayColor: WidgetStateProperty.resolveWith<Color?>((
-            Set<WidgetState> states,
-          ) {
-            if (states.contains(WidgetState.hovered) ||
-                states.contains(WidgetState.pressed)) {
+          overlayColor: MaterialStateProperty.resolveWith((Set states) {
+            if (states.contains(MaterialState.hovered) ||
+                states.contains(MaterialState.pressed)) {
               return const Color.fromARGB(237, 20, 205, 238);
             }
             return null;
