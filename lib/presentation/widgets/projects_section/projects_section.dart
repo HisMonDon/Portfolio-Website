@@ -13,7 +13,7 @@ class ProjectsSection extends StatelessWidget {
           "A cross-platform (Online and Windows) physics platform built for my school's official Physics club with student-taught tutorial videos, login authentication and a video storage feature to save progress.",
       technologies: ["Flutter", "Firebase", "Rest API", "Cloudflare"],
       githubUrl: "https://github.com/HisMonDon/Vera",
-      liveUrl: "https://veraphysics.com",
+      liveUrl: "https://veraphysics.com/about",
       imageLinks: [
         "images/project_images/vera_project_1.png",
 
