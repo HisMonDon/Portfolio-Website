@@ -8,6 +8,11 @@ class SkillSection extends StatelessWidget {
 
   final List<Skills> skills = [
     Skills(
+      name: "React",
+      imageUrl: "images/skill_icons/react_icon_skills.png",
+      time: "1 Year",
+    ),
+    Skills(
       name: "Flutter",
       imageUrl: "images/skill_icons/flutter_icon_skills.png",
       time: "1 Year",
