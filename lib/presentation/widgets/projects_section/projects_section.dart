@@ -32,6 +32,14 @@ class ProjectsSection extends StatelessWidget {
       imageLinks: ["images/project_images/portfolio_project.png"],
     ),
     Project(
+      title: "Pocket Pilot",
+      description:
+          "A mobile app that analyzes recipts and provides insights on spending habits, built with React Native, Firestore, Gemini API, and Cloudinary.",
+      technologies: ["React Native", "Firebase", "Gemini API", "Cloudinary"],
+      githubUrl: "https://github.com/justinnova0915/hack-canada-2026",
+      imageLinks: ["images/project_images/pocket_pilot_project.png"],
+    ),
+    Project(
       title: "Integrals buoyancy Simulator",
       description:
           "A C++ based physics simulator using calculus and integrals to simulate a ball's net motion when dropped in a liquid with a customizable density.",
@@ -48,7 +56,7 @@ class ProjectsSection extends StatelessWidget {
       liveUrl: "https://dmoj.ca/user/HisMonDon",
       githubUrl: "https://github.com/HisMonDon/CCC_Senior",
       description:
-          "Solved problems on DMOJ, focusing on the CCC contest. Worked with data strucutures, graph theory, and other algorithms. Achieved distinction (top 25%) on CCC Junior.",
+          "Solved problems on DMOJ, focusing on the CCC contest. Worked with data strucutures, graph theory, and other algorithms. Achieved distinction (top 25%) on CCC Senior 2026.",
       technologies: ["C++", "Python", "Java"],
       imageLinks: [
         "images/project_images/competitive_project_1.png",
