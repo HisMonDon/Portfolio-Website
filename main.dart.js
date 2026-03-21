@@ -72353,7 +72353,7 @@ k.delete()}},
 iK(a){return!0}}
 A.n4.prototype={
 J(a){var s=this,r=null,q=A.aq(51,B.k.u()>>>16&255,B.k.u()>>>8&255,B.k.u()&255),p=t.p,o=A.hV(A.c([s.xs(a,"Home",new A.Yr(s,a)),s.xs(a,"Projects",new A.Ys(a)),s.xs(a,"Contact",new A.Yt(a))],p),B.O,B.bg,B.S),n=A.a6(a).ok.y
-return A.cD(r,A.e9(A.c([o,B.fP,A.cI("\xa9 2025 Chenyu Lu. All Rights Reserved.",r,r,r,r,r,r,r,A.tC().$2$color$fontSize(n==null?r:n.b,14),r,r,r)],p),B.O,B.bg,B.S),B.o,q,r,r,r,r,r,B.BJ,r,r,r)},
+return A.cD(r,A.e9(A.c([o,B.fP,A.cI("\xa9 2026 Chenyu Lu. All Rights Reserved.",r,r,r,r,r,r,r,A.tC().$2$color$fontSize(n==null?r:n.b,14),r,r,r)],p),B.O,B.bg,B.S),B.o,q,r,r,r,r,r,B.BJ,r,r,r)},
 xs(a,b,c){var s,r=null,q=A.a6(a).ok.y
 q=q==null?r:q.b
 s=A.tC().$1$fontSize(16)
