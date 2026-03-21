@@ -48,7 +48,7 @@ class Footer extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            "© 2025 Chenyu Lu. All Rights Reserved.",
+            "© 2026 Chenyu Lu. All Rights Reserved.",
             style: GoogleFonts.poppins(
               color: Theme.of(context).textTheme.bodyLarge?.color,
               fontSize: 14,
