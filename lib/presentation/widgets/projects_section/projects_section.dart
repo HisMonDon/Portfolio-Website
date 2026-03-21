@@ -37,7 +37,12 @@ class ProjectsSection extends StatelessWidget {
           "A mobile app that analyzes recipts and provides insights on spending habits, built with React Native, Firestore, Gemini API, and Cloudinary.",
       technologies: ["React Native", "Firebase", "Gemini API", "Cloudinary"],
       githubUrl: "https://github.com/justinnova0915/hack-canada-2026",
-      imageLinks: ["images/project_images/pocket_pilot_project.png"],
+      imageLinks: [
+        "images/project_images/pocketpilot_project_1.png",
+        "images/project_images/pocketpilot_project_2.png",
+        "images/project_images/pocketpilot_project_3.png",
+      ],
+      liveUrl: "https://devpost.com/software/pocketpilot-gi9m3v",
     ),
     Project(
       title: "Integrals buoyancy Simulator",
