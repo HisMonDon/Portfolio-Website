@@ -38,6 +38,7 @@ class ProjectsSection extends StatelessWidget {
       technologies: ["React Native", "Firebase", "Gemini API", "Cloudinary"],
       githubUrl: "https://github.com/justinnova0915/hack-canada-2026",
       imageLinks: [
+        "images/project_images/pocketpilot3.png",
         "images/project_images/pocketpilot1.png",
         "images/project_images/pocketpilot2.png",
       ],
