@@ -15,17 +15,17 @@ class SkillSection extends StatelessWidget {
     Skills(
       name: "Flutter",
       imageUrl: "images/skill_icons/flutter_icon_skills.png",
-      time: "1 Year",
+      time: "2 Years",
     ),
     Skills(
       name: "Dart",
       imageUrl: "images/skill_icons/dart_icon_skills.png",
-      time: "1 Year",
+      time: "2 Years",
     ),
     Skills(
       name: "C++",
       imageUrl: "images/skill_icons/cpp_icon_skills.png",
-      time: "2 Years",
+      time: "3 Years",
     ),
     Skills(
       name: "Python",
@@ -35,7 +35,7 @@ class SkillSection extends StatelessWidget {
     Skills(
       name: "Java",
       imageUrl: "images/skill_icons/java_icon_skills.png",
-      time: "2 Years",
+      time: "3 Years",
     ),
     Skills(
       name: "Git",
