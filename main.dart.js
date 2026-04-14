@@ -23645,7 +23645,7 @@ $S:1}
 A.ahL.prototype={
 $1(a){var s=A.cZ().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/052f31d115eceda8cbff1b3481fcde4330c4ae12/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/425cfb54d01a9472b3e81d9e76fd63a4a44cfbcb/":s)+a},
 $S:79}
 A.GZ.prototype={
 gt(a){var s=this.a
@@ -71973,8 +71973,8 @@ r.l()
 r=s.e
 if(r!=null)r.aL(0)
 s.av()},
-J(a){var s=null,r="1 Year",q="2 Years",p=A.aq(255,255,100,100),o=A.cI("Chenyu Lu",s,s,s,s,s,s,s,s,s,s,s),n=t.p
-return A.a5C(A.Z0(A.c([A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jT,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agA(a),s,s,s),B.a9,s,s,s),s),s,s),A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jS,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agB(a),s,s,s),B.a9,s,s,s),s),s,s),A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jQ,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agC(a),s,s,s),B.a9,s,s,s),s),s,s),A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jR,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agD(),s,s,s),B.a9,s,s,s),s),s,s),new A.bs(30,s,s,s)],n),p,s,new A.br(B.eT,o,s),69),new A.oe(A.fJ(B.aB,A.c([A.cD(s,s,B.o,s,s,new A.cc(s,s,s,s,s,new A.jJ(B.cp,B.d2,B.bC,A.c([A.aq(123,255,100,100),A.aq(255,6,2,20)],t.t_),A.c([0,0.25],t.n),s),B.W),s,s,s,s,s,s,s),B.eg,new A.JL(A.c([new A.hb("React","images/skill_icons/react_icon_skills.png",r),new A.hb("Flutter","images/skill_icons/flutter_icon_skills.png",r),new A.hb("Dart","images/skill_icons/dart_icon_skills.png",r),new A.hb("C++","images/skill_icons/cpp_icon_skills.png",q),new A.hb("Python","images/skill_icons/python_icon_skills.png","4 Years"),new A.hb("Java","images/skill_icons/java_icon_skills.png",q),new A.hb("Git","images/skill_icons/git_icon_skills.png",q),new A.hb("SFML","images/skill_icons/sfml_icon_skills.png",q),new A.hb("VS Code","images/skill_icons/vscode_icon_skills.png","4 Years")],t.gZ),s)],n),B.C,B.aN,s),s))}}
+J(a){var s=null,r="2 Years",q=A.aq(255,255,100,100),p=A.cI("Chenyu Lu",s,s,s,s,s,s,s,s,s,s,s),o=t.p
+return A.a5C(A.Z0(A.c([A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jT,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agA(a),s,s,s),B.a9,s,s,s),s),s,s),A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jS,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agB(a),s,s,s),B.a9,s,s,s),s),s,s),A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jQ,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agC(a),s,s,s),B.a9,s,s,s),s),s,s),A.dQ(new A.br(B.X,A.cA(A.dV(s,B.jR,B.L,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.agD(),s,s,s),B.a9,s,s,s),s),s,s),new A.bs(30,s,s,s)],o),q,s,new A.br(B.eT,p,s),69),new A.oe(A.fJ(B.aB,A.c([A.cD(s,s,B.o,s,s,new A.cc(s,s,s,s,s,new A.jJ(B.cp,B.d2,B.bC,A.c([A.aq(123,255,100,100),A.aq(255,6,2,20)],t.t_),A.c([0,0.25],t.n),s),B.W),s,s,s,s,s,s,s),B.eg,new A.JL(A.c([new A.hb("React","images/skill_icons/react_icon_skills.png","1 Year"),new A.hb("Flutter","images/skill_icons/flutter_icon_skills.png",r),new A.hb("Dart","images/skill_icons/dart_icon_skills.png",r),new A.hb("C++","images/skill_icons/cpp_icon_skills.png","3 Years"),new A.hb("Python","images/skill_icons/python_icon_skills.png","4 Years"),new A.hb("Java","images/skill_icons/java_icon_skills.png","3 Years"),new A.hb("Git","images/skill_icons/git_icon_skills.png",r),new A.hb("SFML","images/skill_icons/sfml_icon_skills.png",r),new A.hb("VS Code","images/skill_icons/vscode_icon_skills.png","4 Years")],t.gZ),s)],o),B.C,B.aN,s),s))}}
 A.agz.prototype={
 $0(){$.fR=0},
 $S:0}
