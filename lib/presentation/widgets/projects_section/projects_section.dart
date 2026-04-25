@@ -64,6 +64,7 @@ class ProjectsSection extends StatelessWidget {
           "Solved problems on DMOJ, focusing on the CCC contest. Worked with data strucutures, graph theory, and other algorithms. Achieved distinction (top 25%) on CCC Senior 2026.",
       technologies: ["C++", "Python", "Java"],
       imageLinks: [
+        "images/project_images/competitive_project_0.png",
         "images/project_images/competitive_project_1.png",
         "images/project_images/competitive_project_2.png",
       ],
