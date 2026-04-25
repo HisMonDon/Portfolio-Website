@@ -47,15 +47,15 @@ class _ProjectCardState extends State<ProjectCard> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            transform: Matrix4.identity()..scale(_isHovered ? 1.05 : 1.0),
+            transform: Matrix4.identity()..scale(_isHovered ? 1.02 : 1.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               boxShadow: _isHovered
                   ? [
                       BoxShadow(
                         color: primaryColor.withOpacity(0.4),
-                        blurRadius: 20,
-                        spreadRadius: 2,
+                        blurRadius: 18,
+                        spreadRadius: 1,
                       ),
                     ]
                   : [],
@@ -65,14 +65,9 @@ class _ProjectCardState extends State<ProjectCard> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: Container(
-                  padding: const EdgeInsets.only(
-                    left: 24,
-                    right: 24,
-                    bottom: 12,
-                    top: 12,
-                  ),
+                  padding: const EdgeInsets.fromLTRB(24, 20, 24, 22),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.25),
+                    color: Colors.black.withOpacity(0.32),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: Colors.white.withOpacity(0.2),
@@ -81,7 +76,6 @@ class _ProjectCardState extends State<ProjectCard> {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,25 +88,31 @@ class _ProjectCardState extends State<ProjectCard> {
                           _buildLinkButtons(),
                         ],
                       ),
+                      const SizedBox(height: 18),
+                      ProjectsImageScroller(images: widget.imageLinks),
                       const SizedBox(height: 20),
-                      Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: ProjectsImageScroller(images: widget.imageLinks),
-                      ),
                       Text(
                         widget.project.title,
                         style: textTheme.titleLarge?.copyWith(
                           color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          height: 1.15,
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        widget.project.description,
-                        style: textTheme.bodyMedium,
-                        maxLines: 3,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Spacer(),
+                      const SizedBox(height: 12),
+                      Text(
+                        widget.project.description,
+                        style: textTheme.bodyMedium?.copyWith(
+                          height: 1.45,
+                          color: Colors.white.withOpacity(0.86),
+                        ),
+                        maxLines: 6,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 18),
+                      const Spacer(),
                       _buildTechStack(textTheme, primaryColor),
                     ],
                   ),

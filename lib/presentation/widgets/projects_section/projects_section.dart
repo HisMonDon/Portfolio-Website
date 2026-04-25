@@ -112,6 +112,13 @@ class ProjectsSection extends StatelessWidget {
                   if (constraints.maxWidth < 800) {
                     crossAxisCount = 1;
                   }
+                  var cardHeight = 660.0;
+                  if (constraints.maxWidth < 1200) {
+                    cardHeight = 640.0;
+                  }
+                  if (constraints.maxWidth < 800) {
+                    cardHeight = 620.0;
+                  }
 
                   return CustomScrollView(
                     slivers: [
@@ -152,7 +159,7 @@ class ProjectsSection extends StatelessWidget {
                                 crossAxisCount: crossAxisCount,
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20,
-                                childAspectRatio: 1.0,
+                                mainAxisExtent: cardHeight,
                               ),
                           delegate: SliverChildBuilderDelegate((
                             context,
