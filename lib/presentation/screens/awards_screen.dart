@@ -22,6 +22,7 @@ class _AwardsScreenState extends State<AwardsScreen> {
 
   // state for sorting is now managed here
   String _currentSortOption = 'Relevance';
+  bool _showAllAwards = false;
   late List<Award> _mainAwards;
 
   final _awardsSection = AwardsSection();
@@ -191,11 +192,18 @@ class _AwardsScreenState extends State<AwardsScreen> {
     if (newSortOption == null) return;
     setState(() {
       _currentSortOption = newSortOption;
+      _showAllAwards = false;
       if (newSortOption == 'Relevance') {
         _mainAwards = List.from(_relevanceAwards);
       } else if (newSortOption == 'Date') {
         _mainAwards = List.from(_dateSortedAwards);
       }
+    });
+  }
+
+  void _toggleAwardsVisibility() {
+    setState(() {
+      _showAllAwards = !_showAllAwards;
     });
   }
 
@@ -257,6 +265,8 @@ class _AwardsScreenState extends State<AwardsScreen> {
                 currentSortOption: _currentSortOption,
                 awards: _mainAwards,
                 onSortChanged: _sortAwards,
+                showAllAwards: _showAllAwards,
+                onToggleAwardsVisibility: _toggleAwardsVisibility,
               ),
               ..._extracurricularsSection.buildSlivers(context),
               SliverToBoxAdapter(child: Footer()),
