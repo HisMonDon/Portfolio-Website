@@ -8,9 +8,14 @@ class AwardsSection {
     required String currentSortOption,
     required List<Award> awards,
     required ValueChanged<String?> onSortChanged,
+    required bool showAllAwards,
+    required VoidCallback onToggleAwardsVisibility,
   }) {
     final textTheme = Theme.of(context).textTheme;
     final awardsGlowColor = const Color(0xFFFFD700);
+    final visibleAwardCount = showAllAwards || awards.length <= 6
+        ? awards.length
+        : 6;
 
     return [
       SliverToBoxAdapter(
@@ -68,10 +73,33 @@ class AwardsSection {
           ),
           delegate: SliverChildBuilderDelegate(
             (context, index) => _buildAwardCard(awards[index], context),
-            childCount: awards.length,
+            childCount: visibleAwardCount,
           ),
         ),
       ),
+      if (awards.length > 6)
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 45.0),
+            child: Center(
+              child: TextButton.icon(
+                onPressed: onToggleAwardsVisibility,
+                icon: Icon(
+                  showAllAwards
+                      ? Icons.keyboard_arrow_up
+                      : Icons.keyboard_arrow_down,
+                ),
+                label: Text(showAllAwards ? "See less" : "See more"),
+                style: TextButton.styleFrom(
+                  foregroundColor: awardsGlowColor,
+                  textStyle: textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
     ];
   }
 
