@@ -122,8 +122,6 @@ class _AwardsScreenState extends State<AwardsScreen> {
     Award(name: 'AP Chemistry', year: '2025', description: 'Score of 5'),
     Award(name: 'AP Computer Science', year: '2025', description: 'Score of 5'),
 
-    Award(name: 'Hypatia Contest', year: '2026', description: 'Distinction'),
-
     Award(
       name: 'Canadian Computing Contest Junior',
       year: '2024',
@@ -135,6 +133,8 @@ class _AwardsScreenState extends State<AwardsScreen> {
       description: 'Distinction',
     ),
     Award(name: 'OAPT Physics Contest', year: '2025', description: 'Top 10%'),
+
+    Award(name: 'Hypatia Contest', year: '2026', description: 'Distinction'),
     Award(
       name: 'CEMC Galois Contest',
       year: '2025',
