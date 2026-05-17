@@ -3,8 +3,13 @@ import 'dart:async';
 
 class ProjectsImageScroller extends StatefulWidget {
   final List<String> images;
+  final double? imageHeight;
 
-  const ProjectsImageScroller({super.key, required this.images});
+  const ProjectsImageScroller({
+    super.key,
+    required this.images,
+    this.imageHeight,
+  });
 
   @override
   State<ProjectsImageScroller> createState() => _ProjectsImageScrollerState();
@@ -57,32 +62,7 @@ class _ProjectsImageScrollerState extends State<ProjectsImageScroller> {
                       )
                     : null,
               ),
-            Expanded(
-              child: AspectRatio(
-                aspectRatio: 17 / 9,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: widget.images.length,
-                  onPageChanged: (int page) {
-                    setState(() {
-                      _currentPage = page;
-                    });
-                  },
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          widget.images[index],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
+            Expanded(child: _buildImagePager()),
             if (widget.images.length > 1)
               _buildArrowButton(
                 icon: Icons.arrow_forward_ios,
@@ -115,6 +95,35 @@ class _ProjectsImageScrollerState extends State<ProjectsImageScroller> {
       icon: Icon(icon, size: 18),
       onPressed: onPressed,
       color: onPressed != null ? Theme.of(context).primaryColor : Colors.grey,
+    );
+  }
+
+  Widget _buildImagePager() {
+    if (widget.imageHeight == null) {
+      return AspectRatio(aspectRatio: 17 / 9, child: _buildPageView());
+    }
+
+    return SizedBox(height: widget.imageHeight, child: _buildPageView());
+  }
+
+  Widget _buildPageView() {
+    return PageView.builder(
+      controller: _pageController,
+      itemCount: widget.images.length,
+      onPageChanged: (int page) {
+        setState(() {
+          _currentPage = page;
+        });
+      },
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Image.asset(widget.images[index], fit: BoxFit.cover),
+          ),
+        );
+      },
     );
   }
 

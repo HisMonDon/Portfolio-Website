@@ -112,12 +112,12 @@ class ProjectsSection extends StatelessWidget {
                   if (constraints.maxWidth < 800) {
                     crossAxisCount = 1;
                   }
-                  var cardHeight = 660.0;
+                  var cardHeight = 590.0;
                   if (constraints.maxWidth < 1200) {
-                    cardHeight = 640.0;
+                    cardHeight = 580.0;
                   }
                   if (constraints.maxWidth < 800) {
-                    cardHeight = 620.0;
+                    cardHeight = 570.0;
                   }
 
                   return CustomScrollView(
