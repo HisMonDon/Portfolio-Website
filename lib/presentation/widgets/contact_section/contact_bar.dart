@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:html' as html;
 
 class ContactBar extends StatelessWidget {
   const ContactBar({super.key});
 
-  @override
   //can reuse this function for other widgets
-  void openLink(String url) async {
+  Future<void> openLink(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
@@ -16,8 +14,8 @@ class ContactBar extends StatelessWidget {
     }
   }
 
-  void sendEmail() {
-    html.window.open('mailto:eric.luchenyu@gmail.com', '_blank');
+  Future<void> sendEmail() async {
+    await openLink('mailto:eric.luchenyu@gmail.com');
   }
 
   Widget build(BuildContext context) {
