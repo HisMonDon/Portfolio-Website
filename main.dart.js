@@ -23662,7 +23662,7 @@ $S:1}
 A.agm.prototype={
 $1(a){var s=A.cE().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/4c525dac5ebe5971c5708ef73558ed8edcf4a362/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/c416acfeb8126e097f758c664aaa3da929e27da0/":s)+a},
 $S:78}
 A.Gl.prototype={
 gt(a){var s=this.a
@@ -71527,7 +71527,7 @@ J(a){var s,r,q=null,p=A.a1(a).ok.a
 p=A.SN("About Me",1,p==null?q:p.kf(48))
 s=A.CL().$3$color$fontSize$fontWeight(B.lf,20,B.du)
 r=t.p
-return A.dT(A.c([new A.bd(q,30,q,q),A.fQ(A.c([A.i2(A.dT(A.c([p,new A.bd(q,40,q,q),new A.bd(700,q,A.aoI(A.hB(A.c([A.hB(q,q,q,q,q,q,q,q,q,q,"Hey, my name is "),A.hB(q,q,q,q,q,q,q,q,q,A.CL().$3$color$fontSize$fontWeight(B.lf,20,B.aw),"Chenyu Lu"),A.hB(q,q,q,q,q,q,q,q,q,q,". \n\nI'm a high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\n"),A.hB(q,q,q,q,q,q,q,q,q,q,"Do not hesitate to connect view my open source projects on GitHub, connect with me on LinkedIn, or send me an email!")],t.VO),q,q,q,q,q,q,q,q,s,q),q,q,q,q,q,q,q,q,q,q,q),q)],r),B.O,B.bh,B.S),6,q),A.i2(A.cq(q,q,B.o,q,B.yq,new A.bU(q,new A.p8(new A.m5("images/portfolio_image.jpg",q,q),B.hr),q,A.di(20),A.c([new A.bc(5,B.x,A.ae(B.c.am(76.5),B.bL.q()>>>16&255,B.bL.q()>>>8&255,B.bL.q()&255),B.j,15)],t.V),q,B.R),q,400,q,q,q,q,q),3,q),new A.bd(80,q,q,q)],r),B.ah,B.bh,B.S,0)],r),B.O,B.W,B.bK)}}
+return A.dT(A.c([new A.bd(q,30,q,q),A.fQ(A.c([A.i2(A.dT(A.c([p,new A.bd(q,40,q,q),new A.bd(700,q,A.aoI(A.hB(A.c([A.hB(q,q,q,q,q,q,q,q,q,q,"Hey, my name is "),A.hB(q,q,q,q,q,q,q,q,q,A.CL().$3$color$fontSize$fontWeight(B.lf,20,B.aw),"Chenyu Lu"),A.hB(q,q,q,q,q,q,q,q,q,q,". \n\nI'm a high school IB student at St.Robert Catholic High School interested in pursuing computer science. I'm really passionate about coding, and I love building projects that positively impact people in a variety of fields using my skills. \n\n"),A.hB(q,q,q,q,q,q,q,q,q,q,"Do not hesitate to connect view my open source projects on GitHub, connect with me on LinkedIn, or send me an email!")],t.VO),q,q,q,q,q,q,q,q,s,q),q,q,q,q,q,q,q,q,q,q,q),q)],r),B.O,B.bh,B.S),6,q),A.i2(A.cq(q,q,B.o,q,B.yq,new A.bU(q,new A.p8(new A.m5("images/portfolio_image.png",q,q),B.hr),q,A.di(20),A.c([new A.bc(5,B.x,A.ae(B.c.am(76.5),B.bL.q()>>>16&255,B.bL.q()>>>8&255,B.bL.q()&255),B.j,15)],t.V),q,B.R),q,400,q,q,q,q,q),3,q),new A.bd(80,q,q,q)],r),B.ah,B.bh,B.S,0)],r),B.O,B.W,B.bK)}}
 A.FD.prototype={
 J(a){var s=null,r=t.p,q=A.c([A.SN(" Hi, my name is",1,A.CL().$2$color$fontSize(B.fs,25)),new A.JU(B.yf,!0,new A.pu(new A.m5("images/name_mask.png",s,s),B.hr,s),A.SN("Chenyu Lu",1,A.CL().$4$color$decoration$fontSize$fontWeight(B.f,B.e,70,B.aw)),s),new A.bd(s,20,s,s),new A.be(B.Ca,new A.En(s),s),B.jL,new A.be(B.C6,A.SN("I am a Grade 11 IB Student interested in Computer Science",2,A.CL().$1$fontSize(22)),s),B.Lh,new A.F1(new A.XF(this),s,s,s,A.aw3(s,s,B.AD,s,s,s,s,s,s,B.f,s,s,B.C3,s,s,new A.bx(B.D,1,B.G,-1),s,s,s,s),s,s,!1,s,!0,s,A.cf("More about me",s,s,s,s,s,s,s,A.CL().$2$fontSize$fontWeight(16,B.aw),s,s,s),s)],r),p=A.cr(2e5,0,0),o=new A.m2(A.c([],r),A.c([],t.eW),t.Xq)
 o.W5(s,q,s,s,p,s,s,s,t.l7)
