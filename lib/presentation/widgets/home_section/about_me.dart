@@ -75,7 +75,7 @@ class AboutMeSection extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                    image: AssetImage('images/portfolio_image.jpg'),
+                    image: AssetImage('images/portfolio_image.png'),
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
