@@ -139,7 +139,16 @@ class _AwardsScreenState extends State<AwardsScreen> {
     Award(name: 'AP Physics 1', year: '2025', description: 'Score of 5'),
     Award(name: 'AP Chemistry', year: '2025', description: 'Score of 5'),
     Award(name: 'AP Computer Science', year: '2025', description: 'Score of 5'),
-
+    Award(
+      name: 'UOfT OAPT Physics Contest',
+      year: '2026',
+      description: 'Top 4%',
+    ),
+    Award(
+      name: 'Waterloo Sir Issac Newton Physics Contest',
+      year: '2026',
+      description: 'Distinction',
+    ),
     Award(
       name: 'Canadian Computing Contest Junior',
       year: '2024',
