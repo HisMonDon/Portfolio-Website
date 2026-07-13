@@ -71702,7 +71702,7 @@ A.XH.prototype={
 $0(){A.akX(this.a.c)},
 $S:0}
 A.XI.prototype={
-$0(){A.oE(A.aA4().a3("resume.pdf"),"_self")},
+$0(){A.oE(A.aA4().a3("resume.pdf"),"_blank")},
 $S:0}
 A.nw.prototype={
 ac(){return new A.O3()}}
