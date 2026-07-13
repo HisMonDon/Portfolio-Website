@@ -117,7 +117,7 @@ class HomeSection extends StatelessWidget {
                               onPressed: () {
                                 launchUrl(
                                   Uri.base.resolve('resume.pdf'),
-                                  webOnlyWindowName: '_self',
+                                  webOnlyWindowName: '_blank',
                                 );
                               },
                               style: ElevatedButton.styleFrom(
