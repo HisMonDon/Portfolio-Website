@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 //import 'package:portfolio_website/main.dart';
 import 'package:widget_mask/widget_mask.dart';
 import 'package:portfolio_website/presentation/widgets/contact_section/contact_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:portfolio_website/core/constants/utils.dart';
 
@@ -82,31 +83,66 @@ class HomeSection extends StatelessWidget {
 
                         const SizedBox(height: 40),
 
-                        ElevatedButton(
-                          onPressed: () {
-                            scrollToSection(aboutMeKey);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 32,
-                              vertical: 20,
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                scrollToSection(aboutMeKey);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 32,
+                                  vertical: 20,
+                                ),
+                                backgroundColor: const Color.fromARGB(
+                                  255,
+                                  14,
+                                  100,
+                                  230,
+                                ),
+                                foregroundColor: Colors.white,
+                                side: BorderSide(color: Colors.transparent),
+                              ),
+                              child: Text(
+                                "More about me",
+                                style: GoogleFonts.mPlus1(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
-                            backgroundColor: const Color.fromARGB(
-                              255,
-                              14,
-                              100,
-                              230,
+                            const SizedBox(width: 16),
+                            ElevatedButton(
+                              onPressed: () {
+                                launchUrl(
+                                  Uri.base.resolve('resume.pdf'),
+                                  webOnlyWindowName: '_self',
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 32,
+                                  vertical: 20,
+                                ),
+                                backgroundColor: const Color.fromARGB(
+                                  255,
+                                  14,
+                                  100,
+                                  230,
+                                ),
+                                foregroundColor: Colors.white,
+                                side: BorderSide(color: Colors.transparent),
+                              ),
+                              child: Text(
+                                "Resume",
+                                style: GoogleFonts.mPlus1(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
-                            foregroundColor: Colors.white,
-                            side: BorderSide(color: Colors.transparent),
-                          ),
-                          child: Text(
-                            "More about me",
-                            style: GoogleFonts.mPlus1(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          ],
                         ),
                       ]
                       .animate(interval: 200.ms)
