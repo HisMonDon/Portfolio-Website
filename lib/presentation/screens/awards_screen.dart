@@ -30,6 +30,7 @@ class _AwardsScreenState extends State<AwardsScreen> {
 
   // award lists are now stored here
   final List<Award> _dateSortedAwards = [
+    Award(name: 'AP Calculus BC', year: '2026', description: 'Score of 5'),
     Award(
       name: 'UOfT OAPT Physics Contest',
       year: '2026',
@@ -136,6 +137,7 @@ class _AwardsScreenState extends State<AwardsScreen> {
       year: '2024',
       description: 'Honor Roll (< Top 2%)',
     ),
+    Award(name: 'AP Calculus BC', year: '2026', description: 'Score of 5'),
     Award(name: 'AP Physics 1', year: '2025', description: 'Score of 5'),
     Award(name: 'AP Chemistry', year: '2025', description: 'Score of 5'),
     Award(name: 'AP Computer Science', year: '2025', description: 'Score of 5'),
