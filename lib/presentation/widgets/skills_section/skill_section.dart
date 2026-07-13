@@ -13,6 +13,11 @@ class SkillSection extends StatelessWidget {
       time: "1 Year",
     ),
     Skills(
+      name: "Javascript",
+      imageUrl: "images/skill_icons/javascript_icon_skills.png",
+      time: "1 Year",
+    ),
+    Skills(
       name: "Flutter",
       imageUrl: "images/skill_icons/flutter_icon_skills.png",
       time: "2 Years",
