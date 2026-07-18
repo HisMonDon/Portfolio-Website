@@ -25,7 +25,7 @@ class CreditsScreen extends StatelessWidget {
           EditorTab(label: 'skills.dart', active: true, onTap: () {}),
         ],
       ),
-      body: SkillSection(),
+      body: Scaffold(body: Column(children: [Text("3D Model: ")])),
     );
   }
 }
