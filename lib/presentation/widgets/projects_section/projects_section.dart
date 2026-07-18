@@ -24,17 +24,7 @@ class ProjectsSection extends StatelessWidget {
         "images/project_images/vera_project_5.png",
       ],
       overview:
-          "Vera started as a way to give my school's Physics club a real home "
-          "online instead of scattering resources across group chats and "
-          "shared drives. It's a cross-platform app — usable both on the web "
-          "and as a native Windows build — where club members can watch "
-          "student-taught tutorial videos, log in, and pick up right where "
-          "they left off.\n\n"
-          "The backend runs on Firebase for auth and data, talking to a REST "
-          "API layer, with the whole thing deployed behind Cloudflare for "
-          "caching and DNS. Getting video progress to persist reliably across "
-          "sessions — and across both the web and Windows builds — was the "
-          "trickiest part of the build.",
+          "When I was first studying AP Physics 1, I struggled to find high-quality resources that aligned with my course. Many platforms required paid subscriptions, while others covered material that did not match the curriculum. As president of St. Robert’s Physics Club and an assistant teacher at Spirit of Math, I saw the same issue affecting other students. To address this problem, I developed Vera, a cross-platform physics education platform built with Flutter and Firebase. Vera provides structured, video-based lessons designed for different high school physics courses. I collaborated with the head of my school’s physics department to organize the curriculum, verify the accuracy and sequence of the content, and ensure that the lessons aligned with course expectations. I also planned, recorded, edited, and published the instructional videos and developed the platform used to deliver them. ",
       highlights: [
         "Cross-platform: one Flutter codebase ships to both web and Windows",
         "Login authentication so members' watch progress is saved per-account",
@@ -51,20 +41,17 @@ class ProjectsSection extends StatelessWidget {
       imageLinks: ["images/project_images/portfolio_project.png"],
       overview:
           "You're looking at it right now. This site is built entirely in "
-          "Flutter Web rather than a typical HTML/CSS/JS stack — partly "
-          "because Flutter is what I already know best, and partly to see "
-          "how far a single Dart codebase could be pushed into something "
-          "that reads as a real website rather than an app shell.\n\n"
+          "Flutter Web rather than a typical HTML/CSS/JS stack.\n\n"
           "It's gone through a few complete redesigns as my taste (and "
-          "skills) have changed — this version leans into an editor/terminal "
-          "aesthetic, right down to the navigation being styled as open file "
-          "tabs and the hero rendering an actual little wireframe of the CN "
-          "Tower.",
+          "skills) have changed. This version leans into an editor/terminal "
+          "aesthetic inspired by the game Detroit Become Human, right down to the navigation being styled as open file "
+          "tabs and the hero rendering an actual little wireframe of and android "
+          ". I hope you like it :)",
       highlights: [
         "Built entirely in Flutter Web — one Dart codebase, no separate frontend stack",
         "Custom-built 3D wireframe renderer for the CN Tower graphic (no external 3D library)",
         "Navigation styled as editor tabs, hero styled as a terminal session",
-        "Open source — see exactly how it's built on GitHub",
+        "Open source",
       ],
     ),
     Project(
@@ -80,22 +67,20 @@ class ProjectsSection extends StatelessWidget {
       ],
       liveUrl: "https://devpost.com/software/pocketpilot-gi9m3v",
       overview:
-          "Built in about 36 hours at Hack Canada 2026 with a teammate, "
+          "Built in about 36 hours at Hack Canada 2026 with teammates, "
           "Pocket Pilot takes a photo of a receipt and turns it into an "
-          "actual understanding of where your money is going. Snap a "
+          "actual understanding of where your money is going. Users merely need to take a photo of a"
           "receipt, and the Gemini API parses out the line items, "
           "categorizes the spending, and feeds it back as insights instead "
           "of just a stored image.\n\n"
           "Cloudinary handles image storage and delivery, Firestore keeps "
           "the parsed data and history, and React Native ties it together "
-          "into a single mobile app. Most of our time went into getting the "
-          "Gemini prompt to reliably extract structured data from messy, "
-          "real-world receipt photos.",
+          "into a single mobile app.",
       highlights: [
         "Photograph a receipt and get structured spending data back in seconds",
         "Gemini API for OCR + categorization, not just plain text extraction",
         "Firestore for history, Cloudinary for image storage",
-        "Built with a teammate at Hack Canada 2026",
+        "Built at Hack Canada 2026",
       ],
     ),
     Project(
@@ -109,16 +94,14 @@ class ProjectsSection extends StatelessWidget {
         "images/project_images/buoyancy_project_2.png",
       ],
       overview:
-          "This one grew out of a calculus class — after learning integrals, "
-          "I wanted to see them actually move something on screen instead of "
-          "just sitting in a notebook. It's a C++ simulator that models a "
+          "After learning integrals in my calculus class, "
+          "I was inspired to make this project. It's a C++ simulator that models a "
           "ball dropping into a liquid, using integration to compute the net "
           "buoyant and drag forces acting on it as it moves through a fluid "
           "of a density you can set yourself.\n\n"
           "SFML handles rendering and the render loop, CMake ties the build "
           "together, and a small GLSL shader adds the liquid's visual "
-          "surface effect. It's a small project, but it's the one where "
-          "physics and code clicked together for me the most directly.",
+          "surface effect.",
       highlights: [
         "Physics modeled with real integral calculus, not canned formulas",
         "Customizable liquid density changes the simulated motion in real time",
@@ -141,13 +124,9 @@ class ProjectsSection extends StatelessWidget {
       overview:
           "Alongside building full apps, I spend a fair amount of time on "
           "DMOJ working through competitive programming problems, with a "
-          "focus on the CCC (Canadian Computing Competition). It's less "
-          "about any single project and more about building a toolbox — "
-          "data structures, graph theory, greedy and DP approaches — that "
+          "focus on the CCC (Canadian Computing Competition). I have thorough knowledge on data structures, graph theory, greedy and DP approaches — that "
           "shows up in everything else I build.\n\n"
-          "I've worked primarily in C++ for contest speed, with Python and "
-          "Java for exploring alternate approaches to the same problems. "
-          "That practice paid off directly: I placed with distinction (top "
+          "I've worked primarily in C++ for contest speed, placeing distinction (top "
           "25%) on CCC Senior 2026.",
       highlights: [
         "Distinction (top 25%) on CCC Senior 2026",
@@ -167,17 +146,13 @@ class ProjectsSection extends StatelessWidget {
       ],
       overview:
           "The Knight was my Grade 11 Computer Science culminating project "
-          "— a 2D adventure game built from scratch in Python with Pygame. "
+          ",a 2D adventure game built from scratch in Python with Pygame. "
           "The world generates randomly each time you play, so no two runs "
           "lay out quite the same, and it's layered with a battle system and "
-          "an in-game currency economy on top of that.\n\n"
-          "Building the random world generation so it stayed playable — not "
-          "just random for randomness's sake — was the core challenge. It "
-          "capped off the course with a 99.",
+          "an in-game currency economy on top of that.\n\n",
       highlights: [
         "Randomly generated world layout on every playthrough",
         "Custom battle system and in-game currency/economy",
-        "Built solo in Python with Pygame",
         "Final Grade 11 Computer Science project — scored 99",
       ],
     ),
