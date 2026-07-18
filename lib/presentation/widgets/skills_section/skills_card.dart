@@ -1,9 +1,8 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/core/models/skills_model.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:portfolio_website/core/models/project_model.dart';
+import 'package:portfolio_website/core/theme/app_theme.dart';
 
 class SkillsCard extends StatefulWidget {
   final Skills skill;
@@ -16,10 +15,14 @@ class SkillsCard extends StatefulWidget {
 class _SkillsCardState extends State<SkillsCard> {
   bool _isHovered = false;
 
+  String get _yearsPill {
+    final match = RegExp(r'\d+').firstMatch(widget.skill.time);
+    return match == null ? widget.skill.time : '${match.group(0)}y';
+  }
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final primaryColor = Theme.of(context).primaryColor;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
@@ -34,78 +37,48 @@ class _SkillsCardState extends State<SkillsCard> {
           ),
         ],
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-          transform: Matrix4.identity()..scale(_isHovered ? 1.05 : 1.0),
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: _isHovered
-                ? [
-                    BoxShadow(
-                      color: Color.fromARGB(
-                        255,
-                        255,
-                        100,
-                        100,
-                      ).withOpacity(0.4),
-                      blurRadius: 20,
-                      spreadRadius: 2,
-                    ),
-                  ]
-                : [],
+            color: AppColors.panel,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: _isHovered ? AppColors.keyword.withOpacity(0.6) : AppColors.line,
+              width: 1.2,
+            ),
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.25),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.2),
-                    width: 1.5,
-                  ),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 40,
-                      width: 40,
-                      child: Image.asset(widget.skill.imageUrl),
-                    ),
-                    const SizedBox(width: 12),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.skill.name,
-                          style: textTheme.titleLarge?.copyWith(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(height: 3),
-                        Text(
-                          widget.skill.time,
-                          style: textTheme.titleMedium?.copyWith(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 34,
+                width: 34,
+                child: Image.asset(widget.skill.imageUrl),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Text(
+                  widget.skill.name,
+                  style: textTheme.titleLarge?.copyWith(fontSize: 17),
                 ),
               ),
-            ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: AppColors.panelAlt,
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: AppColors.line),
+                ),
+                child: Text(
+                  _yearsPill,
+                  style: GoogleFonts.jetBrainsMono(
+                    fontSize: 12.5,
+                    color: AppColors.string,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
