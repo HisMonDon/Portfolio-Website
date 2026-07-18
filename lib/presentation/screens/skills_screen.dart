@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/theme/app_theme.dart';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/editor_tab_bar.dart';
+import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 import 'package:portfolio_website/presentation/widgets/skills_section/skill_section.dart';
 
 class SkillsScreen extends StatelessWidget {

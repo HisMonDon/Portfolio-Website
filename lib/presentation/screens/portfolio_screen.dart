@@ -45,10 +45,10 @@ class PortfolioScreen extends StatelessWidget {
               child: Center(child: AboutMeSection()),
             ),
             const SizedBox(height: 90),
-            Footer(homeKey: homeKey, aboutMeKey: aboutMeKey),
           ],
         ),
       ),
+      bottomNavigationBar: Footer(homeKey: homeKey, aboutMeKey: aboutMeKey),
     );
   }
 }

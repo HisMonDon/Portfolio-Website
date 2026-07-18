@@ -153,10 +153,10 @@ class ProjectDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Footer(),
           ],
         ),
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }

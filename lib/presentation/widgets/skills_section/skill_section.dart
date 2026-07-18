@@ -109,7 +109,7 @@ class SkillSection extends StatelessWidget {
               fillOverscroll: true,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [Footer()],
+                children: [const Footer()],
               ),
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/theme/app_theme.dart';
 import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/editor_tab_bar.dart';
+import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 
 class ProjectScreen extends StatelessWidget {
   const ProjectScreen({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class ProjectScreen extends StatelessWidget {
         ],
       ),
       body: ProjectsSection(),
+      bottomNavigationBar: const Footer(),
     );
   }
 }
