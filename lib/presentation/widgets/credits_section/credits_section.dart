@@ -69,8 +69,7 @@ class CreditsSection extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    "The assets, typefaces, and open-source packages "
-                    "behind this site.",
+                    "The resources I used building my portfolio website.",
                     style: textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 48),

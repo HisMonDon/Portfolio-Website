@@ -43,7 +43,8 @@ class PortfolioApp extends StatelessWidget {
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.build(),
-      builder: (context, child) => BootScreen(child: child!),
+      builder: (context, child) =>
+          BootScreen(child: SelectionArea(child: child!)),
     );
   }
 }
