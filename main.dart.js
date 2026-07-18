@@ -68520,10 +68520,10 @@ for(;;)switch(s){case 0:s=2
 return A.P($.o7().a9w("packages/model_viewer_plus/assets/template.html"),$async$qm)
 case 2:n=b
 q.a.toString
-if(B.d.aZ("assets/assets/models/wave.glb","file://")){A.aev().$1(u.B)
+if(B.d.aZ("assets/assets/models/conner.glb","file://")){A.aev().$1(u.B)
 A.a9(A.bS(u.B,null))}p=B.d.lv(n,'<script type="module" src="model-viewer.min.js" defer></script>',"")
 q.a.toString
-o=A.atB("A 3D figure waving toward the page content",null,null,null,null,!0,null,null,B.I,!0,null,null,!0,null,null,!0,null,null,null,p,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"assets/assets/models/wave.glb",null,null,null,null)
+o=A.atB("A 3D character model idling beside the page content",null,null,null,null,!0,null,null,B.I,!0,null,null,!0,null,null,!0,null,null,null,p,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"assets/assets/models/conner.glb",null,null,null,null)
 $.ail()
 $.lr().vj("model-viewer-html-"+q.e,new A.Zk(o),!0)
 q.ar(new A.Zl(q))
@@ -68792,7 +68792,7 @@ J(a){var s=null,r=t.D,q=A.c([new A.O3(this.a.c,s),B.JH,B.zZ],r),p=A.cd(15e4,0),o
 o.Uu(s,q,s,s,p,s,s,s,t.l7)
 p=A.cd(5e5,0)
 p=A.fu(A.fr(A.agE(A.TW(o,A.cd(2e5,0),p),0.3,0),B.a2,this.d,B.D,B.bd),5,s)
-o=A.afh(new A.bp(s,this.e,A.a67(B.FQ,"wave.glb"),s))
+o=A.afh(new A.bp(s,this.e,A.a67(B.FQ,"conner.glb"),s))
 q=A.cd(7e5,0)
 return new A.cJ(B.AV,A.ds(A.c([p,B.JB,A.fu(A.TW(o,A.cd(4e5,0),q),5,s)],r),B.a2,B.D,B.O,0),s)}}
 A.a97.prototype={
