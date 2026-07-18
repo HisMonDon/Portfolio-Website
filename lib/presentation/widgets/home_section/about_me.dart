@@ -13,7 +13,7 @@ class AboutMeSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 80.0, vertical: 30.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
@@ -70,17 +70,19 @@ class AboutMeSection extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 60),
           Expanded(
-            flex: 3,
-            child: WindowFrame(
-              label: 'portrait.jpg',
-              child: SizedBox(
-                height: 380,
-                child: Image.asset(
-                  'images/portfolio_image.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
+            flex: 5,
+            child: Padding(
+              padding: EdgeInsetsGeometry.fromLTRB(40, 0, 0, 0),
+              child: WindowFrame(
+                label: 'portrait.jpg',
+                child: SizedBox(
+                  height: 500,
+                  child: Image.asset(
+                    'images/portfolio_image.jpg',
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
                 ),
               ),
             ),

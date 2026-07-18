@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/theme/app_theme.dart';
 import 'package:portfolio_website/presentation/widgets/credits_section/credits_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/aesthetics/editor_tab_bar.dart';
-import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
 
 class CreditsScreen extends StatelessWidget {
   const CreditsScreen({Key? key}) : super(key: key);
@@ -32,7 +31,6 @@ class CreditsScreen extends StatelessWidget {
         ],
       ),
       body: CreditsSection(),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

@@ -50,63 +50,69 @@ class CreditsSection extends StatelessWidget {
             ? available
             : (available - gridSpacing) / 2;
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: horizontalPadding,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 36),
-                  const CommentEyebrow(text: 'credits'),
-                  const SizedBox(height: 12),
-                  Text(
-                    "Credits & Attributions",
-                    style: textTheme.displayLarge?.copyWith(fontSize: 44),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    "The resources I used building my portfolio website.",
-                    style: textTheme.headlineSmall,
-                  ),
-                  const SizedBox(height: 48),
-                ],
-              ),
-            ),
-            for (final group in groups)
-              Padding(
+        return CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: horizontalPadding,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 36),
+                    const CommentEyebrow(text: 'credits'),
+                    const SizedBox(height: 12),
                     Text(
-                      group.title,
-                      style: textTheme.titleLarge?.copyWith(fontSize: 18),
+                      "Credits & Attributions",
+                      style: textTheme.displayLarge?.copyWith(fontSize: 44),
                     ),
                     const SizedBox(height: 16),
-                    Wrap(
-                      spacing: gridSpacing,
-                      runSpacing: gridSpacing,
-                      children: [
-                        for (final item in group.items)
-                          SizedBox(
-                            width: cardWidth,
-                            child: CreditCard(item: item),
-                          ),
-                      ],
+                    Text(
+                      "The resources I used building my portfolio website.",
+                      style: textTheme.headlineSmall,
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 48),
                   ],
                 ),
               ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: horizontalPadding,
+            ),
+            for (final group in groups)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: horizontalPadding,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        group.title,
+                        style: textTheme.titleLarge?.copyWith(fontSize: 18),
+                      ),
+                      const SizedBox(height: 16),
+                      Wrap(
+                        spacing: gridSpacing,
+                        runSpacing: gridSpacing,
+                        children: [
+                          for (final item in group.items)
+                            SizedBox(
+                              width: cardWidth,
+                              child: CreditCard(item: item),
+                            ),
+                        ],
+                      ),
+                      const SizedBox(height: 40),
+                    ],
+                  ),
+                ),
+              ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              fillOverscroll: true,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [const Footer()],
               ),
             ),
           ],

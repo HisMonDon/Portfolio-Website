@@ -30,25 +30,33 @@ class PortfolioScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ConstrainedBox(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: ConstrainedBox(
               key: homeKey,
               constraints: BoxConstraints(
                 minHeight: MediaQuery.of(context).size.height - 56,
               ),
               child: Center(child: HomeSection(aboutMeKey: aboutMeKey)),
             ),
-            SizedBox(
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
               key: aboutMeKey,
               child: Center(child: AboutMeSection()),
             ),
-            const SizedBox(height: 90),
-          ],
-        ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [Footer(homeKey: homeKey, aboutMeKey: aboutMeKey)],
+            ),
+          ),
+        ],
       ),
-      bottomNavigationBar: Footer(homeKey: homeKey, aboutMeKey: aboutMeKey),
     );
   }
 }

@@ -35,7 +35,8 @@ class PortfolioApp extends StatelessWidget {
         }
 
         return PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => page,
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              SelectionArea(child: page),
           transitionDuration: Duration.zero,
           reverseTransitionDuration: Duration.zero,
         );
@@ -43,8 +44,7 @@ class PortfolioApp extends StatelessWidget {
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.build(),
-      builder: (context, child) =>
-          BootScreen(child: SelectionArea(child: child!)),
+      builder: (context, child) => BootScreen(child: child!),
     );
   }
 }

@@ -214,6 +214,14 @@ class ProjectsSection extends StatelessWidget {
             ),
           ),
         ),
+        SliverFillRemaining(
+          hasScrollBody: false,
+          fillOverscroll: true,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [const Footer()],
+          ),
+        ),
       ],
     );
   }

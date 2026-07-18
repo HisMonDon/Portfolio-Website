@@ -50,10 +50,10 @@ class ProjectDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Center(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 900),
                 child: Padding(
@@ -153,10 +153,17 @@ class ProjectDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [const Footer()],
+            ),
+          ),
+        ],
       ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }
