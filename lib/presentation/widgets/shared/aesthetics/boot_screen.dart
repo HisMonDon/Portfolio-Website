@@ -72,7 +72,7 @@ class _BootOverlay extends StatelessWidget {
     'LOADING ASSETS',
     'COMPILING VIEWS',
     'ESTABLISHING LINK',
-    'READY',
+    'SIUUU',
   ];
 
   @override
@@ -85,9 +85,10 @@ class _BootOverlay extends StatelessWidget {
         builder: (context, _) {
           final t = progress.value.clamp(0.0, 1.0);
           final percent = (t * 100).floor();
-          final lineIndex = (t * (_statusLines.length - 1))
-              .floor()
-              .clamp(0, _statusLines.length - 1);
+          final lineIndex = (t * (_statusLines.length - 1)).floor().clamp(
+            0,
+            _statusLines.length - 1,
+          );
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
