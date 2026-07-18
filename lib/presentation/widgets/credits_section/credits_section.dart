@@ -109,7 +109,6 @@ class CreditsSection extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: horizontalPadding,
               ),
-              child: const Footer(),
             ),
           ],
         );
