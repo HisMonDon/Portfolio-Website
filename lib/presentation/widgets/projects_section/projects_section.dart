@@ -38,7 +38,10 @@ class ProjectsSection extends StatelessWidget {
           "A portfolio website built with Flutter Web, showcasing my projects, skills, and experience. You're on it right now.",
       technologies: ["Flutter", "Dart"],
       githubUrl: "https://github.com/HisMonDon/portfolioWebsite",
-      imageLinks: ["images/project_images/portfolio_project.png"],
+      imageLinks: [
+        "images/project_images/portfolio_project_0.png",
+        "images/project_images/portfolio_project_1.png",
+      ],
       overview:
           "You're looking at it right now. This site is built entirely in "
           "Flutter Web rather than a typical HTML/CSS/JS stack.\n\n"
