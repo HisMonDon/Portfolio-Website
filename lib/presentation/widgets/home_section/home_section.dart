@@ -74,11 +74,11 @@ class _HomeSectionState extends State<HomeSection> {
             child: SizedBox(
               height: _modelBoxHeight,
               child: WindowFrame(
-                label: 'wave.glb',
+                label: 'conner.glb',
                 child: const ModelViewer(
                   backgroundColor: Colors.transparent,
-                  src: 'assets/assets/models/wave.glb',
-                  alt: 'A 3D figure waving toward the page content',
+                  src: 'assets/assets/models/conner.glb',
+                  alt: 'A 3D character model idling beside the page content',
                   cameraControls: true,
                   disableZoom: true,
                   autoPlay: true,
