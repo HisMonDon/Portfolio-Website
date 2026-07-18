@@ -74,14 +74,14 @@ class _HomeSectionState extends State<HomeSection> {
             child: SizedBox(
               height: _modelBoxHeight,
               child: WindowFrame(
-                label: 'conner.glb',
+                label: 'android_model.glb',
                 child: const ModelViewer(
                   backgroundColor: Colors.transparent,
                   src: 'assets/assets/models/conner.glb',
                   alt: 'A 3D character model idling beside the page content',
                   cameraControls: true,
                   autoPlay: true,
-                  cameraTarget: '0m 1.2m 0m',
+                  cameraTarget: '0m 1.4m 0m',
                   cameraOrbit: '0deg 75deg 1.5m',
                   minCameraOrbit: 'auto auto 0.5m',
                   maxCameraOrbit: 'auto auto 4m',
@@ -179,7 +179,7 @@ class _TerminalCard extends StatelessWidget {
                       webOnlyWindowName: '_blank',
                     );
                   },
-                  child: const Text('resume'),
+                  child: const Text('resumé'),
                 ),
               ],
             ),

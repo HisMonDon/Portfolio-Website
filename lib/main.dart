@@ -3,6 +3,7 @@ import 'package:portfolio_website/core/theme/app_theme.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 import 'package:portfolio_website/presentation/screens/project_screen.dart';
 import 'package:portfolio_website/presentation/screens/skills_screen.dart';
+import 'package:portfolio_website/presentation/widgets/shared/aesthetics/boot_screen.dart';
 
 void main() {
   runApp(const PortfolioApp());
@@ -38,6 +39,7 @@ class PortfolioApp extends StatelessWidget {
       title: 'Chenyu Lu | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.build(),
+      builder: (context, child) => BootScreen(child: child!),
     );
   }
 }
