@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/core/theme/app_theme.dart';
+import 'package:portfolio_website/presentation/screens/credits_screen.dart';
 import 'package:portfolio_website/presentation/screens/portfolio_screen.dart';
 import 'package:portfolio_website/presentation/screens/project_screen.dart';
 import 'package:portfolio_website/presentation/screens/skills_screen.dart';
@@ -24,6 +25,9 @@ class PortfolioApp extends StatelessWidget {
             break;
           case '/skills':
             page = const SkillsScreen();
+            break;
+          case '/credits':
+            page = const CreditsScreen();
             break;
           case '/':
           default:

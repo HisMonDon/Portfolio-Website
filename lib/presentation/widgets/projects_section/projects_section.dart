@@ -48,8 +48,8 @@ class ProjectsSection extends StatelessWidget {
           "tabs and the hero rendering an actual little wireframe of and android "
           ". I hope you like it :)",
       highlights: [
-        "Built entirely in Flutter Web — one Dart codebase, no separate frontend stack",
-        "Custom-built 3D wireframe renderer for the CN Tower graphic (no external 3D library)",
+        "Built entirely in Flutter Web, no separate frontend stack",
+        "Custom-built 3D rendered android avatar",
         "Navigation styled as editor tabs, hero styled as a terminal session",
         "Open source",
       ],

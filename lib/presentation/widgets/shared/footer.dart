@@ -38,8 +38,15 @@ class Footer extends StatelessWidget {
           ),
           _buildFooterLink(
             context,
+            "credits",
+            onPressed: () =>
+                Navigator.pushReplacementNamed(context, '/credits'),
+          ),
+          _buildFooterLink(
+            context,
             "projects",
-            onPressed: () => Navigator.pushReplacementNamed(context, '/projects'),
+            onPressed: () =>
+                Navigator.pushReplacementNamed(context, '/projects'),
           ),
           _buildFooterLink(
             context,
