@@ -1,61 +1,185 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/core/theme/app_theme.dart';
+import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/presentation/widgets/home_section/about_me.dart';
+//import 'package:portfolio_website/presentation/widgets/projects_section/projects_section.dart';
+import 'package:portfolio_website/presentation/widgets/shared/aesthetics/animated_background.dart';
+import 'package:portfolio_website/core/constants/globals.dart' as globals;
+import 'dart:async';
 import 'package:portfolio_website/presentation/widgets/home_section/home_section.dart';
 import 'package:portfolio_website/presentation/widgets/shared/footer.dart';
-import 'package:portfolio_website/presentation/widgets/shared/aesthetics/editor_tab_bar.dart';
+import 'package:portfolio_website/presentation/widgets/shared/aesthetics/glow_app_bar.dart';
+import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
 
-class PortfolioScreen extends StatelessWidget {
-  PortfolioScreen({Key? key}) : super(key: key);
+import 'package:portfolio_website/core/constants/utils.dart';
 
-  final homeKey = GlobalKey();
-  final aboutMeKey = GlobalKey();
+class PortfolioScreen extends StatefulWidget {
+  const PortfolioScreen({Key? key}) : super(key: key);
+
+  @override
+  _PortfolioScreenState createState() => _PortfolioScreenState();
+}
+
+class _PortfolioScreenState extends State<PortfolioScreen> {
+  final homeKey = new GlobalKey();
+
+  final aboutMeKey = new GlobalKey();
+  final ScrollController _scrollController = ScrollController();
+  Timer? _scrollEndTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    //print('Scroll offset: ${_scrollController.position.pixels}');
+    _scrollEndTimer?.cancel();
+
+    if (_scrollController.position.userScrollDirection ==
+        ScrollDirection.forward) {
+      //print('Scrolling up');
+      globals.scrollStarPusher = 5;
+    } else if (_scrollController.position.userScrollDirection ==
+        ScrollDirection.reverse) {
+      //print('Scrolling down');
+      globals.scrollStarPusher = -5;
+    }
+
+    _scrollEndTimer = Timer(const Duration(milliseconds: 150), () {
+      globals.scrollStarPusher = 0;
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    _scrollEndTimer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.void_,
-      appBar: EditorTabBar(
-        tabs: [
-          EditorTab(label: 'home.dart', active: true, onTap: () {}),
-          EditorTab(
-            label: 'projects.dart',
-            active: false,
-            onTap: () => Navigator.pushReplacementNamed(context, '/projects'),
+      //=======================================
+      //appbar
+      //=======================================
+      appBar: GlowAppBar(
+        scrolledUnderElevation: 0.0,
+        // shadowColor: Colors.black.withOpacity(0.5),
+        toolbarHeight: 69,
+        title: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text("Chenyu Lu"),
+        ),
+        actions: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    scrollToSection(homeKey);
+                  },
+                  child: const Text("Home", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
           ),
-          EditorTab(
-            label: 'skills.dart',
-            active: false,
-            onTap: () => Navigator.pushReplacementNamed(context, '/skills'),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/projects');
+                  },
+                  child: const Text("Projects", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
           ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/awards');
+                  },
+                  child: const Text(
+                    "Achievements",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/skills');
+                  },
+                  child: const Text("Skills", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 30),
         ],
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: ConstrainedBox(
-              key: homeKey,
-              constraints: BoxConstraints(
-                minHeight: MediaQuery.of(context).size.height - 56,
+
+      //===============================================================================
+      //BODY
+      //===============================================================================
+      body: SizedChanged(
+        child: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromARGB(255, 24, 65, 104),
+                    Color.fromARGB(255, 6, 2, 20),
+                    Color.fromARGB(255, 6, 2, 20),
+
+                    Color.fromARGB(255, 24, 65, 104),
+                  ],
+                ),
               ),
-              child: Center(child: HomeSection(aboutMeKey: aboutMeKey)),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              key: aboutMeKey,
-              child: Center(child: AboutMeSection()),
+            const AnimatedBackground(),
+            SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                children: [
+                  SizedBox(
+                    key: homeKey,
+                    height: MediaQuery.of(context).size.height,
+                    child: Center(child: HomeSection(aboutMeKey: aboutMeKey)),
+                  ),
+                  SizedBox(
+                    key: aboutMeKey,
+                    child: Center(child: AboutMeSection()),
+                  ),
+                  SizedBox(height: 90),
+                  Footer(homeKey: homeKey, aboutMeKey: aboutMeKey),
+                  //SizedBox(height: 30),
+                ],
+              ),
             ),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            fillOverscroll: true,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [Footer(homeKey: homeKey, aboutMeKey: aboutMeKey)],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

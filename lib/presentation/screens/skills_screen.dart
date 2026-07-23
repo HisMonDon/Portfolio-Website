@@ -1,31 +1,155 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/core/theme/app_theme.dart';
-import 'package:portfolio_website/presentation/widgets/shared/aesthetics/editor_tab_bar.dart';
+import 'package:flutter/rendering.dart';
+import 'package:portfolio_website/presentation/widgets/shared/aesthetics/animated_background.dart';
+import 'package:portfolio_website/core/constants/globals.dart' as globals;
+import 'dart:async';
+import 'package:portfolio_website/presentation/widgets/shared/aesthetics/glow_app_bar.dart';
+import 'package:portfolio_website/presentation/widgets/shared/sizedchanged.dart';
 import 'package:portfolio_website/presentation/widgets/skills_section/skill_section.dart';
 
-class SkillsScreen extends StatelessWidget {
+class SkillsScreen extends StatefulWidget {
   const SkillsScreen({Key? key}) : super(key: key);
+
+  @override
+  _SkillsScreenState createState() => _SkillsScreenState();
+}
+
+class _SkillsScreenState extends State<SkillsScreen> {
+  final ScrollController _scrollController = ScrollController();
+  Timer? _scrollEndTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    //print('Scroll offset: ${_scrollController.position.pixels}');
+    _scrollEndTimer?.cancel();
+
+    if (_scrollController.position.userScrollDirection ==
+        ScrollDirection.forward) {
+      //print('Scrolling up');
+      globals.scrollStarPusher = 5;
+    } else if (_scrollController.position.userScrollDirection ==
+        ScrollDirection.reverse) {
+      //print('Scrolling down');
+      globals.scrollStarPusher = -5;
+    }
+
+    _scrollEndTimer = Timer(const Duration(milliseconds: 150), () {
+      globals.scrollStarPusher = 0;
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    _scrollEndTimer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.void_,
-      appBar: EditorTabBar(
-        tabs: [
-          EditorTab(
-            label: 'home.dart',
-            active: false,
-            onTap: () => Navigator.pushReplacementNamed(context, '/'),
+      //=======================================
+      //appbar
+      //=======================================
+      appBar: GlowAppBar(
+        toolbarHeight: 69,
+        glowColor: Color.fromARGB(255, 255, 100, 100),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text("Chenyu Lu"),
+        ),
+        actions: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/');
+                  },
+                  child: const Text("Home", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
           ),
-          EditorTab(
-            label: 'projects.dart',
-            active: false,
-            onTap: () => Navigator.pushReplacementNamed(context, '/projects'),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/projects');
+                  },
+                  child: const Text("Projects", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
           ),
-          EditorTab(label: 'skills.dart', active: true, onTap: () {}),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/awards');
+                  },
+                  child: const Text(
+                    "Achievements",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: const Text("Skills", style: TextStyle(fontSize: 17)),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 30),
         ],
       ),
-      body: SkillSection(),
+
+      //===============================================================================
+      //BODY
+      //===============================================================================
+      body: SizedChanged(
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromARGB(123, 255, 100, 100),
+                    Color.fromARGB(255, 6, 2, 20),
+                  ],
+                  stops: [0.0, 0.25],
+                ),
+              ),
+            ),
+            const AnimatedBackground(),
+            SkillSection(),
+          ],
+        ),
+      ),
     );
   }
 }

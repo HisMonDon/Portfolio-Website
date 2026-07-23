@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   
   font_awesome_flutter: ^11.0.0
-  model_viewer_plus: ^1.10.0
 
 dev_dependencies:
   flutter_test:
@@ -79,7 +78,6 @@ flutter:
     - images/project_images/
     - images/extracurricular_images/
     - images/skill_icons/
-    - assets/models/
    
 
   # An image asset can refer to one or more resolution-specific "variants", see

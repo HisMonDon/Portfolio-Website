@@ -4,8 +4,6 @@
 *.pyc
 *.swp
 .DS_Store
-.agents/
-.claude/
 .atom/
 .build/
 .buildlog/
